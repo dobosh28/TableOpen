@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-    def show
+    def show 
         @user = current_user
         if @user
             render 'api/users/show'
