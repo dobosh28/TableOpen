@@ -23,12 +23,6 @@ module TableOpen
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_table-open_session',
-      same_site: :lax, 
-      secure: Rails.env.production?
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -41,5 +35,11 @@ module TableOpen
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore,
+      key: '_tableopen_session',
+      same_site: :lax, 
+      secure: Rails.env.production?
   end
 end
