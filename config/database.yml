@@ -81,6 +81,5 @@ test:
 #
 production:
   <<: *default
-  database: table_open_production
-  username: table_open
-  password: <%= ENV["TABLE_OPEN_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
