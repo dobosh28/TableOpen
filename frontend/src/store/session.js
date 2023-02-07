@@ -38,7 +38,7 @@ export const login = (user) => async (dispatch) => {
 };
 
 export const signup = (user) => async (dispatch) => {
-    const { firstName, lastName, email, primaryLocation, password } = user;
+    const { firstName, lastName, email, password } = user;
     const response = await csrfFetch('/api/users', {
         method: 'POST',
         headers: {
@@ -48,8 +48,7 @@ export const signup = (user) => async (dispatch) => {
             first_name: firstName,
             last_name: lastName,
             email,
-            password,
-            primary_location: primaryLocation
+            password
         }),
     });
 

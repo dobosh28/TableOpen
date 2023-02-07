@@ -19,16 +19,14 @@ ApplicationRecord.transaction do
         first_name: "Ivan",
         last_name: "Dobosh",
         email: "idobosh01@gmail.com", 
-        password: "ivan123",
-        primary_location: "New York, NY"
+        password: "ivan123"
     )
     
     chad = User.create!(
         first_name: "Giga",
         last_name: "Chad",
         email: "gigachad@icloud.com", 
-        password: "gigachad123",
-        primary_location: "Staten Island, NY"
+        password: "gigachad123"
     )
 
     puts "Done!"
