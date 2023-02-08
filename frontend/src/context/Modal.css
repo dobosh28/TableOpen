@@ -16,13 +16,14 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(76, 75, 75, 0.25);
+    background-color: #0000008F;
 }
   
 #modal-content {
     position: absolute;
     background-color: #fff;
     padding: 48px 32px;
-    min-height: calc(37.0625rem - 96px);
+    /* min-height: calc(37.0625rem - 96px); */
     border-radius: 4px;
+    overflow-y: auto;
 }

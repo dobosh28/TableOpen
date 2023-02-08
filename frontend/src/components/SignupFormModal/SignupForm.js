@@ -41,51 +41,56 @@ function SignupForm() {
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
       <label>
-        Email
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Email"
+          className="signup-input"
         />
       </label>
       <label>
-        First Name
         <input
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
+          placeholder="First name"
+          className="signup-input"
         />
       </label>
       <label>
-        Last Name
         <input
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
+          placeholder="Last name"
+          className="signup-input"
         />
       </label>
       <label>
-        Password
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder="Password"
+          className="signup-input"
         />
       </label>
       <label>
-        Confirm Password
         <input
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          placeholder="Confirm password"
+          className="signup-input"
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button type="submit" className="sign-up-form-button">Sign Up</button>
     </form>
   );
 }

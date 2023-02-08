@@ -29,5 +29,12 @@ ApplicationRecord.transaction do
         password: "gigachad123"
     )
 
+    demo = User.create!(
+        first_name: "Demo",
+        last_name: "User",
+        email: "demo@user.io", 
+        password: "password"
+    )
+
     puts "Done!"
 end
