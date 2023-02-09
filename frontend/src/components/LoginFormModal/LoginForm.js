@@ -43,35 +43,34 @@ function LoginForm() {
         ))}
       </ul>
       <div>
-        <input
-          id="email"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="Email"
-          className="signin-input"
-        />
+        <h1>Welcome to TableOpen!</h1>
+        <p>Enter the email...</p>
       </div>
-      <div>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="Password"
-          className="signin-input"
-        />
-        <button type="submit" className="sign-in-form-button">
-          Sign In
-        </button>
-      </div>
-      <div>
-        <button onClick={demoUserLogin} className="demo-signin-button">
-          Demo User
-        </button>
-      </div>
+      <br />
+      <input
+        className="signin-input"
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        placeholder="Email"
+      />
+      <br />
+      <input
+        className="signin-input"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        placeholder="Password"
+      />
+      <button type="submit" className="sign-in-form-button">
+        Sign In
+      </button>
+      <br />
+      <button onClick={demoUserLogin} className="demo-signin-button">
+        Demo User
+      </button>
     </form>
   );
 }

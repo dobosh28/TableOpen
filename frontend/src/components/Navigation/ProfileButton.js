@@ -35,7 +35,7 @@ const ProfileButton = ({ user }) => {
             </button>
             {showMenu && (
                 <ul className="profile-dropdown">
-                    <li>{user.email}</li>
+                    <li>Hello, {user.firstName}</li>
                     <li>
                         <button onClick={logout}>Sign Out</button>
                     </li>

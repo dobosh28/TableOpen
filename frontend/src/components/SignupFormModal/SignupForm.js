@@ -45,52 +45,52 @@ function SignupForm() {
       </ul>
       <label>
         <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="Email"
           className="signup-input"
-        />
-      </label>
-      <label>
-        <input
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
           placeholder="First name"
-          className="signup-input"
         />
       </label>
       <label>
         <input
+          className="signup-input"
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
           placeholder="Last name"
-          className="signup-input"
         />
       </label>
       <label>
         <input
+          className="signup-input"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          placeholder="Email"
+        />
+      </label>
+      <label>
+        <input
+          className="signup-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           placeholder="Password"
-          className="signup-input"
         />
       </label>
       <label>
         <input
+          className="signup-input"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
           placeholder="Confirm password"
-          className="signup-input"
         />
       </label>
       <button type="submit" className="sign-up-form-button">
