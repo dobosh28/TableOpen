@@ -64,11 +64,11 @@
     width: 76px;
     border-radius: 3px;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 400;
     color: #2d333f;
     background-color: initial;
     border: 0.0625rem solid #d8d9db;
-    margin: 0;
+    margin-right: 20px;
 }
 
 .sign-in-button:hover {

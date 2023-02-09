@@ -1,0 +1,14 @@
+.logged-in-nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f2f4;
+    height: 54px;
+    padding-right: 52px;
+}
+
+.logged-in-nav-bar .logo {
+    margin-left: 16px;
+}
+

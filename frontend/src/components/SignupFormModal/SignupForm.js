@@ -12,14 +12,13 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, firstName, lastName, password }))
-        .catch(async (res) => {
+      return dispatch(
+        sessionActions.signup({ email, firstName, lastName, password })
+      ).catch(async (res) => {
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
@@ -32,13 +31,17 @@ function SignupForm() {
         else setErrors([res.statusText]);
       });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
   };
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
       <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
       </ul>
       <label>
         <input
@@ -90,7 +93,9 @@ function SignupForm() {
           className="signup-input"
         />
       </label>
-      <button type="submit" className="sign-up-form-button">Sign Up</button>
+      <button type="submit" className="sign-up-form-button">
+        Sign Up
+      </button>
     </form>
   );
 }
