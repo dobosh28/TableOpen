@@ -5,6 +5,7 @@ import sessionReducer from "./session";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
+    restaurants: restaurantsReducer
 });
 
 let enhancer;

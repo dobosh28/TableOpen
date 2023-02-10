@@ -12,7 +12,7 @@ const removeCurrentUser = () => ({
     type: REMOVE_CURRENT_USER
 });
 
-export function storeCSRFToken(response) {
+function storeCSRFToken(response) {
     const csrfToken = response.headers.get("X-CSRF-Token");
     if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
 };
