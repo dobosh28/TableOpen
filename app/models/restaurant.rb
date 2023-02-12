@@ -14,6 +14,5 @@ class Restaurant < ApplicationRecord
                           :cost,
                           :description
 
-    validates_uniqueness_of :address, :phone_number
     validates :phone_number, length: { in: 10..15 }, format: { with: /\A\(\d{3}\) \d{3}-\d{4}\z/}
 end

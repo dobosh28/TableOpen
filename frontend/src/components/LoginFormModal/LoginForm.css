@@ -1,76 +1,76 @@
 .login-form {
-    display: flex-start;
-    flex-direction: column;
-    height: 300px;
-    width: 500px;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
-    background-color: white;
+  display: flex-start;
+  flex-direction: column;
+  height: 300px;
+  width: 500px;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 }
 
 .sign-in-form-button {
-    background-color: #da3743;
-    color: #fff;
-    height: 3rem;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    margin-top: 35px;
-    width: 100%;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  margin-top: 35px;
+  width: 100%;
 }
 
 .signin-input {
-    background: #fff;
-    border: .0625rem solid #d8d9db;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: #2d333f;
-    font-size: 16px;
-    line-height: 24px;
-    padding-left: 8px;
-    padding-right: 8px;
-    height: 40px;
-    width: 100%;
-    margin-top: 12px;
-    font-weight: 400;
+  background: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #2d333f;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 40px;
+  width: 100%;
+  margin-top: 12px;
+  font-weight: 400;
 }
 
 .sign-in-form-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .demo-signin-button {
-    background-color: #da3743;
-    color: #fff;
-    height: 3rem;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    margin-top: 20px;
-    width: 100%;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .demo-signin-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .sign-in-button {
-    height: 35px;
-    width: 76px;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #2d333f;
-    background-color: initial;
-    border: 0.0625rem solid #d8d9db;
-    margin-right: 20px;
+  height: 35px;
+  width: 76px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2d333f;
+  background-color: initial;
+  border: 0.0625rem solid #d8d9db;
+  margin-right: 20px;
 }
 
 .sign-in-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

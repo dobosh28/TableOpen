@@ -27,9 +27,9 @@ function LoginForm() {
     );
   };
 
-  const demoUserLogin = () => {
-    setEmail("demo@user.io");
-    setPassword("password");
+  const demoUserLogin = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
     dispatch(
       sessionActions.login({ email: "demo@user.io", password: "password" })
     );

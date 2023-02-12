@@ -1,20 +1,10 @@
 import { NavLink } from "react-router-dom";
 import ProfileButton from "../ProfileButton";
 import "./LoggedInNav.css";
+import "../Navigation.css";
 import logo from "../../../icons/logo.png";
 
 function LoggedInNav({ sessionUser }) {
-  // return (
-  //   <ul>
-  //     <li>
-  //       <NavLink exact to="/">
-  //         Home
-  //       </NavLink>
-  //       <ProfileButton user={sessionUser} />
-  //     </li>
-  //   </ul>
-  // );
-
   return (
     <nav className="logged-in-nav">
       <div className="above-nav">
@@ -30,7 +20,7 @@ function LoggedInNav({ sessionUser }) {
           <div className="logo-container">
             <div className="logo">
               <NavLink exact to="/" className="nav-link">
-                <img src={logo} className="logo" />
+                <img src={logo} className="logo" alt="" />
               </NavLink>
             </div>
           </div>

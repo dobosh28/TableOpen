@@ -1,4 +1,4 @@
-json.extract restaurant,
+json.extract! restaurant,
              :id,
              :name,
              :cross_street,

@@ -12,11 +12,11 @@ const receiveRestaurant = (restaurant) => ({
 });
 
 export const getRestaurants = (state) => {
-    state.restaurants ? Object.values(state.restaurants) : [];
+    return state.restaurants ? Object.values(state.restaurants) : [];
 };
 
 export const getRestaurant = (id) => (state) => {
-    state.restaurants? state.restaurants[id] : null;
+    return state.restaurants? state.restaurants[id] : null;
 };
 
 export const fetchRestaurants = () => async (dispatch) => {
@@ -25,6 +25,15 @@ export const fetchRestaurants = () => async (dispatch) => {
     if (response.ok) {
         const restaurants = await response.json();
         dispatch(receiveRestaurants(restaurants));
+    }
+};
+
+export const fetchRestaurant = (restaurantId) => async (dispatch) => {
+    const response = await fetch(`/api/restaurants/${restaurantId}`);
+
+    if (response.ok) {
+        const restaurant = await response.json();
+        dispatch(receiveRestaurant(restaurant));
     }
 };
 

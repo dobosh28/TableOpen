@@ -1,21 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-// import Navigation from './components/Navigation';
-import LoggedInNav from "./components/Navigation/LoggedInNav/LoggedInNav";
-import LoggedOutNav from "./components/Navigation/LoggedOutNav/LoggedOutNav";
+import NavBar from "./components/Navigation/NavBar";
+import LandingPageRestaurants from "./components/Restaurants/AllRestaurants";
 
 function App() {
-  const sessionUser = useSelector((state) => state.session.user);
-
   return (
     <>
-      {sessionUser ? (
-        <LoggedInNav sessionUser={sessionUser} />
-      ) : (
-        <LoggedOutNav sessionUser={sessionUser} />
-      )}
-      <Switch></Switch>
+      <Route path='/' component={NavBar} />
+      <Switch>
+        <Route exact path="/">
+          <LandingPageRestaurants />
+        </Route>
+      </Switch>
     </>
   );
 }
