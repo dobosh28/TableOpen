@@ -16,18 +16,23 @@ const LandingPageRestaurants = () => {
     <>
       <section className="restaurants-outer-container">
         <div className="restaurants-inner-container">
-          <div className="location-banner">
-            <div className="location">
-              <p>It looks like you're in New Yok. Not correct?</p>
+          <div className="location-outer-banner">
+            <div className="location-inner-banner">
+              <div className="location">
+                <span className="location-text">
+                  It looks like you're in New York. Not correct?
+                </span>
+                <div className="current-location-text-logo">
+                  <div className="current-location-logo">
+                    <img
+                      src="https://cdn.otstatic.com/cfe/11/images/ic_location_detection_red-3d558b.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="current-location-text">Get current location</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <img
-                src="https://cdn.otstatic.com/cfe/11/images/ic_location_detection_red-3d558b.svg"
-                className="current-location-arrow"
-                alt=""
-              />
-            </div>
-            <div className="get-current-location">Get current location</div>
           </div>
           <div className="restaurant-item-wrapper">
             <div className="restaurants-items">

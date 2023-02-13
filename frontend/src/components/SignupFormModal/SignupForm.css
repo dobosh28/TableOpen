@@ -46,12 +46,14 @@
   height: 35px;
   width: 76px;
   border-radius: 3px;
-  font-size: 14px;
-  font-weight: 200;
+  font-size: 12.5px;
+  font-weight: 100;
   color: #fff;
   background-color: #257f9e;
   border: 0.0625rem solid #257f9e;
   margin-right: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
 }
 
 .sign-up-button:hover {
