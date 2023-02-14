@@ -50,7 +50,7 @@ ApplicationRecord.transaction do
     address: "128 E 7th St, New York, NY 10009",
     phone_number: "(212) 473-0220",
     cost: "$31 and above",
-    description: "Pylos is a Greek restaurant in the East Village of Manhattan, New York City. It is located at 128 East 7th Street, between 1st Avenue and Avenue A. The restaurant is owned by chef and restaurateur Michael Psilakis, who also owns the Greek restaurant Emporio in the Flatiron District. The restaurant is known for its Greek cuisine and its extensive wine list. The restaurant was named one of the 10 best new restaurants in the United States by Esquire magazine in 2006."
+    description: "PYLOS honors the breadth of traditional Greek cuisine by bringing fresh, wholesome cooking from all regions of Greece to an elegant, contemporary and comfortable setting in the East Village. Our Name: Among the ruins of ancient Greece were items such as clay pots that revealed many clues to daily Hellenic life. PYLOS (pronounced Pee-'los) - the root word that includes things of clay - celebrates these prosaic artifacts we now recognize as great art. *Pylos Restaurant now offers outdoor dining that is covered and heated."
   )
 
   oceana = Restaurant.create!(
@@ -67,7 +67,7 @@ ApplicationRecord.transaction do
     address: "120 W 49th St, New York, NY 10019",
     phone_number: "(212) 759-5941",
     cost: "$31 and above",
-    description: "Oceana is a seafood restaurant in New York City. It is located at 120 West 49th Street, between 6th Avenue and 7th Avenue, in Midtown Manhattan. The restaurant is owned by chef and restaurateur Michael Psilakis, who also owns the Greek restaurant Emporio in the Flatiron District. The restaurant is known for its seafood cuisine and its extensive wine list. The restaurant was named one of the 10 best new restaurants in the United States by Esquire magazine in 2006."
+    description: "Under the guidance of the Livanos family and Paul McLaughlin, Oceana has provided New Yorkers with an exceptional seafood destination since 1992. Oceana delivers a fresh, seasonal, innovative and approachable seafood-forward menu, with additional offerings suitable for any palate. Oceana has a 70 seat Cafe with a 18 seat marble bar. Great for lunch, after work cocktails & snacks, pre-theater dinner and post-theater desserts. Spring and Summer bring a 50 seat outdoor dining area and our new West Park Beer Garden 200 person capacity, private dining options include our Chefs Table with seating for up to 6, our new Chefs Counter for 6, Wine Room for 18, and our Grand Salon for 80. Full buyouts are also available."
   )
 
   aroqa = Restaurant.create!(
@@ -84,7 +84,7 @@ ApplicationRecord.transaction do
     address: "206 9th Ave, New York, NY 10011",
     phone_number: "(646) 678-5471",
     cost: "$31 and above",
-    description: "aRoqa is an Indian restaurant in New York City. It is located at 206 9th Avenue, between 22nd and 23rd Streets, in Chelsea. The restaurant is owned by chef and restaurateur Michael Psilakis, who also owns the Greek restaurant Emporio in the Flatiron District. The restaurant is known for its Indian cuisine and its extensive wine list. The restaurant was named one of the 10 best new restaurants in the United States by Esquire magazine in 2006."
+    description: "Roqa [pronounced roh-kuh; an engagement ceremony in India, is a celebration of love and commitment.] Owner and managing partner, Monica Saxena, envisioned aRoqa to be a celebration of diversity and culture, merging Indian flavors with a global palate and cocktail culture. aRoqa’s menu unites diverse flavors inspired by its name: in India, a “roka” ceremony is where friends and family come together to enjoy the engagement of a couple and celebrate by sharing a meal. At aRoqa, Chef Manni and head mixologist Prasad have created a unique marriage of cuisine and cocktails in a chic, sophisticated setting, to create an elevated experience, focusing on small plates with Indian flavors."
   )
 
   puts "Done!"

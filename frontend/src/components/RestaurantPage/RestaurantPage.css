@@ -154,4 +154,93 @@
     border-bottom: 1px solid rgb(226, 226, 226);
 }
 
+.general-info {
+    align-items: center;
+    grid-gap: 16px;
+    column-count: 4;
+    display: -ms-inline-grid;
+    margin-top: 16px;
+}
 
+.restaurant-top-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 17px;
+    
+}
+
+.top-tags {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d333f;
+    line-height: 24px;
+}
+
+.lively-tag {
+    line-height: 45px;
+    width: 80px;
+    margin-left: 9px;
+    height: 50px;
+    text-align: center;
+    border-radius: 16px;
+    font-weight: 500;
+    border: 1px solid rgb(216, 217, 219);
+    color: #2d333f;
+    font-size: 14px;
+}
+
+.lively-tag:hover {
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.groups-tag {
+    line-height: 23px;
+    width: 100px;
+    margin-left: 9px;
+    height: 50px;
+    text-align: center;
+    border-radius: 16px;
+    font-weight: 500;
+    border: 1px solid rgb(216, 217, 219);
+    color: #2d333f;
+    font-size: 14px;
+}
+
+.groups-tag:hover {
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.gem-tag {
+    line-height: 23px;
+    width: 120px;
+    margin-left: 9px;
+    height: 50px;
+    text-align: center;
+    border-radius: 16px;
+    font-weight: 500;
+    border: 1px solid rgb(216, 217, 219);
+    color: #2d333f;
+    font-size: 14px;
+}
+
+.gem-tag:hover {
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.restaurant-description {
+    display: block;
+    margin-top: 32px;
+}
+
+.restaurant-description-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(45, 51, 63);
+}

@@ -52,29 +52,32 @@ const RestaurantPage = () => {
             </section>
             <section className="restaurant-details">
               <h1 className="restaurant-name">{restaurant.name}</h1>
-              <div className="restaurant-overview-header">
-                <div className="rating-stars">
-                  to be implemented
+                <div className="general-info">
+                  <div className="rating-stars">
+                    to be implemented
+                  </div>
+                  <div className="reviews">
+                    reviews
+                  </div>
+                  <div className="cost">
+                    cost
+                  </div>
+                  <div className="cuisine">
+                    <span>icon</span>
+                    <span>{restaurant.cuisines.split(',')[0]}</span>
+                  </div>
                 </div>
-                <div className="reviews">
-                  reviews
+                <div className="restaurant-top-tags">
+                  <div className="top-tags">Top Tags:</div>
+                  <div className="lively-tag">Lively</div>
+                  <div className="groups-tag">Good for Groups</div>
+                  <div className="gem-tag">Neighborhood Gem</div>
                 </div>
-                <div className="cost">
-                  cost
+                <div className="restaurant-description">
+                  <p className="restaurant-description-text">
+                    {restaurant.description}
+                  </p>
                 </div>
-                <div className="cuisine">
-                  <span>icon</span>
-                  <span>{restaurant.cuisines.split(',')[0]}</span>
-                </div>
-              </div>
-              <div className="restaurant-top-tags">
-                <span className="top-tags-text">Top Tags:</span>
-                <ul className="top-tags-ul">
-                  <li className="top-tags-li">Lively</li>
-                  <li className="top-tags-li">Good for Groups</li>
-                  <li className="top-tags-li">Neighborhood Gem</li>
-                </ul>
-              </div>
             </section>
           </div>
         </div>
