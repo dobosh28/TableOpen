@@ -60,3 +60,13 @@ h3 {
     white-space: nowrap;
     color: rgb(45, 51, 63);
 }
+
+.times-booked-outer {
+    height: 24px;
+}
+
+.times-booked-inner {
+    align-items: center;
+    display: flex;
+    
+}

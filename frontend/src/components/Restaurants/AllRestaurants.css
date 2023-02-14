@@ -1,5 +1,6 @@
 
 .restaurants-outer-container {
+  display: block;
   max-width: 1600px;
   padding-bottom: 50px;
 }
@@ -8,16 +9,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 32px;
-  padding-left: 32px;
+  margin-left: calc(5% - 0px);
+  margin-right: calc(5% - 0px);
+}
+
+@media (max-width: 1520px) {
+  .location-outer-banner {
+    margin-left: 3.8%;
+    margin-right: 3.8%;
+  }
+}
+
+@media (min-width: 1521px) {
+  .location-outer-banner {
+    margin-left: 6.5%;
+    margin-right: 6.5%;
+  }
 }
 
 .location-outer-banner {
   display: block;
   height: 57px;
-  padding-left: 32px;
-  padding-right: 32px;
-  
 }
 
 .location-inner-banner {

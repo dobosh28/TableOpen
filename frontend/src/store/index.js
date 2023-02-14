@@ -7,6 +7,7 @@ import restaurantsReducer from "./restaurants";
 const rootReducer = combineReducers({
     session: sessionReducer,
     restaurants: restaurantsReducer
+    
 });
 
 let enhancer;

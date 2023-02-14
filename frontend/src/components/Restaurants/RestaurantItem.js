@@ -10,12 +10,18 @@ const RestaurantItem = ({ restaurant }) => {
         <div className="restaurant-content">
           <h3>{restaurant.name}</h3>
           <div className="stars-reviews">
-
+            stars and reviews to be implemented
           </div>
           <div className="cuisine-price-location">
             <span className="cuisines">{restaurant.cuisines.split(',')[0]}</span>
           </div>
-          
+          <div className="times-booked-outer">
+            <span className="times-booked-inner">
+              <span className="booked-logo-container">
+                
+              </span>
+            </span>
+          </div>
         </div>
       </Link>
     </div>
