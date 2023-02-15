@@ -123,6 +123,57 @@ ApplicationRecord.transaction do
     description: "With a dazzling dining gallery featuring 40’ glass ceilings, this one-of-a-kind brasserie is built in the tradition of the Belle Epoque, inspired by elegant and ornamental Art Nouveau style. The menu features French classics and timeless bistro favorites, with a focus on prime cuts and an in-house meat program. In addition to an extensive wine list and classic cocktails, La Grande Boucherie also features an inspired menu of absinthe-driven signature drinks. We look forward to welcoming you!"
   )
 
+  restaurant_6 = Restaurant.create!(
+    name: "The Odeon",
+    cross_street: "Thomas Street",
+    neighborhood: "TriBeCa - Downtown",
+    hours_of_operation: "Brunch Sat, Sun 10:00 am–4:00 pm Lunch Mon–Fri 11:00 am–4:00 pm Brasserie Daily 4:00 pm–5:00 pm Dinner Daily 5:00 pm–11:00 pm",
+    cuisines: "French, American",
+    dining_style: "Casual Elegant",
+    dress_code: "Casual Dress",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, MasterCard, Pay with OpenTable, Visa",
+    website: "http://www.theodeonrestaurant.com/",
+    address: "145 W Broadway, New York, NY 10013",
+    phone_number: "(212) 233-7000",
+    cost: "$31 to $50",
+    description: "The Odeon offers reservations for indoor and outdoor dining for parties up to 6 guests. Walk-Ins are welcome. The Outdoor Cafe is complete with rain-proof awnings, umbrellas, and fans. Due to demand, we are unable to hold your reservation past the time it has been booked. If you cannot be present at the time of your reservation, we will offer the table to waiting guests. If you are running late or wish to cancel, please call us at 212-233-0507. The Odeon takes the last “Open Table” Reservation at 10:15 PM. Should you like to visit the restaurant after that time, please call 212-233-0507 to check availability. We allow 1 hour 45 minutes dining time for parties up to 2 guests and 2 hours for parties of 3-4 guests."
+  )
+
+  restaurant_7 = Restaurant.create!(
+    name: "Quality Meats",
+    cross_street: "Between 5th and 6th",
+    neighborhood: "Midtown West",
+    hours_of_operation: "Lunch Mon–Fri 12:00 pm–3:00 pm Dinner Mon–Wed, Sun 5:00 pm–10:30 pm Thu–Sat 5:00 pm–11:00 pm",
+    cuisines: "American, Steakhouse, Steak",
+    dining_style: "Casual Elegant",
+    dress_code: "Business Casual",
+    parking_details: "Garage available on 58th street between 5th & 6th avenues, next to the Park Lane Hotel.",
+    payment_options: "AMEX, Contactless Payment, Diners Club, Discover, JCB, MasterCard, Visa",
+    website: "http://www.qualitymeatsnyc.com/",
+    address: "57 West 58th Street, New York, NY 10019",
+    phone_number: "(212) 371-7777",
+    cost: "$31 to $50",
+    description: "Quality Meats is the best steakhouse in New York City. Located in Midtown Manhattan near Central Park, MOMA, Carnegie Hall, Rockefeller Center, Radio City Music Hall, and Times Square, Quality Meats features modern interpretations of familiar dishes and flavor combinations, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style. The warm, industrial décor by award-winning designers AvroKO draws on cues from traditional New York City family-owned butcher shops, in the use of warm wood, stainless steel, and white marble."  
+  )
+
+  # restaurant_x = Restaurant.create!(
+  #   name: "",
+  #   cross_street: "",
+  #   neighborhood: "",
+  #   hours_of_operation: "",
+  #   cuisines: "",
+  #   dining_style: "",
+  #   dress_code: "",
+  #   parking_details: "",
+  #   payment_options: "",
+  #   website: "",
+  #   address: "",
+  #   phone_number: "",
+  #   cost: "",
+  #   description: ""  
+  # )
+
   review_1 = Review.create!(
     overall: 5,
     service: 5,
@@ -140,6 +191,10 @@ ApplicationRecord.transaction do
   photo_3 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_3.jpeg')
   photo_4 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_4.jpeg')
   photo_5 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_5.png')
+  photo_6 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_6.jpeg')
+  photo_7 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_7.jpeg')
+
+
 
 
 
@@ -148,6 +203,9 @@ ApplicationRecord.transaction do
   restaurant_3.photo.attach(io: photo_3, filename: 'photo_3.jpeg')
   restaurant_4.photo.attach(io: photo_4, filename: 'photo_4.jpeg')
   restaurant_5.photo.attach(io: photo_5, filename: 'photo_5.png')
+  restaurant_6.photo.attach(io: photo_6, filename: 'photo_6.jpeg')
+  restaurant_7.photo.attach(io: photo_7, filename: 'photo_7.jpeg')
+
 
 
 
