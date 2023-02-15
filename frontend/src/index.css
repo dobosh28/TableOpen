@@ -1,5 +1,13 @@
 /* TODO Add site wide styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    /* max-width: 1600px; */
+}
+
+body {
+    max-width: 1600px;
+    margin: auto;
 }

@@ -21,7 +21,7 @@ function LoggedOutNav({}) {
           <div className="logo-container">
             <div className="logo">
               <NavLink exact to="/" className="nav-link">
-                <img src={logo} className="logo" />
+                <img src={logo} className="logo" alt="" />
               </NavLink>
             </div>
           </div>
