@@ -16,4 +16,4 @@ json.extract! restaurant,
              :description,
              :created_at,
              :updated_at
-json.reviews restaurant.review_ids
+json.reviews restaurant.review_ids(restaurant.id)
