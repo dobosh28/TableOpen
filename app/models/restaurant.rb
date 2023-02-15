@@ -39,4 +39,5 @@ class Restaurant < ApplicationRecord
     validates :phone_number, length: { in: 10..15 }, format: { with: /\A\(\d{3}\) \d{3}-\d{4}\z/}
 
     has_many :reviews
+    has_one_attached :photo
 end

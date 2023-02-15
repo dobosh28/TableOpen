@@ -16,6 +16,12 @@
     cursor: pointer;
 }
 
+.restaurant-img {
+    width: 234px;
+    height: 132px;
+    border-radius: 2px 2px 0px 0px;
+}
+
 .restaurant-content {
     display: flex;
     flex-basis: auto;

@@ -6,7 +6,7 @@ const RestaurantItem = ({ restaurant }) => {
   return (
     <div className="restaurant-wrapper">
       <Link className="restaurant-link" to={`/restaurants/${restaurant.id}`}>
-        <img src="https://via.placeholder.com/234x132" alt="" className="restaurant-img" />
+        <img src={restaurant.photoUrl} alt="" className="restaurant-img" />
         <div className="restaurant-content">
           <h3>{restaurant.name}</h3>
           <div className="stars-reviews">

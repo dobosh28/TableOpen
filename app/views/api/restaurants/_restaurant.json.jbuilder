@@ -16,3 +16,5 @@ json.extract! restaurant,
              :description,
              :created_at,
              :updated_at
+
+json.photoUrl restaurant.photo.attached? ? url_for(restaurant.photo) : nil

@@ -19,7 +19,7 @@ const RestaurantPage = () => {
     <>
       <div className="restaurant-page-main-container">
         <div className="restaurant-page-banner">
-          <img className="restaurant-page-banner-image" src="https://via.placeholder.com/1600x460" alt="" />
+          <img className="restaurant-page-banner-image" src={restaurant.photoUrl} alt="" />
           <button className="save-this-restaurant-button">
             <div className="save-restaurant-text-logo-container">
               <img src="https://cdn.otstatic.com/cfe/11/images/ic_bookmark-f6a8ce.svg" alt="" />
