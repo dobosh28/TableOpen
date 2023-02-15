@@ -24,4 +24,14 @@ class Review < ApplicationRecord
 
     belongs_to :user
     belongs_to :restaurant
+
+    def reviews(restaurant_id)
+        Review.where(restaurant_id: restaurant_id)
+    end 
+
+    def review_ids 
+        reviews.map do |review|
+            review.id 
+        end 
+    end 
 end
