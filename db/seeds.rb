@@ -11,8 +11,8 @@ require "open-uri"
 ApplicationRecord.transaction do
   puts "Destroying tables..."
 
-  Restaurant.destroy_all
   Review.destroy_all
+  Restaurant.destroy_all
   User.destroy_all
 
   puts "Resetting primary keys..."
