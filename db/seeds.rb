@@ -19,27 +19,16 @@ ApplicationRecord.transaction do
   ApplicationRecord.connection.reset_pk_sequence!("users")
 
   puts "Creating users..."
-  user_1 = User.create!(
-    first_name: "Ivan",
-    last_name: "Dobosh",
-    email: "idobosh01@gmail.com",
-    password: "ivan123"
-  )
-
-  user_2 = User.create!(
-    first_name: "Giga",
-    last_name: "Chad",
-    email: "gigachad@icloud.com",
-    password: "gigachad123"
-  )
-
-  user_3 = User.create!(
-    first_name: "Demo",
-    last_name: "User",
-    email: "demo@user.io",
-    password: "password"
-  )
-
+  user_1 = User.create!(first_name: "Ivan", last_name: "Dobosh", email: "idobosh01@gmail.com", password: "123456")
+  user_2 = User.create!(first_name: "Giga", last_name: "Chad", email: "gigachad@icloud.com", password: "123456")
+  user_3 = User.create!(first_name: "Demo", last_name: "User", email: "demo@user.io", password: "123456")
+  user_4 = User.create!(first_name: "Frank", last_name: "Brown", email: "cool@frank.com", password: "123456")
+  user_5 = User.create!(first_name: "Jack", last_name: "Stenrud", email: "jack@sten.com", password: "123456")
+  user_6 = User.create!(first_name: "Lily", last_name: "Shaw", email: "lily@shaw.com", password: "123456")
+  user_7 = User.create!(first_name: "Anna", last_name: "Kovalski", email: "anna@k.com", password: "123456")
+  user_8 = User.create!(first_name: "Kiki", last_name: "Smith", email: "kiki@smith.com", password: "123456")
+  
+  
   puts "Creating restaurants..."
   restaurant_1 = Restaurant.create!(
     name: "Pylos",
@@ -54,7 +43,7 @@ ApplicationRecord.transaction do
     website: "https://www.pylosrestaurant.com",
     address: "128 E 7th St, New York, NY 10009",
     phone_number: "(212) 473-0220",
-    cost: "$31 and above",
+    cost: "$31 to $50",
     description: "PYLOS honors the breadth of traditional Greek cuisine by bringing fresh, wholesome cooking from all regions of Greece to an elegant, contemporary and comfortable setting in the East Village. Our Name: Among the ruins of ancient Greece were items such as clay pots that revealed many clues to daily Hellenic life. PYLOS (pronounced Pee-'los) - the root word that includes things of clay - celebrates these prosaic artifacts we now recognize as great art. *Pylos Restaurant now offers outdoor dining that is covered and heated."
   )
 
@@ -71,7 +60,7 @@ ApplicationRecord.transaction do
     website: "https://www.oceanarestaurant.com",
     address: "120 W 49th St, New York, NY 10019",
     phone_number: "(212) 759-5941",
-    cost: "$31 and above",
+    cost: "$31 to $50",
     description: "Under the guidance of the Livanos family and Paul McLaughlin, Oceana has provided New Yorkers with an exceptional seafood destination since 1992. Oceana delivers a fresh, seasonal, innovative and approachable seafood-forward menu, with additional offerings suitable for any palate. Oceana has a 70 seat Cafe with a 18 seat marble bar. Great for lunch, after work cocktails & snacks, pre-theater dinner and post-theater desserts. Spring and Summer bring a 50 seat outdoor dining area and our new West Park Beer Garden 200 person capacity, private dining options include our Chefs Table with seating for up to 6, our new Chefs Counter for 6, Wine Room for 18, and our Grand Salon for 80. Full buyouts are also available."
   )
 
@@ -88,7 +77,7 @@ ApplicationRecord.transaction do
     website: "https://www.aroqanyc.com",
     address: "206 9th Ave, New York, NY 10011",
     phone_number: "(646) 678-5471",
-    cost: "$31 and above",
+    cost: "$31 to $50",
     description: "Roqa [pronounced roh-kuh; an engagement ceremony in India, is a celebration of love and commitment.] Owner and managing partner, Monica Saxena, envisioned aRoqa to be a celebration of diversity and culture, merging Indian flavors with a global palate and cocktail culture. aRoqa’s menu unites diverse flavors inspired by its name: in India, a “roka” ceremony is where friends and family come together to enjoy the engagement of a couple and celebrate by sharing a meal. At aRoqa, Chef Manni and head mixologist Prasad have created a unique marriage of cuisine and cocktails in a chic, sophisticated setting, to create an elevated experience, focusing on small plates with Indian flavors."
   )
 
@@ -122,7 +111,7 @@ ApplicationRecord.transaction do
     website: "https://www.boucherie.nyc/",
     address: "145 W 53rd St, New York, NY 10019",
     phone_number: "(212) 510-7714",
-    cost: "$50 and above",
+    cost: "$50 and over",
     description: "With a dazzling dining gallery featuring 40’ glass ceilings, this one-of-a-kind brasserie is built in the tradition of the Belle Epoque, inspired by elegant and ornamental Art Nouveau style. The menu features French classics and timeless bistro favorites, with a focus on prime cuts and an in-house meat program. In addition to an extensive wine list and classic cocktails, La Grande Boucherie also features an inspired menu of absinthe-driven signature drinks. We look forward to welcoming you!"
   )
 
@@ -160,6 +149,58 @@ ApplicationRecord.transaction do
     description: "Quality Meats is the best steakhouse in New York City. Located in Midtown Manhattan near Central Park, MOMA, Carnegie Hall, Rockefeller Center, Radio City Music Hall, and Times Square, Quality Meats features modern interpretations of familiar dishes and flavor combinations, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style. The warm, industrial décor by award-winning designers AvroKO draws on cues from traditional New York City family-owned butcher shops, in the use of warm wood, stainless steel, and white marble."  
   )
 
+  restaurant_8 = Restaurant.create!(
+    name: "Chama Mama",
+    cross_street: "W 14th St between 6th Ave and 7th Ave",
+    neighborhood: "Chelsea",
+    hours_of_operation: "Mon-Sun 11:00am-11:00pm",
+    cuisines: "Georgian",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "https://www.chamamama.com/",
+    address: "149 W 14th St, New York, NY 10011",
+    phone_number: "(646) 438-9007",
+    cost: "$30 and under",
+    description: "Chama Mama is a Georgian restaurant in the heart of Chelsea. We serve traditional Georgian cuisine, including khachapuri, khinkali, lobio, and more. We also have a full bar with Georgian wines, craft beers, and cocktails. We are open for lunch and dinner, and we offer takeout and delivery. We look forward to seeing you!"  
+  )
+
+  restaurant_9 = Restaurant.create!(
+    name: "Veselka",
+    cross_street: "2nd Ave and E 9th St", 
+    neighborhood: "Ukrainian Village",
+    hours_of_operation: "Sun–Thu 11:00am–11:00pm, Fri–Sat 11:00 am–12:00 am",
+    cuisines: "Ukrainian, Eastern European",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "https://www.veselka.com/",
+    address: "144 2nd Ave, New York, NY 10003",
+    phone_number: "(212) 228-9682",
+    cost: "$30 and under",
+    description: "Veselka - Second Ave has been serving up delectable Ukrainian cuisine in the heart of New York's East Village since 1954. For over six decades patrons have shrugged the weight of the day off in this cozy coffee shop to savor classic pierogi, goulash, borscht and stroganoff. Tradition is never compromised at Veselka, where you can sit with friends and discuss events, or stay quiet by yourself and get lost in the comfortable food. Veselka, like anything built from scratch, came from humble beginnings. It started out as an unadorned newsstand, serving sandwiches and soups to the masses. It's now grown into a twenty-four hour sought after place of congregation. Veselka has been a mainstay on this corner of East Ninth and Second Avenue since its conception and plans to stay that way for years to come."  
+  )
+
+  restaurant_10 = Restaurant.create!(
+    name: "Brooklyn Chop House",
+    cross_street: "Nassau Street and Spruce St",
+    neighborhood: "Financial District",
+    hours_of_operation: "Daily 4:00 pm–11:00 pm",
+    cuisines: "Steakhouse, Chinese (Beijing)",
+    dining_style: "Fine Dining",
+    dress_code: "Casual Dress",
+    parking_details: "Parking Garage in building and street",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "http://www.brooklynchophouse.com/",
+    address: "150 Nassau St, New York, NY 10038",
+    phone_number: "(212) 619-1200",
+    cost: "$31 to $50",
+    description: "Brooklyn Chop House is a modern American steakhouse located in the heart of the Financial District. The restaurant features a 28-foot bar, a 1,000-bottle wine cellar, and a 1,000-square-foot private dining room. The menu features a variety of steaks, chops, and seafood, as well as a selection of appetizers, salads, and sides. The restaurant also offers a variety of craft cocktails, wines, and beers." 
+  )
+
+
   # restaurant_x = Restaurant.create!(
   #   name: "",
   #   cross_street: "",
@@ -177,6 +218,29 @@ ApplicationRecord.transaction do
   #   description: ""  
   # )
 
+  
+  photo_1 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_1.jpeg')
+  photo_2 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_2.jpeg')
+  photo_3 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_3.jpeg')
+  photo_4 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_4.jpeg')
+  photo_5 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_5.png')
+  photo_6 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_6.jpeg')
+  photo_7 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_7.jpeg')
+  photo_8 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_8.webp')
+  photo_9 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_9.webp')
+  photo_10 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_10.jpeg')
+  
+  restaurant_1.photo.attach(io: photo_1, filename: 'photo_1.jpeg')
+  restaurant_2.photo.attach(io: photo_2, filename: 'photo_2.jpeg')
+  restaurant_3.photo.attach(io: photo_3, filename: 'photo_3.jpeg')
+  restaurant_4.photo.attach(io: photo_4, filename: 'photo_4.jpeg')
+  restaurant_5.photo.attach(io: photo_5, filename: 'photo_5.png')
+  restaurant_6.photo.attach(io: photo_6, filename: 'photo_6.jpeg')
+  restaurant_7.photo.attach(io: photo_7, filename: 'photo_7.jpeg')
+  restaurant_8.photo.attach(io: photo_8, filename: 'photo_8.webp')
+  restaurant_9.photo.attach(io: photo_9, filename: 'photo_9.webp')
+  restaurant_10.photo.attach(io: photo_10, filename: 'photo_10.jpeg')
+
   review_1 = Review.create!(
     overall: 5,
     service: 5,
@@ -189,30 +253,29 @@ ApplicationRecord.transaction do
     restaurant_id: restaurant_1.id
   )
 
-  photo_1 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_1.jpeg')
-  photo_2 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_2.jpeg')
-  photo_3 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_3.jpeg')
-  photo_4 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_4.jpeg')
-  photo_5 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_5.png')
-  photo_6 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_6.jpeg')
-  photo_7 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_7.jpeg')
+  review_2 = Review.create!(
+    overall: 4,
+    service: 3,
+    food: 5,
+    ambience: 5,
+    value: 4,
+    body: "The food was delicious and the ambience was great. The service was a little slow but overall it was a great experience.",
+    nickname: "Kiki",
+    user_id: user_8.id,
+    restaurant_id: restaurant_1.id
+  )
 
-
-
-
-
-  restaurant_1.photo.attach(io: photo_1, filename: 'photo_1.jpeg')
-  restaurant_2.photo.attach(io: photo_2, filename: 'photo_2.jpeg')
-  restaurant_3.photo.attach(io: photo_3, filename: 'photo_3.jpeg')
-  restaurant_4.photo.attach(io: photo_4, filename: 'photo_4.jpeg')
-  restaurant_5.photo.attach(io: photo_5, filename: 'photo_5.png')
-  restaurant_6.photo.attach(io: photo_6, filename: 'photo_6.jpeg')
-  restaurant_7.photo.attach(io: photo_7, filename: 'photo_7.jpeg')
-
-
-
-
-
+  review_3 = Review.create!(
+    overall: 4,
+    service: 4,
+    food: 3,
+    ambience: 4,
+    value: 3,
+    body: "The food was alright and the service was a little slow. The restaurant as a whole was okay but I, personally, would not recommend it to my friends and family.",
+    nickname: "IvanD",
+    user_id: user_1.id,
+    restaurant_id: restaurant_2.id
+  )
 
   puts "Done!"
 end

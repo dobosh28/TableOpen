@@ -43,6 +43,10 @@
     height: 35px;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .profile-button {
     border: none;
     background-color: white;
