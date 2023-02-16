@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/dobosh28/TableOpen#readme",
   "engines": {
-    "node": "18.x"
+    "node": ">=17.4.0"
+  },
+  "dependencies": {
+    "react-star-ratings": "^2.3.0"
   }
 }

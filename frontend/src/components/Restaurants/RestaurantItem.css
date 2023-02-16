@@ -21,6 +21,17 @@
     width: 234px;
     height: 132px;
     border-radius: 2px 2px 0px 0px;
+    opacity: 0.7;
+    animation: restaurant-img-loading 1s linear infinite alternate;
+}
+
+@keyframes restaurant-img-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
 }
 
 .restaurant-content {

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./RestaurantItem.css";
+import RestaurantImageLoading from "../Loading/RestaurantImageLoading";
 
 const RestaurantItem = ({ restaurant }) => {
   return (
     <div className="restaurant-wrapper">
       <Link className="restaurant-link" to={`/restaurants/${restaurant.id}`}>
-        <img src={restaurant.photoUrl} alt="" className="restaurant-img" />
+      <RestaurantImageLoading src={restaurant.photoUrl} />
         <div className="restaurant-content">
           <h3>{restaurant.name}</h3>
           <div className="stars-reviews">

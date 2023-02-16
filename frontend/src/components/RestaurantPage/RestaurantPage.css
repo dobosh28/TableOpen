@@ -79,6 +79,7 @@
     top: -1px;
     z-index: 2;
     text-size-adjust: 100%;
+    background-color: rgb(255, 255, 255);
 }
 
 .tab-container-nav {

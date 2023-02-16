@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "./components/Navigation/NavBar";
 import LandingPageRestaurants from "./components/Restaurants/AllRestaurants";
 import RestaurantPage from "./components/RestaurantPage/RestaurantPage";
-import ReviewsShow from "./components/Reviews/ReviewsShow";
+import ReviewsShow from "./components/Reviews/ReviewShow";
 
 function App() {
   return (

@@ -1,3 +1,31 @@
+.search-section {
+  display: block;
+  max-width: 1600px;
+  height: 248px;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  background-attachment: scroll;
+  background: linear-gradient(
+    .647turn, #1a0a47cc, #0d1b4599 .01%, #0d1b45cc 54.04%, #0d1b45 99.1%
+  );
+}
+
+.search-section-inner {
+  display: block;
+  height: 120px;
+  padding: 32px 16px 16px 32px;
+  z-index: 1;
+}
+
+.search-section-prompt {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: center;
+  text-size-adjust: 100%;
+}
 
 .restaurants-outer-container {
   display: block;

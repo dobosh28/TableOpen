@@ -14,6 +14,13 @@ const LandingPageRestaurants = () => {
 
   return (
     <>
+      <header className="search-section">
+        <div className="search-section-inner">
+          <h1 className="search-section-prompt">
+            Find your table for any occasion
+          </h1>
+        </div>
+      </header>
       <section className="restaurants-outer-container">
         <div className="restaurants-inner-container">
           <div className="location-outer-banner">

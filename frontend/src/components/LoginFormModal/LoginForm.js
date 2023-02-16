@@ -37,11 +37,6 @@ function LoginForm() {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <ul className="login-form-erors">
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
       <div>
         <h1>Welcome to TableOpen!</h1>
         <p>Enter the email...</p>
@@ -64,6 +59,11 @@ function LoginForm() {
         required
         placeholder="Password"
       />
+      <ul className="login-form-erors">
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <button type="submit" className="sign-in-form-button">
         Sign In
       </button>
