@@ -28,10 +28,10 @@ function LoginForm() {
   };
 
   const demoUserLogin = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
     dispatch(
-      sessionActions.login({ email: "demo@user.io", password: "password" })
+      sessionActions.login({ email: "demo@user.io", password: "123456" })
     );
   };
 

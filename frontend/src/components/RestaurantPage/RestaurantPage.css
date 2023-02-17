@@ -245,3 +245,34 @@
     line-height: 24px;
     color: rgb(45, 51, 63);
 }
+
+.reviews-section {
+    margin-top: 48px;
+}
+
+.reviews-header {
+    border-bottom: .0625rem solid #d8d9db;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+}
+
+.reviews-text-div {
+    align-self: center;
+    width: 100%;
+
+}
+
+.reviews-text {
+    color: #2d333f;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    text-size-adjust: 100%;
+}
+
+.all-reviews-container {
+    margin-top: 32px;
+    padding: 0px;
+}

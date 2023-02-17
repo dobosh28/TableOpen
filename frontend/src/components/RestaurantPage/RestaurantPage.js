@@ -11,10 +11,11 @@ const RestaurantPage = () => {
   const { restaurantId } = useParams();
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
   const reviewsFromState = useSelector((state) => state.reviews);
-  
-  const reviews = Object.values(reviewsFromState)
-    .filter((review) => review.restaurantId === parseInt(restaurantId))
-    console.log(reviews)
+
+  const reviews = Object.values(reviewsFromState).filter(
+    (review) => review.restaurantId === parseInt(restaurantId)
+  );
+  console.log(reviews);
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
@@ -22,15 +23,22 @@ const RestaurantPage = () => {
   }, [dispatch, restaurantId]);
 
   if (!restaurant) return null;
-  
+
   return (
     <>
       <div className="restaurant-page-main-container">
         <div className="restaurant-page-banner">
-          <img className="restaurant-page-banner-image" src={restaurant.photoUrl} alt="" />
+          <img
+            className="restaurant-page-banner-image"
+            src={restaurant.photoUrl}
+            alt=""
+          />
           <button className="save-this-restaurant-button">
             <div className="save-restaurant-text-logo-container">
-              <img src="https://cdn.otstatic.com/cfe/11/images/ic_bookmark-f6a8ce.svg" alt="" />
+              <img
+                src="https://cdn.otstatic.com/cfe/11/images/ic_bookmark-f6a8ce.svg"
+                alt=""
+              />
               <div className="save-restaurant-text">Save this restaurant</div>
             </div>
           </button>
@@ -60,38 +68,43 @@ const RestaurantPage = () => {
             </section>
             <section className="restaurant-details">
               <h1 className="restaurant-name">{restaurant.name}</h1>
-                <div className="general-info">
-                  <div className="rating-stars">
-                    to be implemented
-                  </div>
-                  <div className="reviews">
-                    reviews
-                  </div>
-                  <div className="cost">
-                    cost
-                  </div>
-                  <div className="cuisine">
-                    <span>icon</span>
-                    <span>{restaurant.cuisines.split(',')[0]}</span>
-                  </div>
+              <div className="general-info">
+                <div className="rating-stars">to be implemented</div>
+                <div className="reviews">reviews</div>
+                <div className="cost">cost</div>
+                <div className="cuisine">
+                  <span>icon</span>
+                  <span>{restaurant.cuisines.split(",")[0]}</span>
                 </div>
-                <div className="restaurant-top-tags">
-                  <div className="top-tags">Top Tags:</div>
-                  <div className="lively-tag">Lively</div>
-                  <div className="groups-tag">Good for Groups</div>
-                  <div className="gem-tag">Neighborhood Gem</div>
+              </div>
+              <div className="restaurant-top-tags">
+                <div className="top-tags">Top Tags:</div>
+                <div className="lively-tag">Lively</div>
+                <div className="groups-tag">Good for Groups</div>
+                <div className="gem-tag">Neighborhood Gem</div>
+              </div>
+              <div className="restaurant-description">
+                <p className="restaurant-description-text">
+                  {restaurant.description}
+                </p>
+              </div>
+            </section>
+            <section className="reviews-section">
+              <header className="reviews-header">
+                <div className="reviews-text-div">
+                  <h2 className="reviews-text">
+                    What {reviews?.length ? reviews.length : 0} people are
+                    saying
+                  </h2>
                 </div>
-                <div className="restaurant-description">
-                  <p className="restaurant-description-text">
-                    {restaurant.description}
-                  </p>
-                </div>
-
+              </header>
+              <div className="all-reviews-container">
+                <ReviewsShow reviews={reviews} />
+              </div>
             </section>
           </div>
         </div>
       </div>
-      <ReviewsShow reviews={reviews} />
     </>
   );
 };
