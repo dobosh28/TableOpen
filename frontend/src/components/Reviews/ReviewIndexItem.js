@@ -1,14 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview } from "../../store/reviews";
-import { useHistory } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import ReviewControls from "./ReviewControls";
 
 const ReviewIndexItem = ({ review }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
+  const id = useSelector((state) => state.session.user.id);
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -23,21 +20,6 @@ const ReviewIndexItem = ({ review }) => {
     review.value,
     review.service
   );
-
-  let reviewControls =
-    sessionUser === review.user_id ? (
-      <div className="edit-delete-review">
-        <Link
-          to={`/restaurants/${review.restaurant_id}/reviews/${review.id}/form`}
-          className="edit-review-link"
-        >
-          <button>Edit Review</button>
-        </Link>
-        <button className="delete-review-button" onClick={handleDelete}>
-          Delete Review
-        </button>
-      </div>
-    ) : null;
 
   return (
     <div className="review-index-item">
@@ -72,7 +54,7 @@ const ReviewIndexItem = ({ review }) => {
         <div className="review-body">
           <p>{review.body}</p>
         </div>
-        <div className="review-controls">{reviewControls}</div>
+        <ReviewControls review={review} handleDelete={handleDelete} id={id}/>
       </div>
     </div>
   );

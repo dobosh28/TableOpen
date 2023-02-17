@@ -11,8 +11,9 @@ const RestaurantPage = () => {
   const { restaurantId } = useParams();
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
   const reviewsFromState = useSelector((state) => state.reviews);
+  
   const reviews = Object.values(reviewsFromState)
-    .filter((review) => review.restaurantId == (restaurantId))
+    .filter((review) => review.restaurantId === parseInt(restaurantId))
     console.log(reviews)
 
   useEffect(() => {
