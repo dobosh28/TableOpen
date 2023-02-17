@@ -2,15 +2,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRestaurant } from "../../store/restaurants";
+import { fetchReviews } from "../../store/reviews";
 import "./RestaurantPage.css";
+import ReviewsShow from "../Reviews/ReviewShow";
 
 const RestaurantPage = () => {
   const dispatch = useDispatch();
   const { restaurantId } = useParams();
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
+  const reviewsFromState = useSelector((state) => state.reviews);
+  const reviews = Object.values(reviewsFromState)
+    .filter((review) => review.restaurantId == (restaurantId))
+    console.log(reviews)
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
+    dispatch(fetchReviews());
   }, [dispatch, restaurantId]);
 
   if (!restaurant) return null;
@@ -78,10 +85,12 @@ const RestaurantPage = () => {
                     {restaurant.description}
                   </p>
                 </div>
+
             </section>
           </div>
         </div>
       </div>
+      <ReviewsShow reviews={reviews} />
     </>
   );
 };

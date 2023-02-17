@@ -19,17 +19,6 @@ const removeReview = (reviewId) => ({
     reviewId
 });
 
-export const getReviews = restaurantId => (state) => {
-    return Object.values(state.reviews)
-        .filter(review => review.restaurantId === restaurantId)
-        .map(review => ({
-            ...review
-        })
-    )
-
-   
-}
-
 export const getReview = (reviewId) => (state) => state.reviews ? state.reviews[reviewId] : null; 
 
 export const fetchReviews = () => async (dispatch) => {
@@ -77,14 +66,11 @@ export const updateReview = (review) => async (dispatch) => {
 }
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     });
 
-    if (response.ok) {
-        dispatch(removeReview(reviewId));
-    }
-    return response;
+    dispatch(removeReview(reviewId)); 
 }
 
 const reviewsReducer = (state = {}, action) => {

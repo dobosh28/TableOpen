@@ -16,7 +16,7 @@ function App() {
           </Route>
           <Route path="/restaurants/:restaurantId">
             <RestaurantPage />
-            <ReviewsShow />
+            {/* <ReviewsShow /> */}
           </Route>
         </Switch>
       </BrowserRouter>

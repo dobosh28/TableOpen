@@ -5,15 +5,8 @@ import { useParams } from "react-router-dom";
 import { getReviews } from "../../store/reviews";
 import ReviewIndexItem from "./ReviewIndexItem";
 
-const ReviewsShow = () => {
-  const dispatch = useDispatch();
-  const { restaurantId } = useParams();
-  const reviews = useSelector(getReviews(parseInt(restaurantId)));
-
-    useEffect(() => {
-        dispatch(fetchReviews(restaurantId));
-    }, [dispatch, restaurantId]);
-
+const ReviewsShow = ({ reviews }) => {
+  
   return (
     <ul>
        {reviews.map((review) => (
