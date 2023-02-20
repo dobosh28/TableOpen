@@ -38,12 +38,19 @@ function LoginForm() {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <div>
-        <h1>Welcome to TableOpen!</h1>
-        <p>Enter the email...</p>
+        <h1 style={{ 
+          fontSize: "30px", 
+          fontWeight: "600", 
+          color: "#2d333f"
+        }}>Welcome to TableOpen!</h1>
+        <br />
+        <p style={{ 
+          color: "#2d333f"
+        }}>Enter your email and password</p>
       </div>
       <br />
       <input
-        className="signin-input"
+        className={`signin-input ${errors.length > 0 ? 'invalid-input' : ''}`}
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -52,14 +59,14 @@ function LoginForm() {
       />
       <br />
       <input
-        className="signin-input"
+        className={`signin-input ${errors.length > 0 ? 'invalid-input' : ''}`}
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
         placeholder="Password"
       />
-      <ul className="login-form-erors">
+      <ul className="login-form-errors">
         {errors.map((error) => (
           <li key={error}>{error}</li>
         ))}

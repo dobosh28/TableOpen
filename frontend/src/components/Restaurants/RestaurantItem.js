@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./RestaurantItem.css";
-import RestaurantImageLoading from "../Loading/RestaurantImageLoading";
+import RestaurantImageLoading from "../LoadingPhotoAnimation/RestaurantImageLoading";
 
 const RestaurantItem = ({ restaurant }) => {
   return (

@@ -75,3 +75,15 @@
 .sign-in-button:hover {
   cursor: pointer;
 }
+
+.login-form-errors {
+  color: #931b23;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0 0 8px;
+}
+
+.invalid-input {
+  border: 1px solid #931b23;
+}
