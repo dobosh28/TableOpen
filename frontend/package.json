@@ -16,7 +16,7 @@
     "redux-thunk": "^2.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3006 react-scripts start",
     "build": "BUILD_PATH='../public' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +39,5 @@
   "devDependencies": {
     "redux-logger": "^3.0.6"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5001"
 }

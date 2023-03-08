@@ -19,6 +19,8 @@ const LandingPageRestaurants = () => {
           <h1 className="search-section-prompt">
             Find your table for any occasion
           </h1>
+          <span className="search-section-subtext">
+          </span>
         </div>
       </header>
       <section className="restaurants-outer-container">
