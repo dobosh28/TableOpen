@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
-  validates :first_name, :last_name, :phone_number, :date, :email, :time, presence: true, unless: :user_id? 
-  validates :phone_number, :email, presence: true, unless: :user_id?
+  validates_presence_of :restaurant_id, :user_id, :date, :time, :party_size, :phone_number, :email
 
   belongs_to :restaurant
-  belongs_to :user, optional: true
+  belongs_to :user
 end
