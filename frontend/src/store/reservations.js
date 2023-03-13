@@ -77,3 +77,21 @@ export const deleteReservation = (reservationId) => async (dispatch) => {
   }
 };
 
+const reservationsReducer = (state = {}, action) => {
+  const newState = { ...state };
+
+  switch (action.type) {
+    case RECEIVE_RESERVATIONS:
+      return { ...newState, ...action.reservations };
+    case RECEIVE_RESERVATION:
+      newState[action.reservation.id] = action.reservation;
+      return newState;
+    case REMOVE_RESERVATION:
+      delete newState[action.reservationId];
+      return newState;
+    default:
+      return state;
+  }
+};
+
+export default reservationsReducer;
