@@ -5,6 +5,7 @@ import { fetchRestaurant } from "../../store/restaurants";
 import { fetchReviews } from "../../store/reviews";
 import "./RestaurantPage.css";
 import ReviewsShow from "../Reviews/ReviewShow";
+import ReservationForm from "../Reservations/ReservationForm/ReservationForm";
 
 const RestaurantPage = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const RestaurantPage = () => {
   const reviews = Object.values(reviewsFromState).filter(
     (review) => review.restaurantId === parseInt(restaurantId)
   );
-  console.log(reviews);
+  // console.log(reviews);
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
@@ -102,6 +103,9 @@ const RestaurantPage = () => {
                 <ReviewsShow reviews={reviews} />
               </div>
             </section>
+          </div>
+          <div className="restaurant-page-info-right">
+            <ReservationForm />
           </div>
         </div>
       </div>
