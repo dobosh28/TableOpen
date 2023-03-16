@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
 import LoginForm from "../../LoginFormModal/LoginForm";
+import "./ReservationForm.css";
 
 const ReservationForm = () => {
   const { restaurantId } = useParams();
@@ -55,44 +56,48 @@ const ReservationForm = () => {
   };
 
   return (
-    <div>
+    <article className="reservation-form-container">
+      <h2>Make a reservation</h2>
       <div className="reservation-form">
+        <div className="party-size-picker">
+          <label htmlFor="party-size" className="party-size-label">
+            Party Size
+          </label>
+          <div className="party-size-select-holder">
+            <select
+              classname="party-size-select"
+              defaultValue="2"
+              onChange={update("partySize")}
+            >
+              <option value="1">1 person</option>
+              <option value="2">2 people</option>
+              <option value="3">3 people</option>
+              <option value="4">4 people</option>
+              <option value="5">5 people</option>
+              <option value="6">6 people</option>
+              <option value="7">7 people</option>
+              <option value="8">8 people</option>
+              <option value="9">9 people</option>
+              <option value="10">10 people</option>
+              <option value="11">11 people</option>
+              <option value="12">12 people</option>
+              <option value="13">13 people</option>
+              <option value="14">14 people</option>
+              <option value="15">15 people</option>
+              <option value="16">16 people</option>
+              <option value="17">17 people</option>
+              <option value="18">18 people</option>
+              <option value="19">19 people</option>
+              <option value="20">20 people</option>
+            </select>
+          </div>
+        </div>
+
         <form className="reservation-form-box">
-          <h3>Make a reservation</h3>
           <hr />
           <br />
 
           <div className="reservation-form-input">
-            <label>
-              Party Size
-              <br />
-              <select
-                className="reservation-input party"
-                defaultValue="2"
-                onChange={update("partySize")}
-              >
-                <option value="1">1 person</option>
-                <option value="2">2 people</option>
-                <option value="3">3 people</option>
-                <option value="4">4 people</option>
-                <option value="5">5 people</option>
-                <option value="6">6 people</option>
-                <option value="7">7 people</option>
-                <option value="8">8 people</option>
-                <option value="9">9 people</option>
-                <option value="10">10 people</option>
-                <option value="11">11 people</option>
-                <option value="12">12 people</option>
-                <option value="13">13 people</option>
-                <option value="14">14 people</option>
-                <option value="15">15 people</option>
-                <option value="16">16 people</option>
-                <option value="17">17 people</option>
-                <option value="18">18 people</option>
-                <option value="19">19 people</option>
-                <option value="20">20 people</option>
-              </select>
-            </label>
             <br />
 
             <label>
@@ -147,11 +152,11 @@ const ReservationForm = () => {
         </form>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <LoginForm setShowModal={setShowModal} />
+            <LoginForm />
           </Modal>
         )}
       </div>
-    </div>
+    </article>
   );
 };
 

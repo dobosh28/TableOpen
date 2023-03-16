@@ -108,7 +108,10 @@ const RestaurantPage = () => {
             </section>
           </div>
           <div className="restaurant-page-info-right">
+            <div className="reservation-form-takeout-box">
             <ReservationForm />
+
+            </div>
           </div>
         </div>
       </div>
