@@ -94,7 +94,10 @@ const RestaurantPage = () => {
               <header className="reviews-header">
                 <div className="reviews-text-div">
                   <h2 className="reviews-text">
-                    What {reviews?.length ? reviews.length : 0} people are
+                    What
+                    {reviews?.length === 1
+                      ? " 1 person is "
+                      : reviews.length + " people are "}
                     saying
                   </h2>
                 </div>

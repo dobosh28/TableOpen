@@ -1,12 +1,18 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import LoginFormModal from "../../LoginFormModal";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { Modal } from "../../../context/Modal";
+import LoginForm from "../../LoginFormModal/LoginForm";
 
-const ReservationForm = (props) => {
+const ReservationForm = () => {
+  const { restaurantId } = useParams();
+  const restaurant = useSelector((state) => state.restaurants[restaurantId]);
+  const sessionUser = useSelector((state) => state.session.user);
   const [partySize, setPartySize] = useState(2);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [time, setTime] = useState("19:30");
   const [displayTime, setDisplayTime] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const update = (field) => {
     return (e) => {
@@ -26,9 +32,14 @@ const ReservationForm = (props) => {
     };
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
-    setDisplayTime(true);
+    if (!sessionUser) {
+      setShowModal(true);
+    } else {
+      setDisplayTime(true);
+      setShowModal(false);
+    }
   };
 
   const convertTime = (time) => {
@@ -117,8 +128,8 @@ const ReservationForm = (props) => {
                     party_size: partySize,
                     date: date,
                     time: time,
-                    restaurant: props.restaurant,
-                    currentUser: props.currentUser,
+                    restaurant: restaurant,
+                    currentUser: sessionUser,
                   },
                 }}
               >
@@ -134,6 +145,11 @@ const ReservationForm = (props) => {
             )}
           </div>
         </form>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <LoginForm setShowModal={setShowModal} />
+          </Modal>
+        )}
       </div>
     </div>
   );
