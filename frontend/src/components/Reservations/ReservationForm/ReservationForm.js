@@ -57,7 +57,7 @@ const ReservationForm = () => {
 
   return (
     <article className="reservation-form-container">
-      <h2>Make a reservation</h2>
+      <h2 className="make-a-reservation">Make a reservation</h2>
       <div className="reservation-form">
         <div className="party-size-picker">
           <label htmlFor="party-size" className="party-size-label">
@@ -65,7 +65,7 @@ const ReservationForm = () => {
           </label>
           <div className="party-size-select-holder">
             <select
-              classname="party-size-select"
+              className="party-size-select"
               defaultValue="2"
               onChange={update("partySize")}
             >
@@ -92,9 +92,10 @@ const ReservationForm = () => {
             </select>
           </div>
         </div>
+    
 
         <form className="reservation-form-box">
-          <hr />
+          
           <br />
 
           <div className="reservation-form-input">

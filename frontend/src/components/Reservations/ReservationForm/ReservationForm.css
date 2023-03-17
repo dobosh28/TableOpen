@@ -6,7 +6,7 @@
   box-shadow: 0 2px 4px #2d333f33;
 }
 
-.reservation-form-container h2 {
+.make-a-reservation {
   display: block;
   border-bottom: .0625rem solid #d8d9db;
   color: #2d333f;
@@ -15,4 +15,54 @@
   font-size: 1.125rem;
   font-weight: 900;
   line-height: 1.5rem;
+}
+
+.reservation-form{
+  display: block;
+  margin: 16px -16px 0;
+}
+
+.party-size-picker {
+  display: block;
+}
+
+.party-size-label {
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.party-size-select-holder {
+  background: #fff;
+  height: 48px;
+  position: relative;
+  display: block;
+  color: rgb(45, 51, 63);
+  background-origin: padding-box;
+}
+
+.party-size-select {
+  align-items: center;
+  bottom: 0px;
+  box-sizing: border-box;
+  display: block;
+  height: 48px;
+  position: absolute;
+  width: calc(100% - 32px);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: start;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(118, 118, 118);
+
+}
+
+.party-size-select option {
+  display: block;
+  min-height: 19.2px;
+  padding-bottom: 1px;
+  padding-top: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
