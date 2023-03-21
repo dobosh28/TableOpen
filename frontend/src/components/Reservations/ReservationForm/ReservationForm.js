@@ -92,10 +92,8 @@ const ReservationForm = () => {
             </select>
           </div>
         </div>
-    
 
         <form className="reservation-form-box">
-          
           <br />
 
           <div className="reservation-form-input">
