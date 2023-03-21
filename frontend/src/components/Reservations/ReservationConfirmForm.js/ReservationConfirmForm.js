@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createReservation } from "../../../store/reservations";
 import { useLocation, useHistory } from "react-router-dom";
+import "./ReservationConfirmForm.css";
 
 const ReservationConfirmForm = () => {
   const dispatch = useDispatch();
@@ -74,64 +75,99 @@ const ReservationConfirmForm = () => {
   };
 
   return (
-    <div className="reservation-confirm-form">
-      <h1>You're almost done!</h1>
-      <br />
+    <>
+      <main className="main">
+        <div className="contents">
+          <div className="inner-contents">
+            <div className="inner-inner-contents">
+              <section className="form-section">
 
-      <div className="reservation-confirm-form__info">
-        <img src={restaurant.photoUrl} />
-        <h2>{restaurant.name}</h2>
-        <p>{reservationData.partySize}</p>
-        <p>{reservationData.date}</p>
-        <p>{convertTime(reservationData.time)}</p>
-        <br />
-      </div>
+              </section>
+              <div className="dining-info">
+                <aside className="booking-policies-section">
+                  <h1 className="what-to-know">
+                    What to know before you go
+                  </h1>
+                  <section className="what-to-know-info">
+                    <h1 className="important-info">Important dining information</h1>
+                    <p className="important-info-text">
+                      We have a 20 minute grace period. Please call us if you are running later than 20 minutes after your reservation time.
+                      <br />
+                      <br />
+                      We may contact you about this reservation, so please ensure your email and phone number are up to date.
+                      <br />
+                      <br />
+                      Your table will be reserved for 1 hour 30 minutes for parties of up to 2; and 2 hours for parties of 3+.
+                    </p>
+                  </section>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </main>
 
-      <form onSubmit={handleSubmit} className="reservation-form">
-        <h3>Diner details</h3>
-        <p>
-          {currentUser.firstName} {currentUser.lastName}
-        </p>
-        <input
-          type="text"
-          placeholder="Phone number"
-          onChange={update("phone_number")}
-          required
-        />
-        <input type="email" value={reservationData.email} readOnly />
-        <br />
-        <select onChange={update("occasion")}>
-          <option value="None">Select an occasion (optional)</option>
-          <option value="Birthday">Birthday</option>
-          <option value="Anniversary">Anniversary</option>
-          <option value="Date">Date night</option>
-          <option value="Business">Business Meal</option>
-          <option value="Celebration">Celebration</option>
-        </select>
-        <br />
-        <textarea
-          placeholder="Add a special request (optional)"
-          onChange={update("special_request")}
-        />
+
+      <div className="reservation-confirm-form">
+        <h1>You're almost done!</h1>
         <br />
 
-        <input type="submit" value="Complete Reservation" />
-        <div className="reservation-confirm-form-terms">
+        <div className="reservation-confirm-form__info">
+          <img src={restaurant.photoUrl} />
+          <h2>{restaurant.name}</h2>
+          <p>{reservationData.partySize}</p>
+          <p>{reservationData.date}</p>
+          <p>{convertTime(reservationData.time)}</p>
+          <br />
+        </div>
+
+        <form onSubmit={handleSubmit} className="reservation-form">
+          <h3>Diner details</h3>
           <p>
-            By clicking “Complete reservation” you agree to the{" "}
-            <span>TableOpen Terms of Use</span> and <span>Privacy Policy</span>.{" "}
+            {currentUser.firstName} {currentUser.lastName}
+          </p>
+          <input
+            type="text"
+            placeholder="Phone number"
+            onChange={update("phone_number")}
+            required
+          />
+          <input type="email" value={reservationData.email} readOnly />
+          <br />
+          <select onChange={update("occasion")}>
+            <option value="None">Select an occasion (optional)</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Date">Date night</option>
+            <option value="Business">Business Meal</option>
+            <option value="Celebration">Celebration</option>
+          </select>
+          <br />
+          <textarea
+            placeholder="Add a special request (optional)"
+            onChange={update("special_request")}
+          />
+          <br />
+
+          <input type="submit" value="Complete Reservation" />
+          <div className="reservation-confirm-form-terms">
+            <p>
+              By clicking “Complete reservation” you agree to the{" "}
+              <span>TableOpen Terms of Use</span> and{" "}
+              <span>Privacy Policy</span>.{" "}
+            </p>
+          </div>
+        </form>
+        <div className="reservation-confirm-form-note">
+          <h3>What to know before you go</h3>
+          <h4>Important dining information</h4>
+          <p>
+            We may contact you about this reservation, so please ensure your
+            email and phone number are up to date.
           </p>
         </div>
-      </form>
-      <div className="reservation-confirm-form-note">
-        <h3>What to know before you go</h3>
-        <h4>Important dining information</h4>
-        <p>
-          We may contact you about this reservation, so please ensure your email
-          and phone number are up to date.
-        </p>
       </div>
-    </div>
+    </>
   );
 };
 

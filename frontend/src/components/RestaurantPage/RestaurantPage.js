@@ -94,7 +94,7 @@ const RestaurantPage = () => {
               <header className="reviews-header">
                 <div className="reviews-text-div">
                   <h2 className="reviews-text">
-                    What
+                    What {" "}
                     {reviews?.length === 1
                       ? " 1 person is "
                       : reviews.length + " people are "}
@@ -109,8 +109,7 @@ const RestaurantPage = () => {
           </div>
           <div className="restaurant-page-info-right">
             <div className="reservation-form-takeout-box">
-            <ReservationForm />
-
+              <ReservationForm />
             </div>
           </div>
         </div>
