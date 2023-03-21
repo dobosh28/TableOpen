@@ -48,7 +48,7 @@ const ReservationConfirmForm = () => {
     const newReservation = await dispatch(
       createReservation(reservation, reservationData.restaurantId)
     );
-    history.push(`/reservation/view/${newReservation.id}`);
+    history.push(`/reservations/${newReservation.id}`);
   };
 
   const update = (field) => {

@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class Api::ReservationsController < ApplicationController
   before_action :require_logged_in
 
   def index
