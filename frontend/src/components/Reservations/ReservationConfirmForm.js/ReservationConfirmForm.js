@@ -7,17 +7,19 @@ const ReservationConfirmForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const [partySize, setPartySize] = useState(null);
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState("");
-  const [userId, setUserId] = useState(null);
-  const [restaurantId, setRestaurantId] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState("1234567890");
-  const [specialRequest, setSpecialRequest] = useState("");
-  const [occasion, setOccasion] = useState("");
-
   const { restaurant, currentUser } = location.state;
+
+  const [reservationData, setReservationData] = useState({
+    partySize: null,
+    date: null,
+    time: "",
+    userId: null,
+    restaurantId: restaurant.id,
+    email: currentUser.email,
+    phone: "1234567890",
+    specialRequest: "",
+    occasion: "",
+  });
 
   useEffect(() => {
     if (!location.state) {
@@ -25,61 +27,36 @@ const ReservationConfirmForm = () => {
       window.location.reload();
     } else {
       const { party_size, date, time } = location.state;
-      setPartySize(party_size);
-      setDate(date);
-      setTime(time);
-      setRestaurantId(restaurant.id);
-      setUserId(currentUser.id);
-      setEmail(currentUser.email);
+      setReservationData((prevState) => ({
+        ...prevState,
+        partySize: party_size,
+        date: date,
+        time: time,
+        userId: currentUser.id,
+      }));
     }
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const reservation = {
-      party_size: partySize,
-      date: date,
-      time: time,
-      restaurant_id: restaurantId,
-      user_id: userId,
-      email: email,
-      phone_number: phone,
-      special_request: specialRequest,
-      occasion: occasion,
+      ...reservationData,
+      restaurant_id: reservationData.restaurantId,
+      user_id: reservationData.userId,
+      phone_number: reservationData.phone,
     };
     const newReservation = await dispatch(
-      createReservation(reservation, restaurantId)
+      createReservation(reservation, reservationData.restaurantId)
     );
     history.push(`/reservation/view/${newReservation.id}`);
   };
 
   const update = (field) => {
     return (e) => {
-      switch (field) {
-        case "partySize":
-          setPartySize(e.target.value);
-          break;
-        case "date":
-          setDate(e.target.value);
-          break;
-        case "time":
-          setTime(e.target.value);
-          break;
-        case "email":
-          setEmail(e.target.value);
-          break;
-        case "phone":
-          setPhone(e.target.value);
-          break;
-        case "specialRequest":
-          setSpecialRequest(e.target.value);
-          break;
-        case "occasion":
-          setOccasion(e.target.value);
-          break;
-        default:
-          break;
-      }
+      setReservationData((prevState) => ({
+        ...prevState,
+        [field]: e.target.value,
+      }));
     };
   };
 
@@ -104,9 +81,9 @@ const ReservationConfirmForm = () => {
       <div className="reservation-confirm-form__info">
         <img src={restaurant.photoUrl} />
         <h2>{restaurant.name}</h2>
-        <p>{partySize}</p>
-        <p>{date}</p>
-        <p>{convertTime(time)}</p>
+        <p>{reservationData.partySize}</p>
+        <p>{reservationData.date}</p>
+        <p>{convertTime(reservationData.time)}</p>
         <br />
       </div>
 
@@ -121,7 +98,7 @@ const ReservationConfirmForm = () => {
           onChange={update("phone_number")}
           required
         />
-        <input type="email" value={currentUser.email} readOnly />
+        <input type="email" value={reservationData.email} readOnly />
         <br />
         <select onChange={update("occasion")}>
           <option value="None">Select an occasion (optional)</option>
