@@ -74,6 +74,10 @@ const ReservationConfirmForm = () => {
     return newTime;
   };
 
+  const routeToRestaurant = () => {
+    history.push(`/restaurants/${restaurant.id}`);
+  };
+
   return (
     <>
       <main className="main">
@@ -81,7 +85,17 @@ const ReservationConfirmForm = () => {
           <div className="inner-contents">
             <div className="inner-inner-contents">
               <section className="form-section">
-
+                <h1 className="almost-done">You're almost done!</h1>
+                <div className="photo-time-date-size">
+                  <div className="restaurant-photo-div">
+                    <img src={restaurant.photoUrl} className="restaurant-photo" />
+                  </div>
+                  <div className="name-date-time-size">
+                    <div onClick={routeToRestaurant} className="route-to-restaurant">
+                      <h2 className="restaurant-name-res">{restaurant.name}</h2>
+                    </div>
+                  </div>
+                </div>
               </section>
               <div className="dining-info">
                 <aside className="booking-policies-section">

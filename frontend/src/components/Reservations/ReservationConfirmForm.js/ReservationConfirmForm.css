@@ -73,3 +73,52 @@
   white-space: pre-line;
   text-size-adjust: 100%;
 }
+
+.almost-done {
+  display: block;
+  flex-basis: 100%;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.photo-time-date-size {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.restaurant-photo-div {
+  display: flex;
+  margin-right: 16px;
+}
+
+.restaurant-photo {
+  height: 64px;
+  width: 64px;
+  overflow-y: clip;
+  overflow-x: clip;
+  border-radius: 4px;
+}
+
+.name-date-time-size {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.route-to-restaurant {
+  color: #2d333f;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 18.4px;
+}
+
+.restaurant-name-res {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-size-adjust: 100%;
+}
