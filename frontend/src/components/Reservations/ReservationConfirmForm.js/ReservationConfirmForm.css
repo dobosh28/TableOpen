@@ -26,7 +26,6 @@
 .form-section {
   display: block;
   flex: 1 0 1%;
-  min-width: 0;
 }
 
 .dining-info {
@@ -121,4 +120,183 @@
   font-weight: 700;
   line-height: 28px;
   text-size-adjust: 100%;
+}
+
+.date-time-size {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dts-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.dts-list li {
+  display: list-item;
+  margin-right: 16px;
+}
+
+.date-icon-text, .time-icon-text, .size-icon-text {
+  align-items: center;
+  display: flex;
+  margin-top: 8px;
+}
+
+.dts-list span {
+  display: block;
+  min-width: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.fa-calendar, .fa-clock, .fa-user {
+  width: 24px;
+  height: 24px;
+}
+
+.dts-list p {
+  display: flex;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+
+.diner-details {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.current-diner {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.reservation-confirm-form {
+  display: block;
+  max-width: 636px;
+}
+
+.form-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-inputs__occasion, .form-inputs__phone {
+  display: block;
+  flex: 1;
+  padding-bottom: 16px;
+  padding-right: 16px;
+}
+
+.occasion-div, .phone-div {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.occasion-div select {
+  color: #6f737b;
+  background-color: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  height: 100%;
+  min-height: 48px;
+  padding: .875rem 32px .875rem 8px;
+  resize: vertical;
+  width: 100%;
+}
+
+.phone-div input {
+  color: #6f737b;
+  background-color: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  height: 100%;
+  min-height: 48px;
+  padding: .875rem 32px .875rem 8px;
+  resize: vertical;
+  width: 100%;
+}
+
+.form-inputs__special-request, .form-inputs__email {
+  display: block;
+  flex: 1;
+  padding-bottom: 16px;
+  padding-right: 16px;
+}
+
+.special-request-div {
+  background-color: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2d333f;
+}
+
+.special-request-div textarea {
+  height: 48px;
+  background: #0000;
+  border: none;
+  box-sizing: border-box;
+  color: #2d333f;
+  display: block;
+  margin-right: calc(4px - 0.0625rem);
+  min-height: 48px;
+  padding: calc(12px + 0.125rem) 8px;
+  resize: vertical;
+  width: 100%;
+  overflow: auto;
+  font-size: 100%;
+  line-height: 1.15;
+  font-family: inherit;
+}
+
+.email-div {
+  background: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #2d333f;
+  font-size: 16px;
+  line-height: 24px;
+  display: block;
+}
+
+.email-input {
+  background: #f1f2f4;
+  color: inherit;
+  border: none;
+  box-sizing: border-box;
+  display: block;
+  line-height: 24px;
+  min-height: 48px;
+  padding: 0.75rem 8px;
+  width: 100%;
+  font-size: 16px;
 }

@@ -3,6 +3,10 @@ import { useDispatch } from "react-redux";
 import { createReservation } from "../../../store/reservations";
 import { useLocation, useHistory } from "react-router-dom";
 import "./ReservationConfirmForm.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-regular-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const ReservationConfirmForm = () => {
   const dispatch = useDispatch();
@@ -79,109 +83,144 @@ const ReservationConfirmForm = () => {
   };
 
   return (
-    <>
-      <main className="main">
-        <div className="contents">
-          <div className="inner-contents">
-            <div className="inner-inner-contents">
-              <section className="form-section">
-                <h1 className="almost-done">You're almost done!</h1>
-                <div className="photo-time-date-size">
-                  <div className="restaurant-photo-div">
-                    <img src={restaurant.photoUrl} className="restaurant-photo" />
+    <main className="main">
+      <div className="contents">
+        <div className="inner-contents">
+          <div className="inner-inner-contents">
+            <section className="form-section">
+              <h1 className="almost-done">You're almost done!</h1>
+              <div className="photo-time-date-size">
+                <div className="restaurant-photo-div">
+                  <img src={restaurant.photoUrl} className="restaurant-photo" />
+                </div>
+                <div className="name-date-time-size">
+                  <div
+                    onClick={routeToRestaurant}
+                    className="route-to-restaurant"
+                  >
+                    <h2 className="restaurant-name-res">{restaurant.name}</h2>
                   </div>
-                  <div className="name-date-time-size">
-                    <div onClick={routeToRestaurant} className="route-to-restaurant">
-                      <h2 className="restaurant-name-res">{restaurant.name}</h2>
+                  <div className="date-time-size">
+                    <ul className="dts-list">
+                      <li className="date-list-item">
+                        <div className="date-icon-text">
+                          <span>
+                            <FontAwesomeIcon
+                              icon={faCalendar}
+                              className="fa-calendar"
+                            />
+                          </span>
+                          <p>{reservationData.date}</p>
+                        </div>
+                      </li>
+                      <li className="time-list-item">
+                        <div className="time-icon-text">
+                          <span>
+                            <FontAwesomeIcon
+                              icon={faClock}
+                              className="fa-clock"
+                            />
+                          </span>
+                          <p>{convertTime(reservationData.time)}</p>
+                        </div>
+                      </li>
+                      <li className="size-list-item">
+                        <div className="size-icon-text">
+                          <span>
+                            <FontAwesomeIcon
+                              icon={faUser}
+                              className="fa-user"
+                            />
+                          </span>
+                          <p>{reservationData.partySize} people</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <h2 className="diner-details">Diner details</h2>
+              <div className="current-diner">
+                {currentUser.firstName} {currentUser.lastName}
+              </div>
+              <form
+                className="reservation-confirm-form"
+                onSubmit={handleSubmit}
+                autoComplete="on"
+              >
+                <div className="form-inputs">
+                  <div className="form-inputs__phone">
+                    <div className="phone-div">
+                      <input
+                        className="phone-input"
+                        type="text"
+                        placeholder="Phone number"
+                        onChange={update("phone")}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-inputs__email">
+                    <div className="email-div">
+                      <input
+                        className="email-input"
+                        value={currentUser.email}
+                        readOnly
+                      />
                     </div>
                   </div>
                 </div>
-              </section>
-              <div className="dining-info">
-                <aside className="booking-policies-section">
-                  <h1 className="what-to-know">
-                    What to know before you go
+                <div className="form-inputs">
+                  <div className="form-inputs__occasion">
+                    <div className="occasion-div">
+                      <select onChange={update("occasion")}>
+                        <option value="None">
+                          Select an occasion (optional)
+                        </option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Date">Date night</option>
+                        <option value="Business">Business Meal</option>
+                        <option value="Celebration">Celebration</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-inputs__special-request">
+                    <div className="special-request-div">
+                      <textarea
+                        placeholder="Add a special request (optional)"
+                        onChange={update("special_request")}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </section>
+            <div className="dining-info">
+              <aside className="booking-policies-section">
+                <h1 className="what-to-know">What to know before you go</h1>
+                <section className="what-to-know-info">
+                  <h1 className="important-info">
+                    Important dining information
                   </h1>
-                  <section className="what-to-know-info">
-                    <h1 className="important-info">Important dining information</h1>
-                    <p className="important-info-text">
-                      We have a 20 minute grace period. Please call us if you are running later than 20 minutes after your reservation time.
-                      <br />
-                      <br />
-                      We may contact you about this reservation, so please ensure your email and phone number are up to date.
-                      <br />
-                      <br />
-                      Your table will be reserved for 1 hour 30 minutes for parties of up to 2; and 2 hours for parties of 3+.
-                    </p>
-                  </section>
-                </aside>
-              </div>
+                  <p className="important-info-text">
+                    We have a 20 minute grace period. Please call us if you are
+                    running later than 20 minutes after your reservation time.
+                    <br />
+                    <br />
+                    We may contact you about this reservation, so please ensure
+                    your email and phone number are up to date.
+                    <br />
+                    <br />
+                    Your table will be reserved for 1 hour 30 minutes for
+                    parties of up to 2; and 2 hours for parties of 3+.
+                  </p>
+                </section>
+              </aside>
             </div>
           </div>
-        </div>  
-      </main>
-
-
-      <div className="reservation-confirm-form">
-        <h1>You're almost done!</h1>
-        <br />
-
-        <div className="reservation-confirm-form__info">
-          <img src={restaurant.photoUrl} />
-          <h2>{restaurant.name}</h2>
-          <p>{reservationData.partySize}</p>
-          <p>{reservationData.date}</p>
-          <p>{convertTime(reservationData.time)}</p>
-          <br />
-        </div>
-
-        <form onSubmit={handleSubmit} className="reservation-form">
-          <h3>Diner details</h3>
-          <p>
-            {currentUser.firstName} {currentUser.lastName}
-          </p>
-          <input
-            type="text"
-            placeholder="Phone number"
-            onChange={update("phone_number")}
-            required
-          />
-          <input type="email" value={reservationData.email} readOnly />
-          <br />
-          <select onChange={update("occasion")}>
-            <option value="None">Select an occasion (optional)</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Anniversary">Anniversary</option>
-            <option value="Date">Date night</option>
-            <option value="Business">Business Meal</option>
-            <option value="Celebration">Celebration</option>
-          </select>
-          <br />
-          <textarea
-            placeholder="Add a special request (optional)"
-            onChange={update("special_request")}
-          />
-          <br />
-
-          <input type="submit" value="Complete Reservation" />
-          <div className="reservation-confirm-form-terms">
-            <p>
-              By clicking “Complete reservation” you agree to the{" "}
-              <span>TableOpen Terms of Use</span> and{" "}
-              <span>Privacy Policy</span>.{" "}
-            </p>
-          </div>
-        </form>
-        <div className="reservation-confirm-form-note">
-          <h3>What to know before you go</h3>
-          <h4>Important dining information</h4>
-          <p>
-            We may contact you about this reservation, so please ensure your
-            email and phone number are up to date.
-          </p>
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
