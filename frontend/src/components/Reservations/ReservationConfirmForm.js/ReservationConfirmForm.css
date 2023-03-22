@@ -80,6 +80,7 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
+  color: #2d333f;
 }
 
 .photo-time-date-size {
@@ -156,8 +157,8 @@
 }
 
 .fa-calendar, .fa-clock, .fa-user {
-  width: 24px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
 }
 
 .dts-list p {
@@ -226,8 +227,12 @@
   width: 100%;
 }
 
-.phone-div input {
+option[value="None"] {
   color: #6f737b;
+}
+
+.phone-div input {
+  color: #2d333f;
   background-color: #fff;
   border: .0625rem solid #d8d9db;
   border-radius: 4px;
@@ -299,4 +304,47 @@
   padding: 0.75rem 8px;
   width: 100%;
   font-size: 16px;
+}
+
+.special-request-div:hover {
+  border-color: #2d333f;
+}
+
+.phone-div input:hover {
+  border-color: #2d333f;
+}
+
+.occasion-div select:hover {
+  border-color: #2d333f;
+}
+
+.submit-reservation {
+  margin-bottom: 16px;
+  width: 100%;
+  background-color: #da3743;
+  color: #fff;
+  border-radius: 4px;
+  height: 3rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;  
+}
+
+.submit-reservation:hover {
+  background-color: #c32b36;
+  transition: all .3s ease-out;
+}
+
+.confirmation-statement {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  font-weight: 400;
+}
+
+.table-open-span {
+  color: #da3743;
+  cursor: pointer;
 }

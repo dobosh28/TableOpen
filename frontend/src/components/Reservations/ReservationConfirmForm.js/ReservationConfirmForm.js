@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { logout } from "../../../store/session";
 
 const ReservationConfirmForm = () => {
   const dispatch = useDispatch();
@@ -82,6 +83,11 @@ const ReservationConfirmForm = () => {
     history.push(`/restaurants/${restaurant.id}`);
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+    history.push(`/restaurants/${restaurant.id}`);
+  };
+
   return (
     <main className="main">
       <div className="contents">
@@ -141,7 +147,9 @@ const ReservationConfirmForm = () => {
               </div>
               <h2 className="diner-details">Diner details</h2>
               <div className="current-diner">
-                {currentUser.firstName} {currentUser.lastName}
+                {currentUser.firstName} {currentUser.lastName} (
+                <span onClick={handleLogout}>Not {currentUser.firstName}?</span>
+                )
               </div>
               <form
                 className="reservation-confirm-form"
@@ -193,7 +201,19 @@ const ReservationConfirmForm = () => {
                     </div>
                   </div>
                 </div>
+                <input
+                  type="submit"
+                  value="Complete reservation"
+                  className="submit-reservation"
+                />
               </form>
+              <div className="confirmation-statement">
+                By clicking “Complete reservation” you agree to the{" "}
+                <span className="table-open-span">TableOpen Terms of Use</span>{" "}
+                and <span className="table-open-span">Privacy Policy</span>.
+                Standard text message rates may apply. You may opt out of
+                receiving text messages at any time.
+              </div>
             </section>
             <div className="dining-info">
               <aside className="booking-policies-section">
