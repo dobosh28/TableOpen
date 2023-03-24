@@ -13,17 +13,17 @@ const ReservationConfirmForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const { restaurant, currentUser } = location.state;
+  const { restaurant, current_user } = location.state;
 
   const [reservationData, setReservationData] = useState({
     party_size: 2,
     date: "",
     time: "",
-    userId: "",
-    restaurantId: restaurant.id,
-    email: currentUser.email,
-    phoneNumber: "",
-    specialRequest: "",
+    user_id: "",
+    restaurant_id: restaurant.id,
+    email: current_user.email,
+    phone_number: "",
+    special_request: "",
     occasion: "",
   });
 
@@ -32,31 +32,27 @@ const ReservationConfirmForm = () => {
       history.push("/");
       window.location.reload();
     } else {
-      const { party_size, date, time } = location.state
-      console.log(party_size, date, time)
+      const { party_size, date, time } = location.state;
+      console.log(party_size, date, time);
       setReservationData((prevState) => ({
         ...prevState,
         party_size: party_size,
         date: date,
         time: time,
-        userId: currentUser.id,
+        user_id: current_user.id,
       }));
     }
-    
-  }, []);
-  
+  }, [current_user, history, location.state]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const reservation = {
       ...reservationData,
-      restaurant_id: reservationData.restaurantId,
-      user_id: reservationData.userId,
-      phone_number: reservationData.phoneNumber,
     };
-    const newReservation = await dispatch(
-      createReservation(reservation, reservationData.restaurantId)
-    );
+    // debugger;
+    const newReservation = await dispatch(createReservation(reservation));
+    debugger;
     history.push(`/reservations/${newReservation.id}`);
   };
 
@@ -91,6 +87,12 @@ const ReservationConfirmForm = () => {
     history.push(`/restaurants/${restaurant.id}`);
   };
 
+  const formatDate = (dateString) => {
+    const options = { weekday: "short", month: "short", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", options);
+  };
+
   return (
     <main className="main">
       <div className="contents">
@@ -100,7 +102,7 @@ const ReservationConfirmForm = () => {
               <h1 className="almost-done">You're almost done!</h1>
               <div className="photo-time-date-size">
                 <div className="restaurant-photo-div">
-                  <img src={restaurant.photoUrl} className="restaurant-photo" />
+                  <img src={restaurant.photoUrl} className="restaurant-photo" alt="" />
                 </div>
                 <div className="name-date-time-size">
                   <div
@@ -119,7 +121,7 @@ const ReservationConfirmForm = () => {
                               className="fa-calendar"
                             />
                           </span>
-                          <p>{reservationData.date}</p>
+                          <p>{formatDate(reservationData.date)}</p>
                         </div>
                       </li>
                       <li className="time-list-item">
@@ -150,8 +152,8 @@ const ReservationConfirmForm = () => {
               </div>
               <h2 className="diner-details">Diner details</h2>
               <div className="current-diner">
-                {currentUser.firstName} {currentUser.lastName} (
-                <span onClick={handleLogout}>Not {currentUser.firstName}?</span>
+                {current_user.firstName} {current_user.lastName} (
+                <span onClick={handleLogout}>Not {current_user.firstName}?</span>
                 )
               </div>
               <form
@@ -166,7 +168,7 @@ const ReservationConfirmForm = () => {
                         className="phone-input"
                         type="text"
                         placeholder="Phone number"
-                        onChange={update("phoneNumber")}
+                        onChange={update("phone_number")}
                       />
                     </div>
                   </div>
@@ -174,7 +176,7 @@ const ReservationConfirmForm = () => {
                     <div className="email-div">
                       <input
                         className="email-input"
-                        value={currentUser.email}
+                        value={current_user.email}
                         readOnly
                       />
                     </div>

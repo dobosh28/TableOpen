@@ -54,13 +54,14 @@ export const createReservation = (reservation) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(receiveReservation(data.reservation));
+    return data.reservation;
   }
 };
 
-export const updateReservation = (reservation, restaurantId) => async (dispatch) => {
+export const updateReservation = (reservation) => async (dispatch) => {
   const response = await csrfFetch(`/api/reservations/${reservation.id}`, {
     method: "PUT",
-    body: JSON.stringify(reservation, restaurantId),
+    body: JSON.stringify(reservation),
   });
 
   if (response.ok) {

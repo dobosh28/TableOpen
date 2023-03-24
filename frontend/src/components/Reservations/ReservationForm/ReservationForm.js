@@ -120,7 +120,7 @@ const ReservationForm = () => {
                     date: date,
                     time: time,
                     restaurant: restaurant,
-                    currentUser: sessionUser,
+                    current_user: sessionUser,
                   },
                 }}
               >
