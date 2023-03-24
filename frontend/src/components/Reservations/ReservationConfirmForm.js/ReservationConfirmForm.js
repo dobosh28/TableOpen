@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createReservation } from "../../../store/reservations";
 import { useLocation, useHistory } from "react-router-dom";
-import "./ReservationConfirmForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { logout } from "../../../store/session";
+import "./ReservationConfirmForm.css";
 
 const ReservationConfirmForm = () => {
   const dispatch = useDispatch();

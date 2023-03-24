@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 const ProfileButton = ({ user }) => {
   const dispatch = useDispatch();
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -23,10 +25,15 @@ const ProfileButton = ({ user }) => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const logout = (e) => {
+  const handleLogout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    setShouldRedirect(true);
   };
+
+  if (shouldRedirect) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
@@ -40,7 +47,7 @@ const ProfileButton = ({ user }) => {
           <button className="my-button">My Dining History</button>
           <button className="my-button">My Saved Restaurants</button>
 
-          <button className="my-button-logout" onClick={logout}>Sign Out</button>
+          <button className="my-button-logout" onClick={handleLogout}>Sign Out</button>
           
         </ul>
       )}
