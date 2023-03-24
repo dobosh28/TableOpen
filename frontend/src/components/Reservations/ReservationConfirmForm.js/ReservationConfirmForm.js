@@ -16,13 +16,13 @@ const ReservationConfirmForm = () => {
   const { restaurant, currentUser } = location.state;
 
   const [reservationData, setReservationData] = useState({
-    partySize: null,
-    date: null,
+    party_size: 2,
+    date: "",
     time: "",
-    userId: null,
+    userId: "",
     restaurantId: restaurant.id,
     email: currentUser.email,
-    phone: "1234567890",
+    phoneNumber: "",
     specialRequest: "",
     occasion: "",
   });
@@ -32,24 +32,27 @@ const ReservationConfirmForm = () => {
       history.push("/");
       window.location.reload();
     } else {
-      const { party_size, date, time } = location.state;
+      const { party_size, date, time } = location.state
+      console.log(party_size, date, time)
       setReservationData((prevState) => ({
         ...prevState,
-        partySize: party_size,
+        party_size: party_size,
         date: date,
         time: time,
         userId: currentUser.id,
       }));
     }
+    
   }, []);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const reservation = {
       ...reservationData,
       restaurant_id: reservationData.restaurantId,
       user_id: reservationData.userId,
-      phone_number: reservationData.phone,
+      phone_number: reservationData.phoneNumber,
     };
     const newReservation = await dispatch(
       createReservation(reservation, reservationData.restaurantId)
@@ -138,7 +141,7 @@ const ReservationConfirmForm = () => {
                               className="fa-user"
                             />
                           </span>
-                          <p>{reservationData.partySize} people</p>
+                          <p>{reservationData.party_size} people</p>
                         </div>
                       </li>
                     </ul>
@@ -163,7 +166,7 @@ const ReservationConfirmForm = () => {
                         className="phone-input"
                         type="text"
                         placeholder="Phone number"
-                        onChange={update("phone")}
+                        onChange={update("phoneNumber")}
                       />
                     </div>
                   </div>
