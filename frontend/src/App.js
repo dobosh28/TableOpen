@@ -5,6 +5,7 @@ import LandingPageRestaurants from "./components/Restaurants/AllRestaurants";
 import RestaurantPage from "./components/RestaurantPage/RestaurantPage";
 import ReviewForm from "./components/Reviews/ReviewForm";
 import ReservationConfirmForm from "./components/Reservations/ReservationConfirmForm.js/ReservationConfirmForm";
+import ReservationConfirmation from "./components/Reservations/ReservationConfirmation/ReservationConfirmation";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/restaurants/:restaurantId" component={RestaurantPage} />
           <Route exact path="/restaurants/*/reviews/:reviewId/form" component={ReviewForm} />
           <Route exact path="/reservation/details"  component={ReservationConfirmForm} />
+          <Route exact path="/reservations/:reservationId"  component={ReservationConfirmation} />
         </Switch>
         
       </BrowserRouter>

@@ -45,17 +45,14 @@ const ReservationForm = () => {
     }
   };
 
-  const convertTime = (time) => {
-    let newTime = "";
-    let hour = parseInt(time.slice(0, 2));
-    if (hour >= 12) {
-      hour -= 12;
-      newTime = hour + time.slice(2, 6) + " PM";
-    } else {
-      newTime = hour + time.slice(2, 6) + " AM";
-    }
-    return newTime;
-  };
+  const convertTime = (timeString) => {
+    const hour = parseInt(timeString.slice(0, 2));
+    const minute = timeString.slice(3, 5);
+    const meridian = hour >= 12 ? "PM" : "AM";
+    const newHour = hour % 12 || 12;
+  
+    return `${newHour}:${minute} ${meridian}`;
+  }
 
   return (
     <article className="reservation-form-container">

@@ -9,7 +9,7 @@ const receiveReservations = (reservations) => ({
   reservations,
 });
 
-const receiveReservation = (reservation) => ({
+export const receiveReservation = (reservation) => ({
   type: RECEIVE_RESERVATION,
   reservation,
 });
@@ -31,8 +31,9 @@ export const fetchReservations = () => async (dispatch) => {
   const response = await csrfFetch("/api/reservations");
 
   if (response.ok) {
-    const reservations = await response.json();
-    dispatch(receiveReservations(reservations));
+    const data = await response.json();
+    dispatch(receiveReservations(data.reservations));
+    return data.reservations;
   }
 };
 
@@ -42,6 +43,7 @@ export const fetchReservation = (reservationId) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(receiveReservation(data.reservation));
+    return data.reservation;
   }
 };
 
@@ -67,6 +69,7 @@ export const updateReservation = (reservation) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(receiveReservation(data.reservation));
+    return data.reservation;
   }
 };
 

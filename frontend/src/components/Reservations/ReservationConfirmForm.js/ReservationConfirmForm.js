@@ -7,6 +7,7 @@ import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { logout } from "../../../store/session";
+import { receiveReservation } from "../../../store/reservations";
 import "./ReservationConfirmForm.css";
 
 const ReservationConfirmForm = () => {
@@ -53,6 +54,7 @@ const ReservationConfirmForm = () => {
     // debugger;
     const newReservation = await dispatch(createReservation(reservation));
     debugger;
+    dispatch(receiveReservation(newReservation));
     history.push(`/reservations/${newReservation.id}`);
   };
 
@@ -65,18 +67,19 @@ const ReservationConfirmForm = () => {
     };
   };
 
-  const convertTime = (time) => {
-    if (time === "") return "";
-    let newTime = "";
-    let hour = parseInt(time.slice(0, 2));
-    if (hour >= 12) {
-      hour -= 12;
-      newTime = `${hour}${time.slice(2, 6)} PM`;
-    } else {
-      newTime = `${hour}${time.slice(2, 6)} AM`;
+  const convertTime = (timeString) => {
+    if (timeString === "") {
+      return "";
     }
-    return newTime;
-  };
+  
+    const hour = parseInt(timeString.slice(0, 2));
+    const minute = timeString.slice(3, 5);
+    const meridian = hour >= 12 ? "PM" : "AM";
+    const newHour = hour % 12 || 12;
+  
+    return `${newHour}:${minute} ${meridian}`;
+  }
+  
 
   const routeToRestaurant = () => {
     history.push(`/restaurants/${restaurant.id}`);
