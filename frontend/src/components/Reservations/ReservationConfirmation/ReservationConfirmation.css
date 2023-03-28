@@ -1,0 +1,49 @@
+.res-confirmation-main {
+  display: block;
+}
+
+.res-confirmation-container {
+  display: flex;
+  justify-content: center;
+}
+
+.res-confirmation-inner {
+  display: block;
+  background: #f1f2f4;
+  margin-bottom: 16px;
+}
+
+.res-confirmation-holders {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  margin: 32px auto 5rem;
+  max-width: 61rem;
+}
+ 
+.res-confirmation-details {
+  display: block;
+  flex: 1 0 1%;
+  min-width: 0;
+}
+
+.res-confirmation-details-inner {
+  display: block;
+  background-color: #fff;
+  border: 0.0625rem solid #d8d9db;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.confirmation-details-div {
+  display: flex;
+  margin: 32px 32px 0;
+}
+
+.res-confirmation-restaurant-pic {
+  display: block;
+  line-height: 0;
+  margin-right: 16px;
+}
+
+
