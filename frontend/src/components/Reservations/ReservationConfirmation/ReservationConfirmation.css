@@ -50,9 +50,100 @@
   border-radius: 4px;
   width: auto;
   height: 7.75rem;
+  width: 7.75rem;
   overflow-clip-margin: content-box;
   overflow: clip;
+}
 
+.res-confirmation-deets {
+  flex: 1;
+  display: block;
+}
+
+.res-confirmed-and-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.res-name-and-confirmed {
+  display: block;
+  margin-right: 8px;
+}
+
+.res-name-and-confirmed h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0;
+  color: #2d333f;
+}
+
+.reservation-confirmed {
+  display: flex;
+  margin-top: 8px;
+  height: 24px;
+  align-items: center;
+}
+
+.reservation-confirmed span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
 }
 
 
+.reservation-confirmed h1 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #2d333f;
+}
+
+.res-confirmation-date-time-party {
+  display: block;
+}
+
+.party-date-time {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.party-section {
+  margin-right: 8px;
+  margin-top: 8px;
+  display: flex;
+  color: #2d333f;
+}
+
+.party-section span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
+}
+
+.date-time-section {
+  margin-top: 8px;
+  display: flex;
+  color: #2d333f;
+  font-size: 15px;
+}
+
+.date-time-section span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
+}
+
+.cancel-modify-add {
+  display: block;
+  margin-top: 8px;
+}
