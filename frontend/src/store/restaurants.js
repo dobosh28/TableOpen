@@ -27,6 +27,7 @@ export const fetchRestaurants = () => async (dispatch) => {
     if (response.ok) {
         const restaurants = await response.json();
         dispatch(receiveRestaurants(restaurants));
+        return restaurants;
     }
 };
 
@@ -36,6 +37,7 @@ export const fetchRestaurant = (restaurantId) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(receiveRestaurant(data.restaurant));
+        return data.restaurant;
     }
 };
 

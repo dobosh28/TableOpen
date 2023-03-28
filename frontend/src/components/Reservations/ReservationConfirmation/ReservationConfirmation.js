@@ -1,35 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservation, fetchReservation } from "../../../store/reservations";
-import { useParams } from "react-router-dom";
+import { getRestaurant, fetchRestaurant } from "../../../store/restaurants";
 import "./ReservationConfirmation.css";
-import { getRestaurant } from "../../../store/restaurants";
 
 const ReservationConfirmation = () => {
   const dispatch = useDispatch();
   const { reservationId } = useParams();
   const reservation = useSelector(getReservation(reservationId));
-  const restaurantId = reservation?.restaurantId;
-  const restaurant = useSelector((state) => state.restaurants[restaurantId]);
+  const { restaurantId } = reservation || {};
+  const restaurant = useSelector(getRestaurant(restaurantId));
 
-  
   useEffect(() => {
     dispatch(fetchReservation(reservationId));
-  }, [dispatch, reservationId ]);
+    if (restaurantId) {
+      dispatch(fetchRestaurant(restaurantId));
+    }
+  }, [dispatch, reservationId, restaurantId]);
 
-  const allReservations = useSelector(state => Object.values(state.reservations));
-  console.log(allReservations);
-  
-
-  
-
-
-  const formatDate = (dateString) => {
+  const formatDate = useCallback((dateString) => {
     const options = { weekday: "short", month: "short", day: "numeric" };
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", options);
-  };
-
+  }, []);
+  
   return (
     <>
       <main className="res-confirmation-main">
@@ -40,7 +35,7 @@ const ReservationConfirmation = () => {
                 <section className="res-confirmation-details-inner">
                   <div className="confirmation-details-div">
                     <div className="res-confirmation-restaurant-pic">
-                      <img src="" alt="" />
+                      <img src={restaurant?.photoUrl} alt="" />
                     </div>
                   </div>
                 </section>

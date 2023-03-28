@@ -46,4 +46,13 @@
   margin-right: 16px;
 }
 
+.res-confirmation-restaurant-pic img {
+  border-radius: 4px;
+  width: auto;
+  height: 7.75rem;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+
+}
+
 

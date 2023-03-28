@@ -34,7 +34,6 @@ const ReservationConfirmForm = () => {
       window.location.reload();
     } else {
       const { party_size, date, time } = location.state;
-      console.log(party_size, date, time);
       setReservationData((prevState) => ({
         ...prevState,
         party_size: party_size,
@@ -55,7 +54,7 @@ const ReservationConfirmForm = () => {
     const newReservation = await dispatch(createReservation(reservation));
     debugger;
     dispatch(receiveReservation(newReservation));
-    history.push(`/reservations/${newReservation.id}`);
+    history.push(`/reservations/${newReservation.id}/confirmation`);
   };
 
   const update = (field) => {

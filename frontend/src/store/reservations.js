@@ -1,4 +1,4 @@
-import csrfFetch from './csrf';
+import csrfFetch from "./csrf";
 
 const RECEIVE_RESERVATIONS = "reservations/RECEIVE_RESERVATIONS";
 const RECEIVE_RESERVATION = "reservations/RECEIVE_RESERVATION";
@@ -31,9 +31,9 @@ export const fetchReservations = () => async (dispatch) => {
   const response = await csrfFetch("/api/reservations");
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(receiveReservations(data.reservations));
-    return data.reservations;
+    const reservations = await response.json();
+    dispatch(receiveReservations(reservations));
+    return reservations;
   }
 };
 

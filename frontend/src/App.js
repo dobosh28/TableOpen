@@ -18,8 +18,8 @@ function App() {
           <Route exact path="/" component={LandingPageRestaurants} />
           <Route exact path="/restaurants/:restaurantId" component={RestaurantPage} />
           <Route exact path="/restaurants/*/reviews/:reviewId/form" component={ReviewForm} />
-          <Route exact path="/reservation/details"  component={ReservationConfirmForm} />
-          <Route exact path="/reservations/:reservationId"  component={ReservationConfirmation} />
+          <Route exact path="/reservation/details" component={ReservationConfirmForm} />
+          <Route exact path="/reservations/:reservationId/confirmation" component={ReservationConfirmation} />
         </Switch>
         
       </BrowserRouter>
