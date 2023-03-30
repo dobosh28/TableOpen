@@ -5,6 +5,7 @@
     align-items: center;
     height: 54px;
     padding-right: 52px;
+    border-bottom: .0625rem solid #f1f2f4
 }
 
 .logged-out-nav-bar .logo {
