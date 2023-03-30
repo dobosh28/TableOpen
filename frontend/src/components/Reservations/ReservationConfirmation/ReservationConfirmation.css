@@ -78,22 +78,21 @@
   line-height: 28px;
   margin: 0;
   color: #2d333f;
+  cursor: pointer;
 }
 
 .reservation-confirmed {
   display: flex;
   margin-top: 8px;
-  height: 24px;
-  align-items: center;
 }
 
 .reservation-confirmed span {
-  margin-right: 8px;
+  margin-right: 4px;
   display: inline-block;
-  height: 18px;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
+  min-width: 1.5rem;
+  width: 1.5rem;
 }
 
 
@@ -101,6 +100,8 @@
   font-size: 15px;
   font-weight: 400;
   color: #2d333f;
+  line-height: 24px;
+  margin: 0;
 }
 
 .res-confirmation-date-time-party {
@@ -118,36 +119,63 @@
   margin-top: 8px;
   display: flex;
   color: #2d333f;
+  line-height: 1.5rem;
+  font-size: 15px;
 }
 
 .party-section span {
-  margin-right: 8px;
+  margin-right: 4px;
   display: inline-block;
-  height: 18px;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  vertical-align: middle;
 }
 
 .date-time-section {
   margin-top: 8px;
   display: flex;
   color: #2d333f;
+  line-height: 1.5rem;
   font-size: 15px;
 }
 
 .date-time-section span {
-  margin-right: 8px;
+  margin-right: 4px;
   display: inline-block;
-  height: 18px;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  vertical-align: middle;
 }
 
 .cancel-modify-add {
   display: block;
   margin-top: 8px;
+  height: 24px;
+}
+
+.modify-reservation, .cancel-reservation {
+  border-right: .0625rem solid #d8d9db;
+  margin-right: 8px;
+  padding-right: 8px;
+  color: #da3743;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-to-calendar {
+  color: #da3743;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .menu-directions {
@@ -182,7 +210,12 @@
   background-color: #f1f2f4;
 }
 
-.browse-menu-icon, .get-directions span {
+.browse-menu-icon, .get-directions-icon {
+  align-items: center;
+  display: inline-flex;
+}
+
+.browse-menu-icon span {
   background-color: #da3743;
   border-radius: 100%;
   padding: 8px;
@@ -193,11 +226,50 @@
   width: 1.5rem;
 }
 
-.browse-menu-icon span svg {
-  fill: #fff;
+.get-directions-icon span {
+  background-color: #da3743;
+  border-radius: 100%;
+  padding: 8px;
+  display: inline-block;
+  line-height: 1;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.browse-menu-icon svg {
   height: 1.5rem;
   width: 1.5rem;
 }
+
+.browse-menu-text {
+  display: block;
+}
+
+.browse-menu-text h1{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 8px;
+  display: block;
+}
+
+.browse-menu-text h2 {
+  color: #6f737b;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.get-directions-text h1{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 8px;
+  display: block;
+}
+
 .curr-user-info {
   display: block;
   flex: 0 0 18.875rem;
