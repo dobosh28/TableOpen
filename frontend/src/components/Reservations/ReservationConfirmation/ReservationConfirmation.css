@@ -1,5 +1,6 @@
 .res-confirmation-main {
   display: block;
+  outline: 0;
 }
 
 .res-confirmation-container {
@@ -8,9 +9,10 @@
 }
 
 .res-confirmation-inner {
-  display: block;
   background: #f1f2f4;
   margin-bottom: 16px;
+  height: 100%;
+  width: 100%;
 }
 
 .res-confirmation-holders {
@@ -146,4 +148,87 @@
 .cancel-modify-add {
   display: block;
   margin-top: 8px;
+}
+
+.curr-user-info {
+  display: block;
+  flex: 0 0 18.875rem;
+  margin-left: 2.375rem;
+}
+
+.profile-header {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #6f737b;
+  margin-bottom: 16px;
+  padding: 24px;
+}
+
+.curr-user-name {
+  align-items: center;
+  color: #2d333f;
+  display: flex;
+  height: 32px;
+}
+
+.curr-user-name span {
+  margin-right: 12px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
+}
+
+.curr-user-name h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #2d333f;
+  font-weight: 400;
+}
+
+.curr-user-joined {
+  margin-bottom: 16px;
+  margin-left: 30px;
+  margin-top: 4px;
+  display: block;
+  font-size: 15px;
+  height: 24px;
+}
+
+.curr-user-location {
+  margin-bottom: 4px;
+  display: block;
+  height: 24px;
+  font-size: 15px;
+}
+
+.curr-user-location span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
+  width: 23px;
+  vertical-align: top;
+}
+
+.curr-user-reviews {
+  margin-bottom: 4px;
+  display: block;
+  height: 24px;
+  font-size: 15px;
+  
+}
+.curr-user-reviews span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 18px;
+  line-height: 1;
+  width: 18px;
+  align-items: center;
+  width: 23px;
+  vertical-align: top;
 }

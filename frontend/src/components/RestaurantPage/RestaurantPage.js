@@ -16,7 +16,6 @@ const RestaurantPage = () => {
   const reviews = Object.values(reviewsFromState).filter(
     (review) => review.restaurantId === parseInt(restaurantId)
   );
-  // console.log(reviews);
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
@@ -94,7 +93,7 @@ const RestaurantPage = () => {
               <header className="reviews-header">
                 <div className="reviews-text-div">
                   <h2 className="reviews-text">
-                    What {" "}
+                    What{" "}
                     {reviews?.length === 1
                       ? " 1 person is "
                       : reviews.length + " people are "}

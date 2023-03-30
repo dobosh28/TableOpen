@@ -50,10 +50,9 @@ const ReservationConfirmForm = () => {
     const reservation = {
       ...reservationData,
     };
-    // debugger;
     const newReservation = await dispatch(createReservation(reservation));
-    debugger;
     dispatch(receiveReservation(newReservation));
+    debugger;
     history.push(`/reservations/${newReservation.id}/confirmation`);
   };
 
@@ -70,15 +69,14 @@ const ReservationConfirmForm = () => {
     if (timeString === "") {
       return "";
     }
-  
+
     const hour = parseInt(timeString.slice(0, 2));
     const minute = timeString.slice(3, 5);
     const meridian = hour >= 12 ? "PM" : "AM";
     const newHour = hour % 12 || 12;
-  
+
     return `${newHour}:${minute} ${meridian}`;
-  }
-  
+  };
 
   const routeToRestaurant = () => {
     history.push(`/restaurants/${restaurant.id}`);
@@ -90,11 +88,11 @@ const ReservationConfirmForm = () => {
   };
 
   const formatDate = (dateString) => {
-    const options = { weekday: "short", month: "short", day: "numeric" };
+    const options = { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" };
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", options);
   };
-
+  
   return (
     <main className="main">
       <div className="contents">
@@ -104,7 +102,11 @@ const ReservationConfirmForm = () => {
               <h1 className="almost-done">You're almost done!</h1>
               <div className="photo-time-date-size">
                 <div className="restaurant-photo-div">
-                  <img src={restaurant.photoUrl} className="restaurant-photo" alt="" />
+                  <img
+                    src={restaurant.photoUrl}
+                    className="restaurant-photo"
+                    alt=""
+                  />
                 </div>
                 <div className="name-date-time-size">
                   <div
@@ -155,7 +157,9 @@ const ReservationConfirmForm = () => {
               <h2 className="diner-details">Diner details</h2>
               <div className="current-diner">
                 {current_user.firstName} {current_user.lastName} (
-                <span onClick={handleLogout}>Not {current_user.firstName}?</span>
+                <span onClick={handleLogout}>
+                  Not {current_user.firstName}?
+                </span>
                 )
               </div>
               <form

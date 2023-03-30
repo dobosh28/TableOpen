@@ -3,20 +3,28 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservation, fetchReservation } from "../../../store/reservations";
 import { getRestaurant, fetchRestaurant } from "../../../store/restaurants";
+import { fetchReviews } from "../../../store/reviews";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faMessage, faUser } from "@fortawesome/free-regular-svg-icons";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import "./ReservationConfirmation.css";
 
 const ReservationConfirmation = () => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
   const { reservationId } = useParams();
   const reservation = useSelector(getReservation(reservationId));
   const { restaurantId } = reservation || {};
   const restaurant = useSelector(getRestaurant(restaurantId));
+  const reviewsFromState = useSelector((state) => state.reviews);
+  const numReviews = Object.values(reviewsFromState).filter(
+    (review) => review.userId === sessionUser.id
+  ).length;
 
   useEffect(() => {
+    dispatch(fetchReviews());
     dispatch(fetchReservation(reservationId));
     if (restaurantId) {
       dispatch(fetchRestaurant(restaurantId));
@@ -24,7 +32,7 @@ const ReservationConfirmation = () => {
   }, [dispatch, reservationId, restaurantId]);
 
   const formatDate = useCallback((dateString) => {
-    const options = { weekday: "short", month: "short", day: "numeric" };
+    const options = { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" };
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", options);
   }, []);
@@ -35,9 +43,17 @@ const ReservationConfirmation = () => {
       hour: "numeric",
       minute: "numeric",
       hour12: true,
-      timeZone: "UTC", // Set the time zone to match the "Z" in the input time string
+      timeZone: "UTC",
     };
     return date.toLocaleTimeString("en-US", options);
+  }, []);
+
+  const joinedDate = useCallback((dateString) => {
+    const formattedDate = new Date(dateString).toLocaleString("en-US", {
+      month: "long",
+      year: "numeric",
+    });
+    return formattedDate;
   }, []);
 
   return (
@@ -107,13 +123,76 @@ const ReservationConfirmation = () => {
                           </section>
                         </div>
                         <div className="cancel-modify-add">
-
+                          <button className="modify-reservation">Modify</button>
+                          <button className="cancel-reservation">Cancel</button>
+                          <button className="add-to-calendar">
+                            Add to calendar
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
               </section>
+              <div className="curr-user-info">
+                <aside>
+                  <div className="profile-header">
+                    <div className="curr-user-name">
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faUser}
+                          style={{
+                            color: "#2d333f",
+                            width: "18px",
+                            height: "18px",
+                            lineHeight: "24px",
+                          }}
+                          className="fa-user"
+                        />
+                      </span>
+                      <h2>
+                        {sessionUser.firstName} {sessionUser.lastName}
+                      </h2>
+                    </div>
+                    <div className="curr-user-joined">
+                      Joined in {joinedDate(sessionUser.createdAt.slice(0, 10))}
+                    </div>
+                    <div className="curr-user-location">
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faLocationDot}
+                          style={{
+                            color: "#2d333f",
+                            width: "18px",
+                            height: "18px",
+                            lineHeight: "24px",
+                          }}
+                        />
+                      </span>
+                      New York Area
+                    </div>
+                    {numReviews > 0 && (
+                      <div className="curr-user-reviews">
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faMessage}
+                            style={{
+                              color: "#2d333f",
+                              width: "18px",
+                              height: "18px",
+                              lineHeight: "24px",
+                              transform: "scaleX(-1)",
+                            }}
+                          />
+                        </span>
+                        {numReviews > 1
+                          ? `${numReviews} reviews`
+                          : `${numReviews} review`}
+                      </div>
+                    )}
+                  </div>
+                </aside>
+              </div>
             </div>
           </div>
         </div>
