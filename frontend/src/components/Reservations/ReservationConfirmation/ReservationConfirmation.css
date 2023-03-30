@@ -150,6 +150,54 @@
   margin-top: 8px;
 }
 
+.menu-directions {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 32px 32px 32px ;
+}
+
+.browse-menu, .get-directions {
+  background-color: #fff;
+  border: .0625rem solid #f1f2f4;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem 0 #2d333f33;
+  box-sizing: border-box;
+  color: #2d333f;
+  display: inline-block;
+  flex: 0 0 calc(50% - 8px);
+  outline: none;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.browse-menu:hover {
+  transition: all .3s ease-out;
+  background-color: #f1f2f4;
+}
+
+.get-directions:hover {
+  transition: all .3s ease-out;
+  background-color: #f1f2f4;
+}
+
+.browse-menu-icon, .get-directions span {
+  background-color: #da3743;
+  border-radius: 100%;
+  padding: 8px;
+  display: inline-block;
+  line-height: 1;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.browse-menu-icon span svg {
+  fill: #fff;
+  height: 1.5rem;
+  width: 1.5rem;
+}
 .curr-user-info {
   display: block;
   flex: 0 0 18.875rem;
@@ -169,29 +217,24 @@
   align-items: center;
   color: #2d333f;
   display: flex;
-  height: 32px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+ 
 }
 
 .curr-user-name span {
-  margin-right: 12px;
+  margin-right: 8px;
   display: inline-block;
-  height: 18px;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
-}
-
-.curr-user-name h2 {
-  font-size: 24px;
-  font-weight: 400;
-  color: #2d333f;
-  font-weight: 400;
+  width: 1.5rem;
+  min-width: 1.5rem;
 }
 
 .curr-user-joined {
   margin-bottom: 16px;
-  margin-left: 30px;
-  margin-top: 4px;
+  margin-left: 32px;
   display: block;
   font-size: 15px;
   height: 24px;
@@ -200,35 +243,33 @@
 .curr-user-location {
   margin-bottom: 4px;
   display: block;
-  height: 24px;
   font-size: 15px;
 }
 
 .curr-user-location span {
-  margin-right: 8px;
   display: inline-block;
-  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
-  width: 23px;
-  vertical-align: top;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  font-size: 0;
 }
 
 .curr-user-reviews {
-  margin-bottom: 4px;
+  margin-bottom: 0;
   display: block;
-  height: 24px;
   font-size: 15px;
-  
 }
+
 .curr-user-reviews span {
-  margin-right: 8px;
   display: inline-block;
-  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  height: 1.5rem;
   line-height: 1;
-  width: 18px;
-  align-items: center;
-  width: 23px;
-  vertical-align: top;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  font-size: 0;
 }
