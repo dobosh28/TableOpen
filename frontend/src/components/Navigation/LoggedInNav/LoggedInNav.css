@@ -1,10 +1,11 @@
 .logged-in-nav-bar {
+    padding: 0 16px 0 0;
+    height: 3.375rem;
+    background-color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 54px;
-    padding-right: 52px;
     border-bottom: .0625rem solid #f1f2f4;
 }
 
@@ -12,3 +13,184 @@
     margin-left: 16px;
 }
 
+.logged-in-right-nav-bar {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    opacity: 1;
+}
+
+.profile-calendar-container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+}
+
+.profile-calendar {
+    display: flex;
+}
+
+.profile {
+    display: block;
+}
+
+.profile-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.profile-inner button {
+    color: #2d333f;
+    font-size: 15px;
+    margin: 0 4px;
+    outline: none;
+    padding: 0;
+    position: relative;
+    background-color: initial;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+}
+
+.inside-button-div {
+    align-items: center;
+    background: #f1f2f4;
+    border: .0625rem solid #d8d9db;
+    border-radius: 50%;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    width: 32px;
+}
+
+.inside-button-div span {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    min-width: 1.5rem;
+    line-height: 1;
+}
+
+.calendar-in-nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.calendar-in-nav button {
+    height: 32px;
+    margin: 0 4px;
+    outline: none;
+    padding: 0;
+    width: 32px;
+    background-color: initial;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.calendar-in-nav button::before {
+    background-image: url(https://cdn.otstatic.com/cfe/11/images/ic_calendar-4ae3b3.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto 1.5rem;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    height: 32px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    z-index: 0;
+}
+
+.calendar-in-nav button div{
+    background-color: #da3743;
+    border-radius: 50%;
+    left: 20px;
+    padding: 4px;
+    position: absolute;
+    top: 4px;
+}
+
+.notif-bell {
+    border-right: .0625rem solid #d8d9db;
+    padding-right: 16px;
+    position: relative;
+}
+
+.notif-bell div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.notif-bell button {
+    height: 32px;
+    margin: 0 4px;
+    outline: none;
+    padding-right: 16px;
+    width: 32px;
+    background-color: initial;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.notif-bell button::before {
+    background-image: url(https://cdn.otstatic.com/cfe/11/images/ic_bell-5e4dec.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto 1.5rem;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    height: 32px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    z-index: 0;
+}
+
+.notif-bell button:hover::before {
+    transition: all .3s ease-out;
+    background-color: #f1f2f4;
+}
+
+.search-mg-nav {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.search-mg-nav button {
+    padding: 0 16px;
+    align-items: center;
+    background-color: initial;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+}
+
+.search-mg-nav button span {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    min-width: 1.5rem;
+    line-height: 1;
+}

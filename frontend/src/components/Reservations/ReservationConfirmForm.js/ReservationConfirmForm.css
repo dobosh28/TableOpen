@@ -39,9 +39,9 @@
 }
 
 .what-to-know {
-  font-weight: 700;
+  font-weight: 600;
   margin: 16px 0;
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.5rem;
 }
 
@@ -53,8 +53,8 @@
 .important-info {
   display: block;
   margin: 0;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
   line-height: 20px;
   white-space: pre-line;
   text-size-adjust: 100%;
@@ -66,9 +66,9 @@
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 300;
   white-space: pre-line;
   text-size-adjust: 100%;
 }
@@ -77,8 +77,8 @@
   display: block;
   flex-basis: 100%;
   margin-bottom: 16px;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 24px;
   color: #2d333f;
 }
@@ -99,8 +99,19 @@
   overflow-y: clip;
   overflow-x: clip;
   border-radius: 4px;
+  object-fit: cover;
 }
 
+.dropdown-arrow {
+  pointer-events: none;
+  position: absolute;
+  right: 4px;
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
 .name-date-time-size {
   display: flex;
   flex-direction: column;
@@ -117,8 +128,8 @@
 .restaurant-name-res {
   display: block;
   margin-bottom: 4px;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
   line-height: 28px;
   text-size-adjust: 100%;
   cursor: pointer;
@@ -151,10 +162,12 @@
 }
 
 .dts-list span {
-  display: block;
-  min-width: 24px;
-  height: 24px;
-  width: 24px;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: inline-block;
+  line-height: 1;
+  min-width: 1.5rem;
+
 }
 
 .fa-calendar, .fa-clock, .fa-user {
@@ -167,8 +180,8 @@
   justify-content: center;
   margin-left: 8px;
   margin-right: 8px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 24px;
   text-align: left;
 }
@@ -176,7 +189,7 @@
 .diner-details {
   display: block;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 24px;
 }
@@ -185,9 +198,14 @@
   display: block;
   margin-bottom: 8px;
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 24px;
+}
+
+.not-user:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .reservation-confirm-form {
@@ -213,14 +231,15 @@
   position: relative;
 }
 
-.occasion-div select {
-  color: #6f737b;
+.occasion-select {
+  -webkit-appearance: none;
+          appearance: none;
   background-color: #fff;
   border: .0625rem solid #d8d9db;
   border-radius: 4px;
   box-sizing: border-box;
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   height: 100%;
   min-height: 48px;
   padding: .875rem 32px .875rem 8px;
@@ -228,7 +247,7 @@
   width: 100%;
 }
 
-option[value="None"] {
+.default-option {
   color: #6f737b;
 }
 
@@ -239,7 +258,7 @@ option[value="None"] {
   border-radius: 4px;
   box-sizing: border-box;
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   height: 100%;
   min-height: 48px;
   padding: .875rem 32px .875rem 8px;
@@ -260,7 +279,7 @@ option[value="None"] {
   border-radius: 4px;
   box-sizing: border-box;
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   color: #2d333f;
 }
@@ -283,6 +302,7 @@ option[value="None"] {
   font-family: inherit;
 }
 
+
 .email-div {
   background: #fff;
   border: .0625rem solid #d8d9db;
@@ -304,7 +324,7 @@ option[value="None"] {
   min-height: 48px;
   padding: 0.75rem 8px;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .special-request-div:hover {
@@ -339,10 +359,10 @@ option[value="None"] {
 }
 
 .confirmation-statement {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   display: block;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .table-open-span {

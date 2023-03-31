@@ -55,6 +55,7 @@
   width: 7.75rem;
   overflow-clip-margin: content-box;
   overflow: clip;
+  object-fit: cover;
 }
 
 .res-confirmation-deets {

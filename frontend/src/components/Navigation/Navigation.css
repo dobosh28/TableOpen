@@ -47,22 +47,6 @@
     cursor: pointer;
 }
 
-.profile-button {
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    margin-right: 15px;
-    height: 48px;
-    width: 40px;
-}
-
-/* .profile-icon {
-    height: 39px;
-    width: 39px;
-    margin-top: 4px;
-    margin-right: 10px;
-    margin-left: -2px;
-} */
 
 #favicon {
     height: 39px;
@@ -88,11 +72,6 @@
     z-index: 1;
     width: 316px;
 }
-
-/* .profile-dropdown li {
-    text-align: right;
-    margin: 5px;
-} */
 
 .dropdown-greeting {
     padding-bottom: 8px;
