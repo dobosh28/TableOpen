@@ -4,7 +4,7 @@ import "./LoggedInNav.css";
 import "../Navigation.css";
 import logo from "../../../icons/logo.png";
 
-function LoggedInNav({ sessionUser }) {
+const LoggedInNav = ({ sessionUser }) => {
   return (
     <nav className="logged-in-nav">
       <div className="above-nav">

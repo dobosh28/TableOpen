@@ -241,6 +241,7 @@ ApplicationRecord.transaction do
   restaurant_9.photo.attach(io: photo_9, filename: 'photo_9.webp')
   restaurant_10.photo.attach(io: photo_10, filename: 'photo_10.jpeg')
 
+  puts "Creating reviews..."
   review_1 = Review.create!(
     overall: 5,
     service: 5,
@@ -275,6 +276,18 @@ ApplicationRecord.transaction do
     nickname: "IvanD",
     user_id: user_1.id,
     restaurant_id: restaurant_2.id
+  )
+
+  review_4 = Review.create!(
+    overall: 5,
+    service: 5,
+    food: 5,
+    ambience: 5,
+    value: 4,
+    body: "The food was delicious and beautifully presented at this restaurant. The staff were attentive and provided excellent service. Overall, it was a fantastic dining experience.",
+    nickname: "DemoU",
+    user_id: user_3.id,
+    restaurant_id: restaurant_6.id
   )
 
   puts "Done!"

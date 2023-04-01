@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function RestaurantImageLoading({ src }) {
+const  RestaurantImageLoading = ({ src }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
