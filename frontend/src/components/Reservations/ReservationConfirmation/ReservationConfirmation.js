@@ -152,7 +152,7 @@ const ReservationConfirmation = () => {
                             Cancel
                           </button>
                           {showModal && (
-                            <Modal onClose={() => setShowModal(false)}>
+                            <Modal onClose={() => setShowModal(false)} className="res-cancel-modal" >
                               <ReservationCancel reservation={reservation} />
                             </Modal>
                           )}

@@ -1,3 +1,7 @@
+.login-modal {
+  max-width: 28.75rem;
+}
+
 .login-form {
   display: flex-start;
   flex-direction: column;
