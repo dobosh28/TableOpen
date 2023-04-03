@@ -4,7 +4,7 @@ import NavBar from "./components/Navigation/NavBar";
 import LandingPageRestaurants from "./components/Restaurants/AllRestaurants";
 import RestaurantPage from "./components/RestaurantPage/RestaurantPage";
 import ReviewForm from "./components/Reviews/ReviewForm";
-import ReservationConfirmForm from "./components/Reservations/ReservationConfirmForm.js/ReservationConfirmForm";
+import ReservationConfirmForm from "./components/Reservations/ReservationConfirmForm/ReservationConfirmForm";
 import ReservationConfirmation from "./components/Reservations/ReservationConfirmation/ReservationConfirmation";
 
 

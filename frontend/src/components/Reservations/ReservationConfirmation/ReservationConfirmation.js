@@ -1,9 +1,11 @@
-import { useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservation, fetchReservation } from "../../../store/reservations";
 import { getRestaurant, fetchRestaurant } from "../../../store/restaurants";
 import { fetchReviews } from "../../../store/reviews";
+import ReservationCancel from "../ReservationCancelModal/ReservationCancel";
+import { Modal } from "../../../context/Modal";
 import "./ReservationConfirmation.css";
 
 const ReservationConfirmation = () => {
@@ -18,6 +20,7 @@ const ReservationConfirmation = () => {
   const numReviews = Object.values(reviewsFromState).filter(
     (review) => review.userId === sessionUser.id
   ).length;
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchReviews());
@@ -59,6 +62,10 @@ const ReservationConfirmation = () => {
 
   const routeToRestaurant = () => {
     history.push(`/restaurants/${restaurant.id}`);
+  };
+
+  const handleCancelReservation = () => {
+    setShowModal(true);
   };
 
   return (
@@ -138,7 +145,17 @@ const ReservationConfirmation = () => {
                         </div>
                         <div className="cancel-modify-add">
                           <button className="modify-reservation">Modify</button>
-                          <button className="cancel-reservation">Cancel</button>
+                          <button
+                            onClick={handleCancelReservation}
+                            className="cancel-reservation"
+                          >
+                            Cancel
+                          </button>
+                          {showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                              <ReservationCancel reservation={reservation} />
+                            </Modal>
+                          )}
                           <button className="add-to-calendar">
                             Add to calendar
                           </button>
