@@ -52,6 +52,10 @@ const ReservationConfirmForm = () => {
       newError.phone_number = "Your phone number format is invalid.";
     } else if (reservationData.phone_number.length === 0) {
       newError.phone_number = "Phone number is required.";
+    } else if (reservationData.phone_number.length > 10) {
+      newError.phone_number = "Your phone number format is invalid.";
+    } else if (!/^\d+$/.test(reservationData.phone_number)) {
+      newError.phone_number = "Your phone number format is invalid.";
     }
 
     const reservation = {
@@ -84,7 +88,12 @@ const ReservationConfirmForm = () => {
         newError.phone_number = "Your phone number format is invalid.";
       } else if (field === "phone_number" && e.target.value.length === 0) {
         newError.phone_number = "Phone number is required.";
+      } else if (field === "phone_number" && e.target.value.length > 10) {
+        newError.phone_number = "Your phone number format is invalid.";
+      } else if (field === "phone_number" && !/^\d+$/.test(e.target.value)) {
+        newError.phone_number = "Your phone number format is invalid.";
       }
+      
       setError(newError);
     };
   };
