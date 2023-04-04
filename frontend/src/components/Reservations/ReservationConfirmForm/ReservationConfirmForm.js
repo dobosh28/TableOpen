@@ -93,7 +93,7 @@ const ReservationConfirmForm = () => {
             " "
           )} format is invalid.`;
         } else {
-          delete newError[field]; // remove error for current field if input is valid
+          delete newError[field];
         }
 
         return newError;
