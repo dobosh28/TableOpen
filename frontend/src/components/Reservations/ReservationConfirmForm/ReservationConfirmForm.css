@@ -251,7 +251,7 @@
   color: #6f737b;
 }
 
-.phone-div input {
+.phone-input {
   color: #2d333f;
   background-color: #fff;
   border: .0625rem solid #d8d9db;
@@ -264,6 +264,22 @@
   padding: .875rem 32px .875rem 8px;
   resize: vertical;
   width: 100%;
+}
+
+.error-phone-input {
+  color: #2d333f;
+  background-color: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 15px;
+  height: 100%;
+  min-height: 48px;
+  padding: .875rem 32px .875rem 8px;
+  resize: vertical;
+  width: 100%;
+  border-color: #931b23;
 }
 
 .form-inputs__special-request, .form-inputs__email {

@@ -11,6 +11,7 @@ const ReservationConfirmForm = () => {
   const history = useHistory();
   const location = useLocation();
   const { restaurant, current_user } = location.state;
+  const [error, setError] = useState({});
 
   const [reservationData, setReservationData] = useState({
     party_size: 2,
@@ -43,9 +44,25 @@ const ReservationConfirmForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const newError = {};
+    if (
+      reservationData.phone_number.length > 0 &&
+      reservationData.phone_number.length < 10
+    ) {
+      newError.phone_number = "Your phone number format is invalid.";
+    } else if (reservationData.phone_number.length === 0) {
+      newError.phone_number = "Phone number is required.";
+    }
+
     const reservation = {
       ...reservationData,
     };
+
+    if (Object.keys(newError).length > 0) {
+      setError(newError);
+      return;
+    }
+
     const newReservation = await dispatch(createReservation(reservation));
     dispatch(receiveReservation(newReservation));
     history.push(`/reservations/${newReservation.id}/confirmation`);
@@ -57,6 +74,18 @@ const ReservationConfirmForm = () => {
         ...prevState,
         [field]: e.target.value,
       }));
+
+      const newError = {};
+      if (
+        field === "phone_number" &&
+        e.target.value.length > 0 &&
+        e.target.value.length < 10
+      ) {
+        newError.phone_number = "Your phone number format is invalid.";
+      } else if (field === "phone_number" && e.target.value.length === 0) {
+        newError.phone_number = "Phone number is required.";
+      }
+      setError(newError);
     };
   };
 
@@ -193,12 +222,30 @@ const ReservationConfirmForm = () => {
                   <div className="form-inputs__phone">
                     <div className="phone-div">
                       <input
-                        className="phone-input"
+                        className={
+                          error.phone_number
+                            ? "error-phone-input"
+                            : "phone-input"
+                        }
                         type="text"
                         placeholder="Phone number"
                         onChange={update("phone_number")}
                       />
                     </div>
+                    {error.phone_number && (
+                      <p
+                        style={{
+                          color: "#931b23",
+                          display: "inline-block",
+                          marginLeft: "8px",
+                          marginTop: "4px",
+                          fontSize: "13px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        {error.phone_number}
+                      </p>
+                    )}
                   </div>
                   <div className="form-inputs__email">
                     <div className="email-div">

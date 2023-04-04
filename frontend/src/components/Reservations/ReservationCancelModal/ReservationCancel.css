@@ -79,6 +79,10 @@
   width: auto;
 }
 
+.nevermind-button:active {
+  color: #2d333f;
+}
+
 .cancel-button {
   font-size: 13px;
   line-height: 20px;
