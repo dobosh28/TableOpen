@@ -45,27 +45,24 @@ const ReservationConfirmForm = () => {
     e.preventDefault();
 
     const newError = {};
-    if (
-      reservationData.phone_number.length > 0 &&
-      reservationData.phone_number.length < 10
+    if (reservationData.phone_number.length === 0) {
+      newError.phone_number = "Phone number is required.";
+    } else if (
+      reservationData.phone_number.length < 10 ||
+      reservationData.phone_number.length > 10 ||
+      !/^\d+$/.test(reservationData.phone_number)
     ) {
       newError.phone_number = "Your phone number format is invalid.";
-    } else if (reservationData.phone_number.length === 0) {
-      newError.phone_number = "Phone number is required.";
-    } else if (reservationData.phone_number.length > 10) {
-      newError.phone_number = "Your phone number format is invalid.";
-    } else if (!/^\d+$/.test(reservationData.phone_number)) {
-      newError.phone_number = "Your phone number format is invalid.";
     }
-
-    const reservation = {
-      ...reservationData,
-    };
 
     if (Object.keys(newError).length > 0) {
       setError(newError);
       return;
     }
+
+    const reservation = {
+      ...reservationData,
+    };
 
     const newReservation = await dispatch(createReservation(reservation));
     dispatch(receiveReservation(newReservation));
@@ -79,22 +76,28 @@ const ReservationConfirmForm = () => {
         [field]: e.target.value,
       }));
 
-      const newError = {};
-      if (
-        field === "phone_number" &&
-        e.target.value.length > 0 &&
-        e.target.value.length < 10
-      ) {
-        newError.phone_number = "Your phone number format is invalid.";
-      } else if (field === "phone_number" && e.target.value.length === 0) {
-        newError.phone_number = "Phone number is required.";
-      } else if (field === "phone_number" && e.target.value.length > 10) {
-        newError.phone_number = "Your phone number format is invalid.";
-      } else if (field === "phone_number" && !/^\d+$/.test(e.target.value)) {
-        newError.phone_number = "Your phone number format is invalid.";
-      }
-      
-      setError(newError);
+      setError((prevState) => {
+        const newError = { ...prevState };
+
+        if (e.target.value.length === 0) {
+          newError[field] = `${
+            field.charAt(0).toUpperCase() + field.slice(1).replace("_", " ")
+          } is required.`;
+        } else if (
+          e.target.value.length < 10 ||
+          e.target.value.length > 10 ||
+          !/^\d+$/.test(e.target.value)
+        ) {
+          newError[field] = `Your ${field.replace(
+            "_",
+            " "
+          )} format is invalid.`;
+        } else {
+          delete newError[field]; // remove error for current field if input is valid
+        }
+
+        return newError;
+      });
     };
   };
 
