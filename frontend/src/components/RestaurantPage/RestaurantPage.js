@@ -111,6 +111,7 @@ const RestaurantPage = () => {
             <div className="reservation-form-takeout-box">
               <ReservationForm />
             </div>
+            
           </div>
         </div>
       </div>

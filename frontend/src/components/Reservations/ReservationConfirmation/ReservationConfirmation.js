@@ -63,6 +63,10 @@ const ReservationConfirmation = () => {
     history.push(`/restaurants/${restaurant.id}`);
   };
 
+  const routeToModifyReservation = () => {
+    history.push(`/reservations/${reservation.id}/modify`);
+  };
+
   const handleCancelReservation = () => {
     setShowModal(true);
   };
@@ -143,7 +147,12 @@ const ReservationConfirmation = () => {
                           </section>
                         </div>
                         <div className="cancel-modify-add">
-                          <button className="modify-reservation">Modify</button>
+                          <button
+                            className="modify-reservation"
+                            onClick={routeToModifyReservation}
+                          >
+                            Modify
+                          </button>
                           <button
                             onClick={handleCancelReservation}
                             className="cancel-reservation"
