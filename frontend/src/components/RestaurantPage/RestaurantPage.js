@@ -64,6 +64,7 @@ const RestaurantPage = () => {
                     <button className="nav-button">Reviews</button>
                   </li>
                 </ol>
+                <div></div>
               </nav>
             </section>
             <section className="restaurant-details">

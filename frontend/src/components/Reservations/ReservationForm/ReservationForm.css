@@ -1,9 +1,9 @@
 .reservation-form-container {
   display: block;
-  padding: 16px;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 4px #2d333f33;
+  padding: 16px;
 }
 
 .make-a-reservation {
@@ -12,8 +12,8 @@
   color: #2d333f;
   padding: 0 0 0.75rem;
   text-align: center;
-  font-size: 1.125rem;
-  font-weight: 900;
+  font-size: 17px;
+  font-weight: 600;
   line-height: 1.5rem;
 }
 
@@ -24,45 +24,193 @@
 
 .party-size-picker {
   display: block;
+  height: 66.4px;
 }
 
 .party-size-label {
   margin-left: 16px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
+  color: #2d333f;
 }
 
 .party-size-select-holder {
   background: #fff;
-  height: 48px;
+  height: 3rem;
   position: relative;
   display: block;
-  color: rgb(45, 51, 63);
-  background-origin: padding-box;
+  align-items: center;
 }
 
 .party-size-select {
-  align-items: center;
+  -webkit-appearance: none;
+          appearance: none;
   bottom: 0px;
-  box-sizing: border-box;
-  display: block;
-  height: 48px;
+  cursor: pointer;
+  font: inherit;
+  height: 24px;
+  left: 0;
   position: absolute;
-  width: calc(100% - 32px);
-  font-size: 16px;
-  font-weight: 400;
-  text-align: start;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border-bottom-color: rgb(118, 118, 118);
+  right: 0;
+  top: 0;
+  width: 264px;
+  margin-left: 16px;
+  margin-top: 16px;
+  border: none;
+  font-size: 13px;
+  font-weight: 300;
+  color: #2d333f;
+}
+
+.party-size-span {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  margin-top: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.party-size-select-div {
+  font-size: 13px;
+  font-weight: 300;
+  padding: 0 .3125rem;
+  color: #2d333f;
+  display: flex;
+  height: 100%;
 
 }
 
-.party-size-select option {
-  display: block;
-  min-height: 19.2px;
-  padding-bottom: 1px;
-  padding-top: 0px;
-  padding-left: 2px;
-  padding-right: 2px;
+.party-size-select-inner-div {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  height: 100%;
+  padding: .1875rem;
+}
+
+.party-size-select-inner-div2 {
+  flex: 1;
+  margin-left: 4px;
+  overflow: hidden;
+  padding: 0 4px;
+}
+
+.hr-1 {
+  margin: 0 16px 8px;
+  background-color: #d8d9db;
+  border: none;
+  height: .0625rem;
+}
+
+.date-time-tags {
+  display: flex;
+  height: 16.09px;
+  align-items: center;
+}
+
+.date-time-tags label {
+  width: 50%;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d333f;
+  margin-left: 16px;
+}
+
+.date-time {
+  display: flex;
+}
+
+.date-time div {
+  width: 50%;
+  height: 3rem;
+}
+
+.res-date input {
+  border: none;
+  font: inherit;
+  margin-left: 16px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 300;
+  width: 129px;
+  cursor: pointer;
+}
+
+.res-time input {
+  border: none;
+  font: inherit;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 300;
+  width: 80%;
+  cursor: pointer;
+}
+
+.hr-hr {
+  display: flex;
+}
+
+.hr-2 {
+  background-color: #d8d9db;
+  border: none;
+  height: .0625rem;
+  margin: 0 16px;
+  width: 50%;
+}
+
+.hr-3 {
+  background-color: #d8d9db;
+  border: none;
+  height: .0625rem;
+  margin: 0 16px;
+  width: 50%;
+}
+
+.find-time {
+  border-radius: 4px;
+  margin: 16px 16px 0;
+  min-width: 9rem;
+  overflow: hidden;
+  height: 48px;
+}
+
+.reservation-input-submit-2 {
+  background-color: #da3743;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+}
+
+.times-booked {
+  color: #2d333f;
+  margin: 16px 16px 0;
+}
+
+.times-booked-span {
+  align-items: center;
+  color: #2d333f;
+  display: flex;
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.times-booked-span span {
+  padding-right: 4px;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
 }
