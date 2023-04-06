@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getReservation } from "../../../store/reservations";
+import { getReservation, fetchReservation } from "../../../store/reservations";
 import { getRestaurant, fetchRestaurant } from "../../../store/restaurants";
 import { fetchReviews } from "../../../store/reviews";
 import ReservationCancel from "../ReservationCancelModal/ReservationCancel";
@@ -24,6 +24,7 @@ const ReservationConfirmation = () => {
 
   useEffect(() => {
     dispatch(fetchReviews());
+    dispatch(fetchReservation(reservationId));
     if (restaurantId) {
       dispatch(fetchRestaurant(restaurantId));
     }
