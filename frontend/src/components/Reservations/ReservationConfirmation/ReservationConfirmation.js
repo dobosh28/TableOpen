@@ -12,34 +12,37 @@ import { useLocation } from "react-router-dom";
 const ReservationConfirmation = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
   const sessionUser = useSelector((state) => state.session.user);
+
   const { reservationId } = useParams();
   const reservation = useSelector(getReservation(reservationId));
+
   const { restaurantId } = reservation || {};
   const restaurant = useSelector(getRestaurant(restaurantId));
+
   const reviewsFromState = useSelector((state) => state.reviews);
   const numReviews = Object.values(reviewsFromState).filter(
     (review) => review.userId === sessionUser.id
   ).length;
+
   const [showModal, setShowModal] = useState(false);
 
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const [showCancelModal, setShowCancelModal] = useState(false);
-
   useEffect(() => {
-    if (params.get("showCancelModal") === "true") {
-      setShowCancelModal(true);
+    if (params.get("Modal") === "open") {
+      setShowModal(true);
     } else {
-      setShowCancelModal(false);
+      setShowModal(false);
     }
   }, [params]);
 
-  const routeToCancelReservationModal = () => {
-    history.push(`/reservations/${reservationId}/confirmation/?showCancelModal=true`);
+  const openModal = () => {
+    history.push(`/reservations/${reservationId}/confirmation/?Modal=open`);
   };
 
-  const routeToReservationConfirmation = () => {
+  const closeModal = () => {
     history.replace(`/reservations/${reservationId}/confirmation`);
   };
 
@@ -92,10 +95,6 @@ const ReservationConfirmation = () => {
 
   const routeToModifyReservation = () => {
     history.push(`/reservations/${reservation.id}/modify`);
-  };
-
-  const handleCancelReservation = () => {
-    setShowModal(true);
   };
 
   return (
@@ -181,14 +180,14 @@ const ReservationConfirmation = () => {
                             Modify
                           </button>
                           <button
-                            onClick={routeToCancelReservationModal}
+                            onClick={openModal}
                             className="cancel-reservation"
                           >
                             Cancel
                           </button>
-                          {showCancelModal && (
+                          {showModal && (
                             <Modal
-                              onClose={routeToReservationConfirmation}
+                              onClose={closeModal}
                               className="res-cancel-modal"
                             >
                               <ReservationCancel reservation={reservation} />

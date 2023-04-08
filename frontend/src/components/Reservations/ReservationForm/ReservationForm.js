@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
@@ -54,9 +54,9 @@ const ReservationForm = () => {
     return `${newHour}:${minute} ${meridian}`;
   };
 
-  const timesBooked = () => {
+  const timesBooked = useMemo(() => {
     return Math.floor(Math.random() * (74 - 12 + 1) + 12);
-  };
+  }, []);
 
   return (
     <article className="reservation-form-container">
@@ -162,12 +162,12 @@ const ReservationForm = () => {
                 </g>
               </svg>
             </span>
-            Booked {timesBooked()} times today
+            Booked {timesBooked} times today
           </span>
         </section>
 
         {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
+          <Modal onClose={() => setShowModal(false)} className="auth-modal">
             <LoginForm />
           </Modal>
         )}

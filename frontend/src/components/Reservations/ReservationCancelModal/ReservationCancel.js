@@ -12,11 +12,6 @@ const ReservationCancel = ({ reservation, onClose }) => {
   const [showModal, setShowModal] = useState(true);
   const reservationId = reservation.id;
 
-  const handleCancel = (e) => {
-    e.preventDefault();
-    setShowModal(false);
-  };
-
   const handleDelete = async (e) => {
     e.preventDefault();
     await dispatch(deleteReservation(reservation.id));
@@ -45,7 +40,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
     return date.toLocaleTimeString("en-US", options);
   }, []);
 
-  const routeToReservationConfirmation = () => {
+  const closeModal = () => {
     history.replace(`/reservations/${reservationId}/confirmation`);
   };
   return (
@@ -53,7 +48,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
       
         <div className="reservation-cancel">
           <div className="reservation-cancel-inner">
-            <button className="close-modal-button" onClick={routeToReservationConfirmation}>
+            <button className="close-modal-button" onClick={closeModal}>
               <span>
                 <svg viewBox="0 0 24 24" focusable="false">
                   <g fill="none" fillRule="evenodd">
@@ -110,7 +105,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
                 </section>
               </div>
               <div className="nevermind-cancel">
-                <button className="nevermind-button" onClick={routeToReservationConfirmation}>
+                <button className="nevermind-button" onClick={closeModal}>
                   Nevermind
                 </button>
                 <button className="cancel-button" onClick={handleDelete}>

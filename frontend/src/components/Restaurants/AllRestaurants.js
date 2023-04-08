@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchRestaurants } from "../../store/restaurants";
+import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import RestaurantItem from "./RestaurantItem";
 import "./AllRestaurants.css";
 
 const LandingPageRestaurants = () => {
   const dispatch = useDispatch();
-  const restaurants = useSelector((state) => Object.values(state.restaurants));
+  const restaurants = useSelector(getRestaurants);
 
   useEffect(() => {
     dispatch(fetchRestaurants());
