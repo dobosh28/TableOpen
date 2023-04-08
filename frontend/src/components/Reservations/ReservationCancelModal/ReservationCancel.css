@@ -1,5 +1,6 @@
 .res-cancel-modal {
   max-width: 30.5rem;
+  z-index: 1;
 }
 
 .reservation-cancel {

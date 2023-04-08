@@ -36,44 +36,32 @@
 }
 
 .restaurants-outer-container {
-  display: block;
+  background-color: #fff;
+  padding-top: .0625rem;
+  width: 100%;
   max-width: 1600px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .restaurants-inner-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: calc(5% - 0px);
-  margin-right: calc(5% - 0px);
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 80rem;
+  width: 100%;
 }
 
-@media (max-width: 1520px) {
+@media (min-width: 768px) {
   .location-outer-banner {
-    margin-left: 3.8%;
-    margin-right: 3.8%;
+   padding: 0 32px;
   }
-}
-
-@media (min-width: 1521px) {
-  .location-outer-banner {
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-  }
-}
-
-.location-outer-banner {
-  display: block;
-  height: 57px;
 }
 
 .location-inner-banner {
-  display: block;
-  height: 24px;
-  padding-bottom: 16px;
-  padding-top: 16px;
-  border-bottom: 1px solid rgb(216, 217, 219);
+  border-bottom: .0625rem solid #d8d9db;
+  opacity: 1;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  transition: opacity .5s 4s,height .5s 4.5s,padding-bottom .5s 4.5s,padding-top .5s 4.5s;
 }
 
 .location {
@@ -84,11 +72,10 @@
 
 .location-text {
   font-size: 12px;
-  /* font-weight: 900; */
-  line-height: 20px;
-  text-size-adjust: 100%;
+  font-weight: 500;
+  line-height: 1.25rem;
   color: #2D333F;
-  margin-right: 8px;
+  margin: 0 8px 0 0;
 }
 
 .current-location-text-logo {
@@ -116,13 +103,35 @@
 }
 
 .restaurant-item-wrapper {
-  padding-left: 11px;
-  padding-right: 11px;
+  padding: 0 32px;
 }
+
+.restaurants-header {
+  border-bottom: .0625rem solid #d8d9db;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 0 16px;
+  margin-top: 48px;
+}
+
+.header-div {
+  align-self: center;
+  width: 100%;
+}
+
+.header-div h2 {
+  color: #2d333f;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+
 .restaurants-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 48px;
 }

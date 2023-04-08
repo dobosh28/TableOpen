@@ -19,13 +19,12 @@ const LandingPageRestaurants = () => {
           <h1 className="search-section-prompt">
             Find your table for any occasion
           </h1>
-          <span className="search-section-subtext">
-          </span>
+          <span className="search-section-subtext"></span>
         </div>
       </header>
       <section className="restaurants-outer-container">
         <div className="restaurants-inner-container">
-          <div className="location-outer-banner">
+          <section className="location-outer-banner">
             <div className="location-inner-banner">
               <div className="location">
                 <span className="location-text">
@@ -38,12 +37,19 @@ const LandingPageRestaurants = () => {
                       alt=""
                     />
                   </div>
-                  <div className="current-location-text">Get current location</div>
+                  <div className="current-location-text">
+                    Get current location
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
           <div className="restaurant-item-wrapper">
+          <header className="restaurants-header">
+                <div className="header-div">
+                  <h2>All Restaurants</h2>
+                </div>
+              </header>
             <div className="restaurants-items">
               {restaurants.map((restaurant, i) => (
                 <RestaurantItem key={i} restaurant={restaurant} />

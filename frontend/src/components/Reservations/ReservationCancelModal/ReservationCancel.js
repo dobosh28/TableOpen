@@ -4,12 +4,13 @@ import { useHistory } from "react-router-dom";
 import { deleteReservation } from "../../../store/reservations";
 import "./ReservationCancel.css";
 
-const ReservationCancel = ({ reservation }) => {
+const ReservationCancel = ({ reservation, onClose }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const restaurantId = reservation.restaurantId;
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
   const [showModal, setShowModal] = useState(true);
+  const reservationId = reservation.id;
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -44,12 +45,15 @@ const ReservationCancel = ({ reservation }) => {
     return date.toLocaleTimeString("en-US", options);
   }, []);
 
+  const routeToReservationConfirmation = () => {
+    history.replace(`/reservations/${reservationId}/confirmation`);
+  };
   return (
     <>
-      {showModal && (
+      
         <div className="reservation-cancel">
           <div className="reservation-cancel-inner">
-            <button className="close-modal-button" onClick={handleCancel}>
+            <button className="close-modal-button" onClick={routeToReservationConfirmation}>
               <span>
                 <svg viewBox="0 0 24 24" focusable="false">
                   <g fill="none" fillRule="evenodd">
@@ -106,7 +110,9 @@ const ReservationCancel = ({ reservation }) => {
                 </section>
               </div>
               <div className="nevermind-cancel">
-                <button className="nevermind-button">Nevermind</button>
+                <button className="nevermind-button" onClick={routeToReservationConfirmation}>
+                  Nevermind
+                </button>
                 <button className="cancel-button" onClick={handleDelete}>
                   Confirm cancellation
                 </button>
@@ -114,7 +120,7 @@ const ReservationCancel = ({ reservation }) => {
             </div>
           </div>
         </div>
-      )}
+      
     </>
   );
 };

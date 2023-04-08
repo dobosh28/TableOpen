@@ -7,6 +7,7 @@ import { fetchReviews } from "../../../store/reviews";
 import ReservationCancel from "../ReservationCancelModal/ReservationCancel";
 import { Modal } from "../../../context/Modal";
 import "./ReservationConfirmation.css";
+import { useLocation } from "react-router-dom";
 
 const ReservationConfirmation = () => {
   const history = useHistory();
@@ -22,9 +23,34 @@ const ReservationConfirmation = () => {
   ).length;
   const [showModal, setShowModal] = useState(false);
 
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const [showCancelModal, setShowCancelModal] = useState(false);
+
+  useEffect(() => {
+    if (params.get("showCancelModal") === "true") {
+      setShowCancelModal(true);
+    } else {
+      setShowCancelModal(false);
+    }
+  }, [params]);
+
+  const routeToCancelReservationModal = () => {
+    history.push(`/reservations/${reservationId}/confirmation/?showCancelModal=true`);
+  };
+
+  const routeToReservationConfirmation = () => {
+    history.replace(`/reservations/${reservationId}/confirmation`);
+  };
+
   useEffect(() => {
     dispatch(fetchReviews());
-    dispatch(fetchReservation(reservationId));
+    if (reservationId) {
+      dispatch(fetchReservation(reservationId));
+    }
+  }, [dispatch, reservationId]);
+
+  useEffect(() => {
     if (restaurantId) {
       dispatch(fetchRestaurant(restaurantId));
     }
@@ -155,14 +181,14 @@ const ReservationConfirmation = () => {
                             Modify
                           </button>
                           <button
-                            onClick={handleCancelReservation}
+                            onClick={routeToCancelReservationModal}
                             className="cancel-reservation"
                           >
                             Cancel
                           </button>
-                          {showModal && (
+                          {showCancelModal && (
                             <Modal
-                              onClose={() => setShowModal(false)}
+                              onClose={routeToReservationConfirmation}
                               className="res-cancel-modal"
                             >
                               <ReservationCancel reservation={reservation} />

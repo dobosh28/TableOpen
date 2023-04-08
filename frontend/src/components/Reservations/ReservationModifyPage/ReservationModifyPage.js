@@ -21,16 +21,21 @@ const ReservationModifyPage = () => {
   const { restaurantId } = reservation;
   const restaurant = useSelector(getRestaurant(restaurantId));
 
+  const [date, setDate] = useState(reservation.date || "");
+  const [time, setTime] = useState(reservation.time || "");
+  const [partySize, setPartySize] = useState(reservation.partySize || 2);
+
   useEffect(() => {
-    dispatch(fetchReservation(reservationId));
+    dispatch(fetchReservation(reservationId)).then((reservation) => {
+      setDate(reservation.date);
+      setTime(reservation.time);
+      setPartySize(reservation.partySize);
+    });
+
     if (restaurantId) {
       dispatch(fetchRestaurant(restaurantId));
     }
   }, [dispatch, reservationId, restaurantId]);
-
-  const [date, setDate] = useState(reservation.date);
-  const [time, setTime] = useState(reservation.time);
-  const [partySize, setPartySize] = useState(reservation.partySize);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -201,6 +206,7 @@ const ReservationModifyPage = () => {
                   <label>Date</label>
                   <input
                     type="date"
+                    min={new Date().toISOString().split("T")[0]}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                   />
@@ -209,7 +215,7 @@ const ReservationModifyPage = () => {
                   <label>Time</label>
                   <input
                     type="time"
-                    value={time}
+                    value={editReservationTime(time)}
                     onChange={(e) => setTime(e.target.value)}
                   />
                 </div>
@@ -217,7 +223,10 @@ const ReservationModifyPage = () => {
               <div className="reservation-modify-page-form-inputs-right">
                 <div className="reservation-modify-page-form-inputs-right-party-size">
                   <label>Party Size</label>
-                  <select onChange={(e) => setPartySize(e.target.value)}>
+                  <select
+                    defaultValue={partySize}
+                    onChange={(e) => setPartySize(e.target.value)}
+                  >
                     {[...Array(20)].map((_, i) => (
                       <option key={i} value={i + 1}>
                         {i + 1} {i === 0 ? "person" : "people"}
