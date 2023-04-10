@@ -342,6 +342,7 @@
   padding: 0.75rem 8px;
   width: 100%;
   font-size: 15px;
+  border-radius: 4px;
 }
 
 .special-request-div:hover {

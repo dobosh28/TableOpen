@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom"; 
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-
 
 const ProfileButton = ({ user }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -61,8 +60,8 @@ const ProfileButton = ({ user }) => {
       {showMenu && (
         <ul className="profile-dropdown">
           <span className="dropdown-greeting">Hello, {user.firstName}!</span>
-          <button className="my-button" onClick={routeToDiningDashboard}>My Profile</button>
-          <button className="my-button">My Dining History</button>
+          <button className="my-button">My Profile</button>
+          <button className="my-button" onClick={routeToDiningDashboard} >My Dining History</button>
           <button className="my-button">My Saved Restaurants</button>
 
           <button className="my-button-logout" onClick={handleLogout}>
