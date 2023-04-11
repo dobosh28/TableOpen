@@ -145,18 +145,18 @@
 }
 
 @media (min-width: 1056px) {
-  .upcoming-reservations {
+  .upcoming-reservations, .past-reservations {
     padding: 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .upcoming-reservations {
+  .upcoming-reservations, .past-reservations {
     margin: 0 0 16px;
   }
 }
 
-.upcoming-reservations {
+.upcoming-reservations, .past-reservations {
   background-color: #fff;
   border-bottom: .0625rem solid #d8d9db;
   border-radius: 4px;
@@ -172,12 +172,24 @@
   line-height: 27.6px;
 }
 
+.past-reservations h2 {
+  color: #2d333f;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27.6px;
+}
+
 .upcoming-reservation-card:last-child {
   margin-bottom: 0;
 }
 
+.past-reservation-card:last-child {
+  margin-bottom: 0;
+}
+
 @media only screen and (min-width: 29.1875rem) {
-  .upcoming-reservation-card {
+  .upcoming-reservation-card, .past-reservation-card {
     display: flex;
     justify-content: normal;
     margin-top: 16px;
@@ -185,7 +197,7 @@
 }
 
 @media (min-width: 1056px) {
-  .upcoming-reservation-card {
+  .upcoming-reservation-card, .past-reservation-card {
     align-self: auto;
     border: .0625rem solid #d8d9db;
     border-radius: 4px;
@@ -195,27 +207,32 @@
   }
 }
 
-.upcoming-reservation-card {
+.upcoming-reservation-card, .past-reservation-card {
   cursor: pointer;
 }
 
 .upcoming-reservation-card:hover {
   box-shadow: 0 0.25rem 0.5rem #0000001a;
 }
-.upcoming-reservation-card-restaurant-image {
+
+.past-reservation-card:hover {
+  box-shadow: 0 0.25rem 0.5rem #0000001a;
+}
+
+.upcoming-reservation-card-restaurant-image, .past-reservation-card-restaurant-image {
   height: 8rem;
   width: 8rem;
   border-radius: 4px;
   object-fit: cover;
 }
 
-.upcoming-reservation-card-restaurant-info {
+.upcoming-reservation-card-restaurant-info, .past-reservation-card-restaurant-info {
   display: flex;
   flex-direction: column;
   padding: 0 16px;
 }
 
-.upcoming-res-restaurant-name {
+.upcoming-res-restaurant-name, .past-res-restaurant-name {
   padding-left: 4px;
   color: #2d333f;
   font-size: 17px;
@@ -223,7 +240,7 @@
   line-height: 1.5rem;
 }
 
-.upcoming-res-confirmed {
+.upcoming-res-confirmed, .past-res-confirmed {
   align-items: center;
   display: flex;
   margin-top: 4px;
@@ -233,7 +250,7 @@
   color: #2d333f;
 }
 
-.upcoming-res-spans {
+.upcoming-res-spans, .past-res-spans {
   padding-right: 8px;
   display: inline-block;
   height: 1.5rem;
@@ -242,7 +259,7 @@
   line-height: 1;
 }
 
-.upcoming-res-size-date-time {
+.upcoming-res-size-date-time, .past-res-size-date-time {
   align-items: center;
   display: flex;
   margin-top: 4px;
@@ -252,7 +269,7 @@
   color: #2d333f;
 }
 
-.upcoming-res-calendar-span {
+.upcoming-res-calendar-span, .past-res-calendar-span {
   padding: 0 8px 0 16px;
   display: inline-block;
   height: 1.5rem;
