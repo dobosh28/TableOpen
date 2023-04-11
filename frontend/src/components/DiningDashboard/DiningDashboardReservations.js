@@ -1,10 +1,6 @@
 import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getReservation,
-  getReservations,
-  fetchReservations,
-} from "../../store/reservations";
+import { getReservations, fetchReservations } from "../../store/reservations";
 import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import "./DiningDashboardReservations.css";
 import { useHistory } from "react-router-dom";
@@ -18,10 +14,6 @@ const DiningDashboardReservations = () => {
   const userReservations = reservations.filter(
     (reservation) => reservation.userId === userId
   );
-  const restaurantIds = userReservations.map(
-    (reservation) => reservation.restaurantId
-  );
-
   const restaurants = useSelector(getRestaurants);
 
   useEffect(() => {
@@ -124,8 +116,13 @@ const DiningDashboardReservations = () => {
         </div>
       </div>
       <div className="upcoming-reservations">
-        <h2>Upcoming Reservations</h2>
         {upcomingReservations.length > 0 ? (
+          <h2>Upcoming Reservations</h2>
+        ) : (
+          <h2>You have no upcoming reservations</h2>
+        )}
+
+        {upcomingReservations.length > 0 &&
           upcomingReservations.map((reservation) => (
             <div
               key={reservation.id}
@@ -191,12 +188,7 @@ const DiningDashboardReservations = () => {
                 }
               })}
             </div>
-          ))
-        ) : (
-          <div className="no-upcoming-reservations">
-            <p>You have no upcoming reservations.</p>
-          </div>
-        )}
+          ))}
       </div>
     </div>
   );

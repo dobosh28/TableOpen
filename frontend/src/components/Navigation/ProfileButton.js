@@ -47,7 +47,7 @@ const ProfileButton = ({ user }) => {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="pfib" onClick={openMenu}>
         <div className="inside-button-div">
           <span>
             <svg viewBox="0 0 24 24" focusable="false">
@@ -62,8 +62,76 @@ const ProfileButton = ({ user }) => {
         </div>
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <div className="profile-dropdown">
           <span className="dropdown-greeting">Hello, {user.firstName}!</span>
+          <div className="dropdown-points">
+            <div className="dropdown-points-top">
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    color: "#999",
+                    fontSize: "10px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Earned
+                </div>
+                <div
+                  style={{
+                    color: "#2d333f",
+                    fontSize: "15px",
+                    fontWeight: "400",
+                  }}
+                >
+                  0
+                  <span
+                    style={{
+                      color: "#999",
+                      fontSize: "13px",
+                      fontWeight: "300",
+                      marginLeft: ".125rem",
+                    }}
+                  >
+                    PTS
+                  </span>
+                </div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    color: "#999",
+                    fontSize: "10px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Next rewards
+                </div>
+                <div
+                  style={{
+                    color: "#2d333f",
+                    fontSize: "15px",
+                    fontWeight: "400",
+                  }}
+                >
+                  2,000
+                  <span
+                    style={{
+                      color: "#999",
+                      fontSize: "13px",
+                      fontWeight: "300",
+                      marginLeft: ".125rem",
+                    }}
+                  >
+                    PTS
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="dropdown-points-middle"></div>
+            <div className="dropdown-points-bottom">
+              <button>Learn more about points</button>
+            </div>
+          </div>
           <button className="my-button">My Profile</button>
           <button className="my-button" onClick={routeToDiningDashboard}>
             My Dining History
@@ -75,7 +143,7 @@ const ProfileButton = ({ user }) => {
           <button className="my-button-logout" onClick={handleLogout}>
             Sign Out
           </button>
-        </ul>
+        </div>
       )}
     </>
   );
