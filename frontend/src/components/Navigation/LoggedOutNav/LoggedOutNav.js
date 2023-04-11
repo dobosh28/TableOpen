@@ -6,15 +6,7 @@ import logo from "../../../icons/logo.png";
 
 const LoggedOutNav = () => {
   return (
-    <nav className="logged-out-nav">
-      <div className="above-nav">
-        <div className="above-nav-for-businesses">For Businesses</div>
-        <div className="above-nav-mobile">Mobile</div>
-        <div className="above-nav-faqs">FAQs</div>
-        <div className="above-nav-language">
-          <span>EN</span>
-        </div>
-      </div>
+    <>
       <div className="logged-out-nav-bar">
         <div className="left-nav-bar">
           <div className="logo-container">
@@ -32,8 +24,8 @@ const LoggedOutNav = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
-}
+};
 
 export default LoggedOutNav;

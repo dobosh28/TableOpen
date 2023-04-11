@@ -56,6 +56,63 @@
     margin-left: -2px;
 }
 
+@media (min-width: 1056px) {
+    .current-location-ol {
+        padding: 0 32px;
+    }
+}
+
+.current-location-ol {
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    height: 2rem;
+    margin: 0;
+    overflow-x: auto;
+}
+
+@media (min-width: 769px) {
+    .current-location-li {
+        max-width: 100%;
+    }
+}
+
+.current-location-li {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    list-style: none;
+    margin-right: 1.3125rem;
+    position: relative;
+}
+
+.current-location-li::before {
+    border-bottom: 1rem solid #0000;
+    border-left: .6rem solid #0003;
+    border-top: 1rem solid #0000;
+    top: -.0625rem;
+    content: "";
+    left: 100%;
+    margin-left: .25rem;
+    position: absolute;
+}
+
+.current-location-li::after {
+    border-bottom: .96rem solid #0000;
+    border-left: .56rem solid #fff;
+    border-top: .96rem solid #0000;
+    top: 0;
+    content: "";
+    left: 100%;
+    margin-left: .25rem;
+    position: absolute;
+}
+
+.current-location-li p {
+    color: #247f9e;
+    font-size: 11px;
+    font-weight: 300;
+}
 
 .profile-dropdown {
     margin-top: 12px;
