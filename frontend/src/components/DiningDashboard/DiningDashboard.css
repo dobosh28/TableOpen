@@ -63,6 +63,7 @@
   font-size: 15px;
   line-height: 18px;
   color: #2d333f;
+  cursor: pointer;
 }
 
 .dining-dashboard-li-bold {
@@ -71,150 +72,10 @@
   font-size: 15px;
   line-height: 18px;
   color: #2d333f;
-}
-
-@media (min-width: 1056px) {
-  .dining-dashboard-right {
-    max-width: calc(100% - 12.5rem);
-    margin: 32px 16px;
-  }
-}
-
-.dining-dashboard-right {
-  min-height: 32rem;
-  flex-basis: 100%;
-}
-.dining-points {
-  display: flex;
-  padding: 32px;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fff;
-  border-bottom: .0625rem solid #d8d9db;
-  border-radius: 4px;
-  margin: 1.5rem 0;
-}
-
-.dining-points-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.dining-points-header-title {
-  color: #2d333f;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 27.6px;
-  margin-top: 0;
-  margin-bottom: 19.92px;
-}
-
-.your-points {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  line-height: 18.4px;
-}
-
-.your-points span {
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 24px;
-  color: #2d333f;
-}
-
-.dining-points-body:not(:last-child) {
-  margin-bottom: 16px;
-}
-
-.dining-points-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.dining-points-body hr{
-  background-color: #d8d9db;
-  border: none;
-  height: .0625rem;
-  margin: -.0625rem 0 0;
-}
-
-.dining-points-body main {
-  display: flex;
-  justify-content: space-between;
-}
-
-.dining-points-section-1 {
-  color: #2d333f;
-  font-weight: 300;
-}
-
-.dining-points-section-1 h5 {
-  margin-bottom: 4px;
-  margin-top: 22.1776px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.dining-points-section-1 span {
-  color: #da3743;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-}
-
-.dining-points-section-2 {
-  text-align: right;
-  color: #2d333f;
-  font-weight: 300;
-}
-
-.dining-points-section-2 h5 {
-  margin-bottom: 4px;
-  margin-top: 22.1776px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.dining-points-section-2 span {
-  color: #da3743;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-}
-
-.points-progress-bar {
-  height: 2rem;
-  margin: 16px 0;
-  position: relative;
-  width: 100%;
-}
-
-.youre-1000-points-away {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.5rem;
-  color: #2d333f;
-}
-
-.dining-points-footer {
-  display: flex;
-  flex-direction: column;
-}
-
-.dining-points-footer hr {
-  background-color: #d8d9db;
-  border: none;
-  height: .0625rem;
-  margin: -.0625rem 0 0;
-}
-
-.dining-points-footer p {
-  color: #247f9e;
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 18.4px;
-  margin-top: 21px;
-  margin-bottom: 3px;
   cursor: pointer;
+}
+
+.dining-dashboard-li:hover, 
+.dining-dashboard-li-bold:hover {
+  color: #da3743;
 }

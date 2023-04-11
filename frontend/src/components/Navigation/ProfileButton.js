@@ -41,6 +41,10 @@ const ProfileButton = ({ user }) => {
     history.push(`/user/${sessionUser.id}/dining-dashboard`);
   };
 
+  const routeToFavorites = () => {
+    history.push(`/user/${sessionUser.id}/dining-dashboard?tab=favorites`);
+  };
+
   return (
     <>
       <button onClick={openMenu}>
@@ -61,8 +65,12 @@ const ProfileButton = ({ user }) => {
         <ul className="profile-dropdown">
           <span className="dropdown-greeting">Hello, {user.firstName}!</span>
           <button className="my-button">My Profile</button>
-          <button className="my-button" onClick={routeToDiningDashboard} >My Dining History</button>
-          <button className="my-button">My Saved Restaurants</button>
+          <button className="my-button" onClick={routeToDiningDashboard}>
+            My Dining History
+          </button>
+          <button className="my-button" onClick={routeToFavorites}>
+            My Saved Restaurants
+          </button>
 
           <button className="my-button-logout" onClick={handleLogout}>
             Sign Out
