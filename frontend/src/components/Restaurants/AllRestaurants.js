@@ -45,14 +45,14 @@ const LandingPageRestaurants = () => {
             </div>
           </section>
           <div className="restaurant-item-wrapper">
-          <header className="restaurants-header">
-                <div className="header-div">
-                  <h2>All Restaurants</h2>
-                </div>
-              </header>
+            <header className="restaurants-header">
+              <div className="header-div">
+                <h2>All Restaurants</h2>
+              </div>
+            </header>
             <div className="restaurants-items">
               {restaurants.map((restaurant, i) => (
-                <RestaurantItem key={i} restaurant={restaurant} />
+                <RestaurantItem key={i} restaurant={restaurant} id={`restaurant-${i}`} />
               ))}
             </div>
           </div>

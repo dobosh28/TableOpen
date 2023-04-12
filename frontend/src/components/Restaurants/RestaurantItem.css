@@ -9,6 +9,10 @@
     border-radius: 4px;
 }
 
+.restaurant-item.no-margin-right {
+    margin-right: 0;
+}
+
 .restaurant-wrapper:hover {
     transition: transform 0.3s;
     transition-timing-function: ease-in-out;
@@ -87,5 +91,4 @@ h3 {
 .times-booked-inner {
     align-items: center;
     display: flex;
-    
 }

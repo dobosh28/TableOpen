@@ -18,8 +18,8 @@
 }
 
 .search-section-prompt {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 47px;
+  font-weight: 600;
   line-height: 56px;
   color: #fff;
   margin-bottom: 16px;
@@ -52,7 +52,7 @@
 
 @media (min-width: 768px) {
   .location-outer-banner {
-   padding: 0 32px;
+   padding: 0 18px;
   }
 }
 
@@ -103,7 +103,14 @@
 }
 
 .restaurant-item-wrapper {
-  padding: 0 32px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+#restaurant-4,
+#restaurant-9,
+#restaurant-14 {
+  margin-right: 0;
 }
 
 .restaurants-header {
@@ -133,5 +140,5 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }

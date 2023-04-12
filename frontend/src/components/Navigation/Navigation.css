@@ -86,7 +86,7 @@
     position: relative;
 }
 
-.current-location-li::before {
+.current-location-li:not(:last-child)::before {
     border-bottom: 1rem solid #0000;
     border-left: .6rem solid #0003;
     border-top: 1rem solid #0000;
@@ -97,7 +97,7 @@
     position: absolute;
 }
 
-.current-location-li::after {
+.current-location-li:not(:last-child)::after {
     border-bottom: .96rem solid #0000;
     border-left: .56rem solid #fff;
     border-top: .96rem solid #0000;
