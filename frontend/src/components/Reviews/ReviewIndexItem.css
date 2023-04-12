@@ -39,16 +39,17 @@
 .reviewer-nickname {
     margin-bottom: 4px;
     width: 100%;
-    font-size: .875rem;
+    font-size: 13px;
     font-weight: 500;
     line-height: 1.25rem;
+    color: #2d333f;
 }
 
 .reviewer-location {
     margin-bottom: 4px;
     width: 100%;
     color: #6f737b;
-    font-size: .875rem;
+    font-size: 13px;
     font-weight: 500;
     line-height: 1.25rem;
 }
@@ -76,10 +77,11 @@
 }
 
 .ofsa {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 600;
     margin-right: 8px;
     text-transform: capitalize;
+    color: #2d333f;
 }
 
 .rating-value {

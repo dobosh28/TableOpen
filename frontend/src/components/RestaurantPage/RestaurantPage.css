@@ -31,7 +31,7 @@
 
 .save-this-restaurant-button:hover {
     cursor: pointer;
-    border: 2px solid red;
+    border: 2px solid rgb(201, 69, 73);
     background-color: rgb(235, 237, 240);
 }
 
@@ -114,7 +114,7 @@
     width: 57.7969px;
     margin-right: 32px;
     color: rgb(45, 51, 63);
-    box-shadow: rgb(218, 55, 67);
+    /* box-shadow: rgb(218, 55, 67); */
     text-align: left;
     text-size-adjust: 100%;
     border-bottom: 2px solid rgb(218, 55, 67);
@@ -160,6 +160,11 @@
     border-style: none;
     background-color: rgb(0, 0, 0, 0);
     color: rgb(115, 115, 123);
+}
+
+.nav-button:hover {
+    cursor: pointer;
+    color: rgb(142, 2, 2);
 }
 
 
@@ -215,7 +220,7 @@
 
 .lively-tag:hover {
     cursor: pointer;
-    border: 1px solid red;
+    border: 2px solid rgb(201, 69, 73);
 }
 
 .groups-tag {
@@ -233,7 +238,7 @@
 
 .groups-tag:hover {
     cursor: pointer;
-    border: 1px solid red;
+    border: 2px solid rgb(201, 69, 73);
 }
 
 .gem-tag {
@@ -251,7 +256,7 @@
 
 .gem-tag:hover {
     cursor: pointer;
-    border: 1px solid red;
+    border: 2px solid rgb(201, 69, 73);
 }
 
 .restaurant-description {
@@ -260,10 +265,10 @@
 }
 
 .restaurant-description-text {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 300;
     line-height: 24px;
-    color: rgb(45, 51, 63);
+    color: #2d333f;
 }
 
 .reviews-section {
@@ -286,8 +291,8 @@
 
 .reviews-text {
     color: #2d333f;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 600;
     line-height: 28px;
     text-size-adjust: 100%;
 }
@@ -295,4 +300,28 @@
 .all-reviews-container {
     margin-top: 32px;
     padding: 0px;
+}
+
+.additional-info {
+    margin-top: 16px;
+}
+
+.restaurant-address {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px #2d333f33;
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%
+}
+
+.restaurant-address div {
+    padding: 16px 4px;
+}
+
+.restaurant-address p {
+    color: #da3743;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 0 4px;
 }

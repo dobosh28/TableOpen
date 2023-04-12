@@ -1,0 +1,39 @@
+.additional-info-container {
+  margin-top: 16px;
+}
+
+.additional-info-container h4 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d333f;
+  line-height: 1.5rem;
+}
+
+.additional-info-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.additional-info-icon-span {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+}
+
+.additional-info-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #2d333f;
+}
+
+.additional-info-p {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 14px;
+  color: #2d333f;
+}
