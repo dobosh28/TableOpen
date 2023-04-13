@@ -95,10 +95,8 @@ const ReservationModifyPage = () => {
       id: reservationId,
       date,
       time,
-      partySize,
+      party_size: partySize,
     };
-
-    // debugger;
 
     dispatch(updateReservation(reservation)).then(() => {
       history.push(`/reservations/${reservationId}/confirmation`);
