@@ -80,7 +80,7 @@ export const deleteReservation = (reservationId) => async (dispatch) => {
 
   if (response.ok) {
     dispatch(removeReservation(reservationId));
-  } 
+  }
 };
 
 const reservationsReducer = (state = {}, action) => {
@@ -94,7 +94,6 @@ const reservationsReducer = (state = {}, action) => {
       return newState;
     case REMOVE_RESERVATION:
       delete newState[action.reservationId];
-      console.log(newState);
       return newState;
     default:
       return state;

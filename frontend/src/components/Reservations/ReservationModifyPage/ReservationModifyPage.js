@@ -14,42 +14,54 @@ const ReservationModifyPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { reservationId } = useParams();
-
-  const [errors, setErrors] = useState([]);
-
   const reservation = useSelector(getReservation(reservationId)) || {};
   const { restaurantId } = reservation;
   const restaurant = useSelector(getRestaurant(restaurantId));
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [partySize, setPartySize] = useState(reservation.partySize);
 
-  const [date, setDate] = useState(reservation.date || "");
-  const [time, setTime] = useState(reservation.time || "");
-  const [partySize, setPartySize] = useState(reservation.partySize || 2);
+  const formatTime = (timeString) => {
+    const date = new Date(timeString);
+    const time = date.toLocaleTimeString("en-US", {
+      timeZone: "UTC",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: false,
+    });
+    return time;
+  };
 
   useEffect(() => {
     dispatch(fetchReservation(reservationId)).then((reservation) => {
       setDate(reservation.date);
-      setTime(reservation.time);
+      setTime(formatTime(reservation.time));
       setPartySize(reservation.partySize);
     });
+  }, [dispatch, reservationId]);
 
+  useEffect(() => {
     if (restaurantId) {
       dispatch(fetchRestaurant(restaurantId));
     }
-  }, [dispatch, reservationId, restaurantId]);
+  }, [dispatch, restaurantId]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = {
-      id: reservationId,
-      date,
-      time,
-      partySize,
+  const update = (field) => {
+    return (e) => {
+      switch (field) {
+        case "partySize":
+          setPartySize(e.target.value);
+          break;
+        case "date":
+          setDate(e.target.value);
+          break;
+        case "time":
+          setTime(e.target.value);
+          break;
+        default:
+          break;
+      }
     };
-
-    const updatedReservation = await dispatch(updateReservation(data));
-    dispatch(receiveReservation(updatedReservation));
-    history.push(`/reservations/${reservationId}/confirmation`);
   };
 
   const formatDate = useCallback((dateString) => {
@@ -64,31 +76,33 @@ const ReservationModifyPage = () => {
   }, []);
 
   const convertTime = (timeString) => {
-    if (!timeString) {
-      return "";
-    }
+    const hour = parseInt(timeString.slice(0, 2));
+    const minute = timeString.slice(3, 5);
+    const meridian = hour >= 12 ? "PM" : "AM";
+    const newHour = hour % 12 || 12;
 
-    const date = new Date(timeString);
-    const offset = +5 * 60 * 60 * 1000; // PST offset in milliseconds
-    const pstDate = new Date(date.getTime() + offset);
-    const hour = pstDate.getHours() % 12 || 12;
-    const minute = pstDate.getMinutes().toString().padStart(2, "0");
-    const meridian = pstDate.getHours() >= 12 ? "PM" : "AM";
-
-    return `${hour}:${minute} ${meridian}`;
-  };
-
-  const editReservationTime = (timeString) => {
-    const date = new Date(timeString);
-    const hours = date.getUTCHours().toString().padStart(2, "0");
-    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-    const seconds = date.getUTCSeconds().toString().padStart(2, "0");
-    const milliseconds = date.getUTCMilliseconds().toString().padStart(3, "0");
-    return `${hours}:${minutes}:${seconds}.${milliseconds}`;
+    return `${newHour}:${minute} ${meridian}`;
   };
 
   const routeToRestaurant = () => {
     history.push(`/restaurants/${restaurantId}`);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const reservation = {
+      id: reservationId,
+      date,
+      time,
+      partySize,
+    };
+
+    // debugger;
+
+    dispatch(updateReservation(reservation)).then(() => {
+      history.push(`/reservations/${reservationId}/confirmation`);
+    });
   };
 
   return (
@@ -164,7 +178,7 @@ const ReservationModifyPage = () => {
                               </g>
                             </svg>
                           </span>
-                          <p>{convertTime(reservation.time)}</p>
+                          <p>{convertTime(formatTime(reservation.time))}</p>
                         </div>
                       </li>
                       <li className="size-list-item">
@@ -208,16 +222,12 @@ const ReservationModifyPage = () => {
                     type="date"
                     min={new Date().toISOString().split("T")[0]}
                     value={date}
-                    onChange={(e) => setDate(e.target.value)}
+                    onChange={update("date")}
                   />
                 </div>
                 <div className="reservation-modify-page-form-inputs-left-time">
                   <label>Time</label>
-                  <input
-                    type="time"
-                    value={editReservationTime(time)}
-                    onChange={(e) => setTime(e.target.value)}
-                  />
+                  <input type="time" value={time} onChange={update("time")} />
                 </div>
               </div>
               <div className="reservation-modify-page-form-inputs-right">
@@ -225,7 +235,7 @@ const ReservationModifyPage = () => {
                   <label>Party Size</label>
                   <select
                     defaultValue={partySize}
-                    onChange={(e) => setPartySize(e.target.value)}
+                    onChange={update("partySize")}
                   >
                     {[...Array(20)].map((_, i) => (
                       <option key={i} value={i + 1}>
