@@ -101,7 +101,7 @@
   width: 100%;
 }
 
-.modify-reservation-button-inner button {
+.submit-modify-reservation {
   background-color: #da3743;
   color: #fff;
   border: none;

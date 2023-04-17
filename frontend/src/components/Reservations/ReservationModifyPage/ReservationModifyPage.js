@@ -19,6 +19,8 @@ const ReservationModifyPage = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [partySize, setPartySize] = useState(reservation.partySize);
+  const [displayTime, setDisplayTime] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const formatTime = (timeString) => {
     const date = new Date(timeString);
@@ -35,7 +37,7 @@ const ReservationModifyPage = () => {
     dispatch(fetchReservation(reservationId)).then((reservation) => {
       setDate(reservation.date);
       setTime(formatTime(reservation.time));
-      setPartySize(reservation.partySize);
+      setPartySize(reservation.party_size);
     });
   }, [dispatch, reservationId]);
 
@@ -87,8 +89,23 @@ const ReservationModifyPage = () => {
     history.push(`/restaurants/${restaurantId}`);
   };
 
-  const handleSubmit = (e) => {
+  const changeTime = (timeString) => {
+    const hour = parseInt(timeString.slice(0, 2));
+    const minute = timeString.slice(3, 5);
+    const meridian = hour >= 12 ? "PM" : "AM";
+    const newHour = hour % 12 || 12;
+
+    return `${newHour}:${minute} ${meridian}`;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formSubmitted) {
+      setDisplayTime(true);
+      setFormSubmitted(true);
+      return;
+    }
 
     const reservation = {
       id: reservationId,
@@ -200,7 +217,7 @@ const ReservationModifyPage = () => {
               </div>
             </div>
             <hr className="reservation-modify-hr" />
-            <form onSubmit={handleSubmit}>
+            <form>
               <h3
                 style={{
                   margin: "16px 0 8px",
@@ -264,7 +281,22 @@ const ReservationModifyPage = () => {
                 </div>
                 <div className="modify-reservation-button">
                   <div className="modify-reservation-button-inner">
-                    <button type="submit">Find a new table</button>
+                    {!formSubmitted && (
+                      <input
+                        className="submit-modify-reservation"
+                        type="submit"
+                        value="Find a new table"
+                        onClick={handleSubmit}
+                      />
+                    )}
+                    {formSubmitted && (
+                      <input
+                        className="submit-modify-reservation"
+                        type="submit"
+                        value={changeTime(time)}
+                        onClick={handleSubmit}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
