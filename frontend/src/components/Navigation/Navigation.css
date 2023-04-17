@@ -37,7 +37,7 @@
     margin-left: 32px;
 }
 
-.above-nav-mobile-button, .above-nav-language-button {
+.above-nav-mobile-inner, .above-nav-language-inner {
     padding-right: 16px;
     position: relative;
     background-color: initial;
@@ -45,10 +45,9 @@
     color: #2d333f;
     font-size: 12px;
     margin: 0 8px;
-    font-weight: 300;
 }
 
-.above-nav-mobile-button::after, .above-nav-language-button::after {
+.above-nav-mobile-inner::after, .above-nav-language-inner::after {
     background-image: url(https://cdn.otstatic.com/cfe/12/images/ic_down-23cada.svg);
     background-position: right -.375rem center;
     background-repeat: no-repeat;

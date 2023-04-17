@@ -63,7 +63,6 @@
 
 .login-form-input-2 {
   padding-bottom: 16px;
-  
 }
 
 
@@ -146,11 +145,16 @@
 .login-form-errors {
   color: #931b23;
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   margin: 4px 0 0 8px;
 }
 
 .invalid-input {
-  border: 1px solid #931b23;
+  background: #fff;
+  border: .0625rem solid #931b23;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #2d333f;
+  line-height: 24px;
 }
