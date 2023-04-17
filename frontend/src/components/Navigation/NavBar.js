@@ -15,12 +15,14 @@ const NavBar = () => {
 
   return (
     <nav className="navvy-nav">
-      <div className="above-nav">
+      <div className="above-nav" style={{ fontWeight: "400" }}>
         <div className="above-nav-for-businesses">For Businesses</div>
-        <div className="above-nav-mobile">Mobile</div>
+        <div className="above-nav-mobile">
+          <button className="above-nav-mobile-button">Mobile</button>
+        </div>
         <div className="above-nav-faqs">FAQs</div>
         <div className="above-nav-language">
-          <span>EN</span>
+          <button className="above-nav-language-button">EN</button>
         </div>
       </div>
       {sessionUser ? (

@@ -9,33 +9,57 @@
     padding: 0 16px;
 }
 
-.above-nav-language {
-    margin-left: 32px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
+.above-nav-for-businesses, .above-nav-faqs {
+    margin: 0 8px;
+    color: #2d333f;
+    font-size: 12px;
 }
 
-.above-nav-faqs {
-    
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin: 0px 8px;
+
+@media (min-width: 768px) {
+    .above-nav-mobile {
+        position: relative;
+    }
 }
 
 .above-nav-mobile {
-    margin-right: 20px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin-left: 8px;
-    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
-.above-nav-for-businesses{
-    margin-right: 18px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin-left: 8px;
-    margin-right: 8px;
+.above-nav-language {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-left: 32px;
+}
+
+.above-nav-mobile-button, .above-nav-language-button {
+    padding-right: 16px;
+    position: relative;
+    background-color: initial;
+    border: 0;
+    color: #2d333f;
+    font-size: 12px;
+    margin: 0 8px;
+    font-weight: 300;
+}
+
+.above-nav-mobile-button::after, .above-nav-language-button::after {
+    background-image: url(https://cdn.otstatic.com/cfe/12/images/ic_down-23cada.svg);
+    background-position: right -.375rem center;
+    background-repeat: no-repeat;
+    background-size: auto 1.5rem;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .logo {
@@ -45,15 +69,6 @@
 
 .logo:hover {
     cursor: pointer;
-}
-
-
-#favicon {
-    height: 39px;
-    width: 39px;
-    margin-top: 4px;
-    margin-right: 10px;
-    margin-left: -2px;
 }
 
 @media (min-width: 1056px) {
