@@ -37,7 +37,7 @@ const ReservationModifyPage = () => {
     dispatch(fetchReservation(reservationId)).then((reservation) => {
       setDate(reservation.date);
       setTime(formatTime(reservation.time));
-      setPartySize(reservation.party_size);
+      setPartySize(reservation.partySize);
     });
   }, [dispatch, reservationId]);
 
@@ -250,11 +250,19 @@ const ReservationModifyPage = () => {
                       <div style={{ height: "3rem", position: "relative" }}>
                         <div className="inner-inner-date-div">
                           <div className="inner-inner-inner-date-div">
-                            <input
-                              type="time"
-                              value={time}
-                              onChange={update("time")}
-                            />
+                            {!displayTime ? (
+                              <input
+                                type="time"
+                                value={time}
+                                onChange={update("time")}
+                              />
+                            ) : (
+                              <input
+                                type="time"
+                                value={time}
+                                onChange={update("time")}
+                              />
+                            )}
                           </div>
                         </div>
                       </div>

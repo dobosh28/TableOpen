@@ -135,7 +135,7 @@
     display: inline-block;
     margin-bottom: 16px;
     padding: 0px;
-    font-size: 14px;
+    font-size: 13px;
     font-stretch: 100%;
     font-weight: 500;
     line-height: 20px;
@@ -152,7 +152,7 @@
     display: inline-block;
     margin-bottom: 16px;
     padding: 0px;
-    font-size: 14px;
+    font-size: 13px;
     font-stretch: 100%;
     font-weight: 500;
     line-height: 20px;
@@ -181,82 +181,78 @@
 }
 
 .general-info {
-    align-items: center;
     grid-gap: 16px;
+    align-items: center;
     column-count: 4;
-    display: -ms-inline-grid;
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
     margin-top: 16px;
+    color: #2d333f;
+}
+
+.general-info-span {
+    margin-right: 4px;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 1;
+    min-width: 1.5rem;
+    width: 1.5rem;
+}
+
+.general-info-span-2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.rating-stars, .total-reviews, .cost, .cuisine {
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.25rem;
 }
 
 .restaurant-top-tags {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 17px;
-    
+    margin-top: 16px;
+    color : #2d333f;
 }
 
 .top-tags {
-    margin-top: 2px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #2d333f;
-    line-height: 24px;
+    margin-top: 0.125rem;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5rem;
 }
 
-.lively-tag {
-    line-height: 45px;
-    width: 80px;
-    margin-left: 9px;
-    height: 50px;
-    text-align: center;
-    border-radius: 16px;
-    font-weight: 500;
-    border: 1px solid rgb(216, 217, 219);
-    color: #2d333f;
-    font-size: 14px;
+.top-tags-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 519.05px;
+    height: 32px;
 }
 
-.lively-tag:hover {
+.top-tags-list-item {
+    display: flex;
+    margin-left: 8px;
+}
+
+.top-tags-list-item p {
+    border: 1px solid #d8d9db;
+    border-radius: 1rem;
+    padding: .3125rem 16px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.top-tags-list-item p:hover {
     cursor: pointer;
-    border: 2px solid rgb(201, 69, 73);
-}
-
-.groups-tag {
-    line-height: 23px;
-    width: 100px;
-    margin-left: 9px;
-    height: 50px;
-    text-align: center;
-    border-radius: 16px;
-    font-weight: 500;
-    border: 1px solid rgb(216, 217, 219);
-    color: #2d333f;
-    font-size: 14px;
-}
-
-.groups-tag:hover {
-    cursor: pointer;
-    border: 2px solid rgb(201, 69, 73);
-}
-
-.gem-tag {
-    line-height: 23px;
-    width: 120px;
-    margin-left: 9px;
-    height: 50px;
-    text-align: center;
-    border-radius: 16px;
-    font-weight: 500;
-    border: 1px solid rgb(216, 217, 219);
-    color: #2d333f;
-    font-size: 14px;
-}
-
-.gem-tag:hover {
-    cursor: pointer;
-    border: 2px solid rgb(201, 69, 73);
+    border: 1px solid #da3743;
 }
 
 .restaurant-description {

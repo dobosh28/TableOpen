@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./RestaurantItem.css";
 import RestaurantImageLoading from "../LoadingPhotoAnimation/RestaurantImageLoading";
 
 const RestaurantItem = ({ restaurant, id }) => {
+  const handleItemClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="restaurant-wrapper" id={id}>
-      <Link className="restaurant-link" to={`/restaurants/${restaurant.id}`}>
+    <div className="restaurant-wrapper" id={id} onClick={handleItemClick}>
+      <NavLink className="restaurant-link" to={`/restaurants/${restaurant.id}`}>
         <RestaurantImageLoading src={restaurant.photoUrl} />
         <div className="restaurant-content">
           <h3>{restaurant.name}</h3>
@@ -24,7 +28,7 @@ const RestaurantItem = ({ restaurant, id }) => {
             </span>
           </div>
         </div>
-      </Link>
+      </NavLink>
     </div>
   );
 };

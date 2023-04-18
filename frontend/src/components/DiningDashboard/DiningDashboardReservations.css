@@ -144,12 +144,6 @@
   cursor: pointer;
 }
 
-@media (min-width: 1056px) {
-  .upcoming-reservations, .past-reservations {
-    padding: 1.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .upcoming-reservations, .past-reservations {
     margin: 0 0 16px;
@@ -157,6 +151,7 @@
 }
 
 .upcoming-reservations, .past-reservations {
+  padding: 1.5rem;
   background-color: #fff;
   border-bottom: .0625rem solid #d8d9db;
   border-radius: 4px;
