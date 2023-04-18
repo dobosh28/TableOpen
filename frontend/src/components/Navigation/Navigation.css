@@ -9,120 +9,218 @@
     padding: 0 16px;
 }
 
-.above-nav-language {
-    margin-left: 32px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
+.above-nav-for-businesses, .above-nav-faqs {
+    margin: 0 8px;
+    color: #2d333f;
+    font-size: 12px;
 }
 
-.above-nav-faqs {
-    
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin: 0px 8px;
+
+@media (min-width: 768px) {
+    .above-nav-mobile {
+        position: relative;
+    }
 }
 
 .above-nav-mobile {
-    margin-right: 20px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin-left: 8px;
-    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
-.above-nav-for-businesses{
-    margin-right: 18px;
-    color: rgb(45, 51, 63);
-    font-size: .8125rem;
-    margin-left: 8px;
-    margin-right: 8px;
+.above-nav-language {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-left: 32px;
+}
+
+.above-nav-mobile-inner, .above-nav-language-inner {
+    padding-right: 16px;
+    position: relative;
+    background-color: initial;
+    border: 0;
+    color: #2d333f;
+    font-size: 12px;
+    margin: 0 8px;
+}
+
+.above-nav-mobile-inner::after, .above-nav-language-inner::after {
+    background-image: url(https://cdn.otstatic.com/cfe/12/images/ic_down-23cada.svg);
+    background-position: right -.375rem center;
+    background-repeat: no-repeat;
+    background-size: auto 1.5rem;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .logo {
-    width: 166px;
-    height: 35px;
+    width: 162.19px;
+    height: 40px;
 }
 
 .logo:hover {
     cursor: pointer;
 }
 
-.profile-button {
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    margin-right: 15px;
-    height: 48px;
-    width: 40px;
+@media (min-width: 1056px) {
+    .current-location-ol {
+        padding: 0 32px;
+    }
 }
 
-/* .profile-icon {
-    height: 39px;
-    width: 39px;
-    margin-top: 4px;
-    margin-right: 10px;
-    margin-left: -2px;
-} */
-
-#favicon {
-    height: 39px;
-    width: 39px;
-    margin-top: 4px;
-    margin-right: 10px;
-    margin-left: -2px;
+.current-location-ol {
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    height: 2rem;
+    margin: 0;
+    overflow-x: auto;
 }
 
+@media (min-width: 769px) {
+    .current-location-li {
+        max-width: 100%;
+    }
+}
+
+.current-location-li {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    list-style: none;
+    margin-right: 1.3125rem;
+    position: relative;
+}
+
+.current-location-li:not(:last-child)::before {
+    border-bottom: 1rem solid #0000;
+    border-left: .6rem solid #0003;
+    border-top: 1rem solid #0000;
+    top: -.0625rem;
+    content: "";
+    left: 100%;
+    margin-left: .25rem;
+    position: absolute;
+}
+
+.current-location-li:not(:last-child)::after {
+    border-bottom: .96rem solid #0000;
+    border-left: .56rem solid #fff;
+    border-top: .96rem solid #0000;
+    top: 0;
+    content: "";
+    left: 100%;
+    margin-left: .25rem;
+    position: absolute;
+}
+
+.current-location-li p {
+    color: #247f9e;
+    font-size: 11px;
+    font-weight: 300;
+}
 
 .profile-dropdown {
-    display: flex;
-    flex-direction: column;
     margin-top: 12px;
     padding-bottom: 8px;
+    width: 19.75rem;
+    background-color: #fff;
+    border-radius: .1875rem;
+    box-shadow: 0 0 0 0.0625rem #0000001a;
+    display: flex;
+    flex-direction: column;
+    max-height: 70rem;
     position: absolute;
-    border: 1px solid #f1f2f4;
-    border-radius: 5px;
-    padding: 5px;
-    top: 34px;
     right: 0;
-    background: white;
+    top: 100%;
+    transition: transform .15s ease-out,opacity .15s ease-out,position .15s ease-out,max-height 0s;
     z-index: 1;
-    width: 316px;
 }
 
-/* .profile-dropdown li {
-    text-align: right;
-    margin: 5px;
-} */
-
+.profile-dropdown::before {
+    background: #0000;
+    border-color: #fff #0000 #0000 #fff;
+    border-style: solid;
+    border-width: .375rem;
+    box-shadow: -0.0625rem -0.0625rem 0 0 #00000026;
+    content: "";
+    display: block;
+    height: 0;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    right: calc(16px - .125rem);
+    top: -.375rem;
+    transform: rotate(45deg);
+    width: 0;
+}
 .dropdown-greeting {
-    padding-bottom: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 18.4px;
-    text-size-adjust: 100%;
-    color: rgb(45, 51, 63);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 16px 8px;
+    color: #2d333f;
+    margin-bottom: 4px;
+}
+
+.dropdown-points {
+    border-bottom: .0625rem solid #00000014;
+    display: flex;
+    flex-direction: column;
+    padding: .8125rem 16px;
+}
+
+.dropdown-points-top {
+    display: flex;
+    justify-content: space-between;
+    height: 35.05px;
+}
+
+.dropdown-points-middle {
+    background-color: #efefef;
+    border-radius: 4px;
+    display: flex;
+    height: .5rem;
+    margin: 8px 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dropdown-points-bottom {
+    display: flex;
+    height: 24px;
+}
+
+.dropdown-points-bottom button {
+    font-size: 13px;
+    padding: 0;
+    width: auto;
+    color: #da3743;
+    font-weight: 300;
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+
 }
 
 .my-button {
-    align-items: flex-start;
+    color: #2d333f;
+    font-size: 15px;
+    font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 8px 16px;
+    background: #fff;
+    border: 0;
     box-sizing: border-box;
-    display: block;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
+    cursor: pointer;
     position: relative;
-    font-size: 16px;
-    font-weight: 400;
-    font-stretch: 100%;
-    line-height: 18.4px;
     text-align: left;
-    text-size-adjust: 100%;
-    color: rgb(45, 51, 63);
-    background-color: rgb(255, 255, 255);
 }
 
 .my-button-logout {
@@ -141,5 +239,12 @@
     text-align: left;
     text-size-adjust: 100%;
     background-color: rgb(255, 255, 255);
-    color : rgb(218, 55, 67);
+    color : #da3743;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.my-button:hover, .my-button-logout:hover {
+    background-color: rgb(247, 247, 247)
 }

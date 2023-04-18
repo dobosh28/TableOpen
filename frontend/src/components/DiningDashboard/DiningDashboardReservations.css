@@ -1,0 +1,274 @@
+@media (min-width: 1056px) {
+  .dining-dashboard-right {
+    max-width: calc(100% - 12.5rem);
+    margin: 32px 16px;
+  }
+}
+
+.dining-dashboard-right {
+  min-height: 32rem;
+  flex-basis: 100%;
+}
+.dining-points {
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+.dining-points-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dining-points-header-title {
+  color: #2d333f;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27.6px;
+  margin-top: 0;
+  margin-bottom: 19.92px;
+}
+
+.your-points {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  line-height: 18.4px;
+}
+
+.your-points span {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #2d333f;
+}
+
+.dining-points-body:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.dining-points-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.dining-points-body hr{
+  background-color: #d8d9db;
+  border: none;
+  height: .0625rem;
+  margin: -.0625rem 0 0;
+}
+
+.dining-points-body main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dining-points-section-1 {
+  color: #2d333f;
+  font-weight: 300;
+}
+
+.dining-points-section-1 h5 {
+  margin-bottom: 4px;
+  margin-top: 22.1776px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dining-points-section-1 span {
+  color: #da3743;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.dining-points-section-2 {
+  text-align: right;
+  color: #2d333f;
+  font-weight: 300;
+}
+
+.dining-points-section-2 h5 {
+  margin-bottom: 4px;
+  margin-top: 22.1776px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dining-points-section-2 span {
+  color: #da3743;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.points-progress-bar {
+  height: 2rem;
+  margin: 16px 0;
+  position: relative;
+  width: 100%;
+}
+
+.youre-1000-points-away {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #2d333f;
+}
+
+.dining-points-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.dining-points-footer hr {
+  background-color: #d8d9db;
+  border: none;
+  height: .0625rem;
+  margin: -.0625rem 0 0;
+}
+
+.dining-points-footer p {
+  color: #247f9e;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 18.4px;
+  margin-top: 21px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .upcoming-reservations, .past-reservations {
+    margin: 0 0 16px;
+  }
+}
+
+.upcoming-reservations, .past-reservations {
+  padding: 1.5rem;
+  background-color: #fff;
+  border-bottom: .0625rem solid #d8d9db;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-reservations h2 {
+  color: #2d333f;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27.6px;
+}
+
+.past-reservations h2 {
+  color: #2d333f;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27.6px;
+}
+
+.upcoming-reservation-card:last-child {
+  margin-bottom: 0;
+}
+
+.past-reservation-card:last-child {
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 29.1875rem) {
+  .upcoming-reservation-card, .past-reservation-card {
+    display: flex;
+    justify-content: normal;
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 1056px) {
+  .upcoming-reservation-card, .past-reservation-card {
+    align-self: auto;
+    border: .0625rem solid #d8d9db;
+    border-radius: 4px;
+    box-shadow: none;
+    flex-direction: row;
+    padding: 16px;
+  }
+}
+
+.upcoming-reservation-card, .past-reservation-card {
+  cursor: pointer;
+}
+
+.upcoming-reservation-card:hover {
+  box-shadow: 0 0.25rem 0.5rem #0000001a;
+}
+
+.past-reservation-card:hover {
+  box-shadow: 0 0.25rem 0.5rem #0000001a;
+}
+
+.upcoming-reservation-card-restaurant-image, .past-reservation-card-restaurant-image {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.upcoming-reservation-card-restaurant-info, .past-reservation-card-restaurant-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.upcoming-res-restaurant-name, .past-res-restaurant-name {
+  padding-left: 4px;
+  color: #2d333f;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.upcoming-res-confirmed, .past-res-confirmed {
+  align-items: center;
+  display: flex;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #2d333f;
+}
+
+.upcoming-res-spans, .past-res-spans {
+  padding-right: 8px;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+}
+
+.upcoming-res-size-date-time, .past-res-size-date-time {
+  align-items: center;
+  display: flex;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #2d333f;
+}
+
+.upcoming-res-calendar-span, .past-res-calendar-span {
+  padding: 0 8px 0 16px;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+}

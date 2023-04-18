@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 const RECEIVE_RESTAURANTS = 'restaurants/RECEIVE_RESTAURANTS';
 const RECEIVE_RESTAURANT = 'restaurants/RECEIVE_RESTAURANT';
 
@@ -20,20 +22,22 @@ export const getRestaurant = (id) => (state) => {
 };
 
 export const fetchRestaurants = () => async (dispatch) => {
-    const response = await fetch('/api/restaurants');
+    const response = await csrfFetch('/api/restaurants');
     
     if (response.ok) {
         const restaurants = await response.json();
         dispatch(receiveRestaurants(restaurants));
+        return restaurants;
     }
 };
 
 export const fetchRestaurant = (restaurantId) => async (dispatch) => {
-    const response = await fetch(`/api/restaurants/${restaurantId}`);
+    const response = await csrfFetch(`/api/restaurants/${restaurantId}`);
 
     if (response.ok) {
         const data = await response.json();
         dispatch(receiveRestaurant(data.restaurant));
+        return data.restaurant;
     }
 };
 

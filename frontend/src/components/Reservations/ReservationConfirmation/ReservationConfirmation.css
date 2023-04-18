@@ -1,0 +1,348 @@
+.res-confirmation-main {
+  display: block;
+  outline: 0;
+}
+
+.res-confirmation-container {
+  display: flex;
+  justify-content: center;
+}
+
+.res-confirmation-inner {
+  background: #f1f2f4;
+  margin-bottom: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+.res-confirmation-holders {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  margin: 32px auto 5rem;
+  max-width: 61rem;
+}
+ 
+.res-confirmation-details {
+  display: block;
+  flex: 1 0 1%;
+  min-width: 0;
+}
+
+.res-confirmation-details-inner {
+  display: block;
+  background-color: #fff;
+  border: 0.0625rem solid #d8d9db;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.confirmation-details-div {
+  display: flex;
+  margin: 32px 32px 0;
+}
+
+.res-confirmation-restaurant-pic {
+  display: block;
+  line-height: 0;
+  margin-right: 16px;
+}
+
+.res-confirmation-restaurant-pic img {
+  border-radius: 4px;
+  width: auto;
+  height: 7.75rem;
+  width: 7.75rem;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  object-fit: cover;
+}
+
+.res-confirmation-deets {
+  flex: 1;
+  display: block;
+}
+
+.res-confirmed-and-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.res-name-and-confirmed {
+  display: block;
+  margin-right: 8px;
+}
+
+.res-name-and-confirmed h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0;
+  color: #2d333f;
+  cursor: pointer;
+}
+
+.reservation-confirmed {
+  display: flex;
+  margin-top: 8px;
+}
+
+.reservation-confirmed span {
+  margin-right: 4px;
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+
+.reservation-confirmed h1 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #2d333f;
+  line-height: 24px;
+  margin: 0;
+}
+
+.res-confirmation-date-time-party {
+  display: block;
+}
+
+.party-date-time {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.party-section {
+  margin-right: 8px;
+  margin-top: 8px;
+  display: flex;
+  color: #2d333f;
+  line-height: 1.5rem;
+  font-size: 15px;
+}
+
+.party-section span {
+  margin-right: 4px;
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  vertical-align: middle;
+}
+
+.date-time-section {
+  margin-top: 8px;
+  display: flex;
+  color: #2d333f;
+  line-height: 1.5rem;
+  font-size: 15px;
+}
+
+.date-time-section span {
+  margin-right: 4px;
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  vertical-align: middle;
+}
+
+.cancel-modify-add {
+  display: block;
+  margin-top: 8px;
+  height: 24px;
+}
+
+.modify-reservation, .cancel-reservation {
+  border-right: .0625rem solid #d8d9db;
+  margin-right: 8px;
+  padding-right: 8px;
+  color: #da3743;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-to-calendar {
+  color: #da3743;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu-directions {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 32px 32px 32px ;
+}
+
+.browse-menu, .get-directions {
+  background-color: #fff;
+  border: .0625rem solid #f1f2f4;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem 0 #2d333f33;
+  box-sizing: border-box;
+  color: #2d333f;
+  display: inline-block;
+  flex: 0 0 calc(50% - 8px);
+  outline: none;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.browse-menu:hover {
+  transition: all .3s ease-out;
+  background-color: #f1f2f4;
+}
+
+.get-directions:hover {
+  transition: all .3s ease-out;
+  background-color: #f1f2f4;
+}
+
+.browse-menu-icon, .get-directions-icon {
+  align-items: center;
+  display: inline-flex;
+}
+
+.browse-menu-icon span {
+  background-color: #da3743;
+  border-radius: 100%;
+  padding: 8px;
+  display: inline-block;
+  line-height: 1;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.get-directions-icon span {
+  background-color: #da3743;
+  border-radius: 100%;
+  padding: 8px;
+  display: inline-block;
+  line-height: 1;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.browse-menu-icon svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.browse-menu-text {
+  display: block;
+}
+
+.browse-menu-text h1{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 8px;
+  display: block;
+}
+
+.browse-menu-text h2 {
+  color: #6f737b;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.get-directions-text h1{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 8px;
+  display: block;
+}
+
+.curr-user-info {
+  display: block;
+  flex: 0 0 18.875rem;
+  margin-left: 2.375rem;
+}
+
+.profile-header {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #6f737b;
+  margin-bottom: 16px;
+  padding: 24px;
+}
+
+.curr-user-name {
+  align-items: center;
+  color: #2d333f;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+ 
+}
+
+.curr-user-name span {
+  margin-right: 8px;
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  width: 1.5rem;
+  min-width: 1.5rem;
+}
+
+.curr-user-joined {
+  margin-bottom: 16px;
+  margin-left: 32px;
+  display: block;
+  font-size: 15px;
+  height: 24px;
+}
+
+.curr-user-location {
+  margin-bottom: 4px;
+  display: block;
+  font-size: 15px;
+}
+
+.curr-user-location span {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  font-size: 0;
+}
+
+.curr-user-reviews {
+  margin-bottom: 0;
+  display: block;
+  font-size: 15px;
+}
+
+.curr-user-reviews span {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+  font-size: 0;
+}

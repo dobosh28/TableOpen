@@ -1,0 +1,107 @@
+.res-cancel-modal {
+  max-width: 30.5rem;
+  z-index: 1;
+}
+
+.reservation-cancel {
+  display: block  
+}
+
+.reservation-cancel-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 16px;
+  text-align: center;
+}
+
+.close-modal-button {
+  background-color: initial;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 1.5rem;
+  padding: 0;
+  position: absolute;
+  right: 16px;
+  width: 1.5rem;
+  /* z-index: 1; */
+}
+
+.close-modal-button span {
+  display: inline-block;
+  font-size: 0;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.cancel-res-details {
+  margin: 48px 16px 16px;
+  text-align: left!important;
+}
+
+.cancel-res-details h1 {
+  line-height: 28px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  text-align: initial;
+  font-size: 23px;
+  font-weight: 600;
+  color: #2d333f;
+}
+
+.cancel-res-details h2 {
+  font-size: 23px;
+  font-weight: 600;
+  color: #2d333f;
+  line-height: 28px;
+  margin-bottom: 4px;
+}
+
+.nevermind-cancel {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.nevermind-button {
+  background-color: #fff;
+  border: none;
+  color: #da3743;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 16px 0 0;
+  padding: 0;
+  width: auto;
+}
+
+.nevermind-button:active {
+  color: #2d333f;
+}
+
+.cancel-button {
+  font-size: 13px;
+  line-height: 20px;
+  min-width: 10.3125rem;
+  padding: 0 16px;
+  width: auto;
+  background-color: #da3743;
+  color: #fff;
+  border-radius: 4px;
+  height: 2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #c32f38;
+}
+
+
+

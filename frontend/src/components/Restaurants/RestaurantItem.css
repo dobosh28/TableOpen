@@ -9,6 +9,10 @@
     border-radius: 4px;
 }
 
+.restaurant-item.no-margin-right {
+    margin-right: 0;
+}
+
 .restaurant-wrapper:hover {
     transition: transform 0.3s;
     transition-timing-function: ease-in-out;
@@ -23,6 +27,7 @@
     border-radius: 2px 2px 0px 0px;
     opacity: 0.7;
     animation: restaurant-img-loading 1s linear infinite alternate;
+    object-fit: cover;
 }
 
 @keyframes restaurant-img-loading {
@@ -50,7 +55,7 @@ h3 {
     display: block;
     margin-bottom: 4px;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 24px;
     text-align: left;
     text-overflow: ellipsis;
@@ -86,5 +91,4 @@ h3 {
 .times-booked-inner {
     align-items: center;
     display: flex;
-    
 }

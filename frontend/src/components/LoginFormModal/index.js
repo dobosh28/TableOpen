@@ -11,7 +11,7 @@ const LoginFormModal = () => {
         Sign In
       </button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal onClose={() => setShowModal(false)} className="auth-modal">
           <LoginForm />
         </Modal>
       )}
