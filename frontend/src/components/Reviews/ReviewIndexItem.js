@@ -13,26 +13,42 @@ const ReviewIndexItem = ({ review }) => {
     review.service
   );
 
-  const colors = ['#bb6acd', '#5fb0b5', '#f68e5f', '#9c89b8', '#f2635f', '#a2d148', '#9b4dca', '#6f94d2', '#d6a83e', '#c34a5a', '#71986b', '#9b6d47'];
-  const [randomColor] = useState(colors[Math.floor(Math.random() * colors.length)]);
+  const colors = [
+    "#bb6acd",
+    "#5fb0b5",
+    "#f68e5f",
+    "#9c89b8",
+    "#f2635f",
+    "#a2d148",
+    "#9b4dca",
+    "#6f94d2",
+    "#d6a83e",
+    "#c34a5a",
+    "#71986b",
+    "#9b6d47",
+  ];
+  const [randomColor] = useState(
+    colors[Math.floor(Math.random() * colors.length)]
+  );
 
   return (
     <div className="review-index-item">
       <section className="review-index-item-left">
-        <div className="reviewer-nickname-initial" style={{backgroundColor: randomColor}}>
+        <div
+          className="reviewer-nickname-initial"
+          style={{ backgroundColor: randomColor }}
+        >
           {review.nickname[0].toUpperCase()}
         </div>
         <span className="reviewer-nickname">{review.nickname}</span>
         <span className="reviewer-location">New York</span>
       </section>
       <section className="review-index-item-right">
-        <section className="star-ratings">
+        <section className="star-rat">
           <StarRatings
-            className="stars"
-            rating={avgRating}
+            rating={review.overall}
             starRatedColor="#da3743"
             numberOfStars={5}
-            name="rating"
             starDimension="18px"
             starSpacing="1px"
           />

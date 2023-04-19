@@ -214,6 +214,13 @@
     line-height: 1.25rem;
 }
 
+.general-info-stars {
+    align-items: center;
+    display: flex;
+    margin-right: 4px;
+    margin-top: 3px;
+}
+
 .restaurant-top-tags {
     display: flex;
     margin-top: 16px;

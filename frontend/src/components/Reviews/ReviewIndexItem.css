@@ -59,15 +59,11 @@
     flex-grow: 1;
 }
 
-.star-ratings {
+.star-rat {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 4px;
-}
-
-.stars {
-    align-items: center;
+    margin-bottom: 8px;
 }
 
 .ofsa-div {

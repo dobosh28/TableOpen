@@ -6,6 +6,7 @@ import { fetchReviews } from "../../store/reviews";
 import ReviewsShow from "../Reviews/ReviewShow";
 import ReservationForm from "../Reservations/ReservationForm/ReservationForm";
 import AdditionalInfo from "./AdditionalInfo";
+import StarRatings from "react-star-ratings";
 import "./RestaurantPage.css";
 
 const RestaurantPage = () => {
@@ -18,10 +19,19 @@ const RestaurantPage = () => {
     (review) => review.restaurantId === parseInt(restaurantId)
   );
 
-  const reviewsAmount = reviews.length;
+  const reviewsAmount = reviews?.length;
+
+  const avgReview = reviews?.reduce((acc, review) => {
+    return acc + review.food + review.service + review.ambience + review.value;
+  }, 0);
+
+  const avgReviewRating = avgReview / (reviewsAmount * 4);
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
+  }, [dispatch, restaurantId]);
+
+  useEffect(() => {
     dispatch(fetchReviews());
   }, [dispatch, restaurantId]);
 
@@ -81,7 +91,24 @@ const RestaurantPage = () => {
           <section className="restaurant-details">
             <h1 className="restaurant-name">{restaurant.name}</h1>
             <div className="general-info">
-              <div className="rating-stars">stars to be implemented</div>
+              <div className="rating-stars">
+                <div className="general-info-stars">
+                  {avgReviewRating && (
+                    <StarRatings
+                      className="stars"
+                      rating={avgReviewRating}
+                      starRatedColor="#da3743"
+                      numberOfStars={5}
+                      name="rating"
+                      starDimension="18px"
+                      starSpacing="1px"
+                    />
+                  )}
+                </div>
+                <span className="general-info-span-2">
+                  {avgReviewRating.toFixed(1)}
+                </span>
+              </div>
               <div className="total-reviews">
                 <span className="general-info-span">
                   <svg viewBox="0 0 24 24" focusable="false">
