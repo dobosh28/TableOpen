@@ -272,16 +272,18 @@ const ReservationModifyPage = () => {
                     <div style={{ height: "3rem", position: "relative" }}>
                       <div className="inner-inner-date-div">
                         <div className="inner-inner-inner-date-div">
-                          <select
-                            defaultValue={partySize}
-                            onChange={update("partySize")}
-                          >
-                            {[...Array(20)].map((_, i) => (
-                              <option key={i} value={i + 1}>
-                                {i + 1} {i === 0 ? "person" : "people"}
-                              </option>
-                            ))}
-                          </select>
+                          {partySize && (
+                            <select
+                              defaultValue={partySize}
+                              onChange={update("partySize")}
+                            >
+                              {[...Array(20)].map((_, i) => (
+                                <option key={i} value={i + 1}>
+                                  {i + 1} {i === 0 ? "person" : "people"}
+                                </option>
+                              ))}
+                            </select>
+                          )}
                         </div>
                       </div>
                     </div>

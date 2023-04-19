@@ -91,8 +91,8 @@ const RestaurantPage = () => {
           <section className="restaurant-details">
             <h1 className="restaurant-name">{restaurant.name}</h1>
             <div className="general-info">
-              <div className="rating-stars">
-                {avgReviewRating ? (
+              {avgReviewRating ? (
+                <div className="rating-stars">
                   <div className="general-info-stars">
                     <StarRatings
                       className="stars"
@@ -104,13 +104,12 @@ const RestaurantPage = () => {
                       starSpacing="1px"
                     />
                   </div>
-                ) : null}
-                {avgReviewRating ? (
+
                   <span className="general-info-span-2">
                     {avgReviewRating.toFixed(1)}
                   </span>
-                ) : null}
-              </div>
+                </div>
+              ) : null}
               <div className="total-reviews">
                 <span className="general-info-span">
                   <svg viewBox="0 0 24 24" focusable="false">
@@ -125,6 +124,8 @@ const RestaurantPage = () => {
                 <span className="general-info-span-2">
                   {reviewsAmount === 1
                     ? "1 review"
+                    : reviewsAmount === 0
+                    ? "No reviews"
                     : reviewsAmount + " reviews"}
                 </span>
               </div>

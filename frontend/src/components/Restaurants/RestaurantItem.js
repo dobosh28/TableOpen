@@ -4,15 +4,22 @@ import RestaurantImageLoading from "../LoadingPhotoAnimation/RestaurantImageLoad
 import { fetchReviews } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useCallback } from "react";
+import StarRatings from "react-star-ratings";
 
 const RestaurantItem = ({ restaurant, id }) => {
   const dispatch = useDispatch();
-  const reviews = useSelector((state) => state.reviews);
-  const numberOfReviews = useMemo(() => {
-    return Object.values(reviews).filter(
-      (review) => review.restaurantId === restaurant.id
-    ).length;
-  }, [reviews, restaurant.id]);
+  const reviewsFromState = useSelector((state) => state.reviews);
+  const reviews = Object.values(reviewsFromState).filter(
+    (review) => review.restaurantId === restaurant.id
+  );
+
+  const reviewsAmount = reviews?.length;
+
+  const avgReview = reviews?.reduce((acc, review) => {
+    return acc + review.food + review.service + review.ambience + review.value;
+  }, 0);
+
+  const avgReviewRating = avgReview / (reviewsAmount * 4);
 
   useEffect(() => {
     dispatch(fetchReviews());
@@ -33,11 +40,35 @@ const RestaurantItem = ({ restaurant, id }) => {
         <div className="restaurant-content">
           <h3>{restaurant.name}</h3>
           <div className="stars-reviews">
-            <div className="restaurant-card-stars"></div>
-            {numberOfReviews === 1 ? (
-              <span className="review-count">{numberOfReviews} review</span>
+            {avgReviewRating > 0 ? (
+              <div className="restaurant-card-stars">
+                <StarRatings
+                  className="stars"
+                  rating={avgReviewRating}
+                  starRatedColor="#da3743"
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="18px"
+                  starSpacing="1px"
+                />
+              </div>
             ) : (
-              <span className="review-count">{numberOfReviews} reviews</span>
+              <div className="restaurant-card-stars">
+                <StarRatings
+                  className="stars"
+                  rating={0}
+                  starRatedColor="#da3743"
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="18px"
+                  starSpacing="1px"
+                />
+              </div>
+            )}
+            {reviewsAmount === 1 ? (
+              <span className="review-count">{reviewsAmount} review</span>
+            ) : (
+              <span className="review-count">{reviewsAmount} reviews</span>
             )}
           </div>
           <div className="cuisine-price-location">
