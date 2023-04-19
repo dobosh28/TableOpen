@@ -25,8 +25,13 @@ const DiningDashboardReservations = () => {
   const upcomingReservations = [];
   const pastReservations = [];
 
+  console.log("time now:", now);
+  
+  
+
   userReservations.forEach((reservation) => {
-    const reservationTime = Date.parse(reservation.date);
+    const reservationTime = Date.parse(reservation.date + "T" + reservation.time.slice(11, 19) );
+    console.log( "Reservation time:", reservationTime);
     if (reservationTime > now) {
       upcomingReservations.push(reservation);
     } else {

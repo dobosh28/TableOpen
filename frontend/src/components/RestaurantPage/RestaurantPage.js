@@ -92,8 +92,8 @@ const RestaurantPage = () => {
             <h1 className="restaurant-name">{restaurant.name}</h1>
             <div className="general-info">
               <div className="rating-stars">
-                <div className="general-info-stars">
-                  {avgReviewRating && (
+                {avgReviewRating ? (
+                  <div className="general-info-stars">
                     <StarRatings
                       className="stars"
                       rating={avgReviewRating}
@@ -103,11 +103,13 @@ const RestaurantPage = () => {
                       starDimension="18px"
                       starSpacing="1px"
                     />
-                  )}
-                </div>
-                <span className="general-info-span-2">
-                  {avgReviewRating.toFixed(1)}
-                </span>
+                  </div>
+                ) : null}
+                {avgReviewRating ? (
+                  <span className="general-info-span-2">
+                    {avgReviewRating.toFixed(1)}
+                  </span>
+                ) : null}
               </div>
               <div className="total-reviews">
                 <span className="general-info-span">
