@@ -72,7 +72,7 @@
 
 .location-text {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25rem;
   color: #2D333F;
   margin: 0 8px 0 0;
@@ -107,7 +107,7 @@
 
 .current-location-text div {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25rem;
   color: #da3743;
   margin: 0;

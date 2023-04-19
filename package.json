@@ -1,10 +1,20 @@
 {
   "name": "tableopen",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "directories": {
     "lib": "lib"
   },
+  "dependencies": {
+    "loose-envify": "^1.4.0",
+    "classnames": "^2.3.2",
+    "object-assign": "^4.1.1",
+    "js-tokens": "^4.0.0",
+    "react-is": "^16.13.1",
+    "prop-types": "^15.8.1",
+    "react-star-ratings": "^2.3.0",
+    "react": "^16.14.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },
@@ -15,18 +25,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dobosh28/TableOpen/issues"
-  },
-  "homepage": "https://github.com/dobosh28/TableOpen#readme",
   "engines": {
-    "node": ">=17.4.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "react-star-ratings": "^2.3.0"
+    "node": "18.x"
   }
 }
