@@ -71,35 +71,46 @@
 }
 
 .location-text {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
   line-height: 1.25rem;
   color: #2D333F;
   margin: 0 8px 0 0;
 }
 
 .current-location-text-logo {
-  align-items: flex-start;
-  box-sizing: border-box;
+  margin: 0;
+  background: none;
+  border-style: none;
+  color: #da3743;
   display: flex;
-  font-size: 13px;
+  outline: none;
+  padding: 0;
+  text-align: start;
+}
+
+.current-location-logo-container {
+  box-sizing: border-box;
+  height: 1.5rem;
 }
 
 .current-location-logo {
-  box-sizing: border-box;
-  display: block;
-  height: 24px;
+  background-image: url(https://cdn.otstatic.com/cfe/12/images/ic_location_detection_red-3d558b.svg);
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .current-location-text {
   align-self: center;
-  display: block;
-  margin-left: 4px;
-  font-size: 12px;
-  font-stretch: 900%;
-  font-weight: 500;
-  color: rgb(218, 55, 67);
-  text-size-adjust: 100%;
+  margin: 0 0 0 4px;
+}
+
+.current-location-text div {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #da3743;
+  margin: 0;
 }
 
 .restaurant-item-wrapper {

@@ -81,10 +81,8 @@ const RestaurantItem = ({ restaurant, id }) => {
               Booked {timesBooked} times today
             </span>
           </div>
-          <div style={{padding: "8px 0"}}>
-            <button className="find-next-available">
-              Find next available
-            </button>
+          <div style={{ padding: "8px 0" }}>
+            <button className="find-next-available">Find next available</button>
           </div>
         </div>
       </NavLink>

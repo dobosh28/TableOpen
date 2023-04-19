@@ -127,10 +127,10 @@ const DiningDashboardReservations = () => {
         </div>
       </div>
       <div className="upcoming-reservations">
-        {upcomingReservations.length > 0 ? (
-          <h2>Upcoming Reservations</h2>
-        ) : (
+        {upcomingReservations.length === 0 ? (
           <h2>You have no upcoming reservations</h2>
+        ) : (
+          <h2>Upcoming Reservations</h2>
         )}
 
         {upcomingReservations.length > 0 &&

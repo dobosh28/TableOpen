@@ -200,6 +200,90 @@ ApplicationRecord.transaction do
     description: "Brooklyn Chop House is a modern American steakhouse located in the heart of the Financial District. The restaurant features a 28-foot bar, a 1,000-bottle wine cellar, and a 1,000-square-foot private dining room. The menu features a variety of steaks, chops, and seafood, as well as a selection of appetizers, salads, and sides. The restaurant also offers a variety of craft cocktails, wines, and beers." 
   )
 
+  restaurant_11 = Restaurant.create!(
+    name: "Ocean Prime - New York",
+    cross_street: "52nd Street Between 6th and 7th Ave",
+    neighborhood: "Rockefeller Center Midtown",
+    hours_of_operation: "Mon–Fri 11:30 am–10:00 pm Sat 4:00 pm–10:00 pm Sun 4:00 pm–9:00 pm",
+    cuisines: "Seafood, Steak, Sushi",
+    dining_style: "Fine Dining",
+    dress_code: "Business Casual",
+    parking_details: "None",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "http://www.ocean-prime.com/locations/new-york-city",
+    address: "123 West 52nd Street, New York, NY 10019",
+    phone_number: "(212) 965-1404",
+    cost: "$50 and over",
+    description: "Located in Midtown on 52nd between 6th & 7th, Ocean Prime is a nationally acclaimed, modern American restaurant & lounge from the award-winning Cameron Mitchell Restaurants. Stunning settings, an impressive menu of seafood & steaks, and genuine hospitality make Ocean Prime the ideal place to socialize, talk business, celebrate & indulge. Reservations are recommended."  
+  )
+
+  restaurant_12 = Restaurant.create!(
+    name: "Chazz Palminteri Italian Restaurant",
+    cross_street: "5th Avenue and 6th Avenue",
+    neighborhood: "Theater District / Times Square",
+    hours_of_operation: "Sun 3:00 pm–10:00 pm Lunch Mon–Fri 12:00 pm–3:45 pm Dinner Mon–Sat 4:00 pm–10:00 pm",
+    cuisines: "Italian, Steakhouse, Seafood",
+    dining_style: "Fine Dining",
+    dress_code: "Business Casual",
+    parking_details: "None",
+    payment_options: "AMEX, Discover, JCB, MasterCard, Visa",
+    website: "http://www.chazzpalminterinyc.com/",
+    address: "30 W 46th Street, New York, NY 10036",
+    phone_number: "(212) 355-5540",
+    cost: "$50 and over",
+    description: "Chazz Palminteri Italian Restaurant, conveniently located on 46th street between 5th and 6th avenues, showcases a modern décor. An intimate bar space with a stunning bar and high top seating. Chazz Palminteri’s features the finest meat, seafood and pasta dishes, as well as antipasto and traditional Italian desserts. Signature dishes include Zuppa di Cozze, Filetto di Pomodoro and Cotoletta di Vitello al Marsala. The upscale Italian eatery offers a global wine list boasting close to 250 wines and is curated to pair with the bold, rich flavors of classic Italian fare. Custom cocktails featuring spirits blended with seasonal ingredients as well as Italian and craft beer are offered as well. The space can accommodate 100+ guests for lunch and dinner."  
+  )
+
+  restaurant_13 = Restaurant.create!(
+    name: "Jalao",
+    cross_street: "Amsterdam Ave & 181st St",
+    neighborhood: "Washington Heights",
+    hours_of_operation: "Mon–Thur 3:00 am–12:00 am Fri 3:00 pm–1:00 am Sun 12:00 pm–11:00 pm",
+    cuisines: "Caribbean",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "None",
+    payment_options: "AMEX, MasterCard, Visa",
+    website: "http://jalaonyc.com/",
+    address: "2420 Amsterdam Ave, New York, NY 10033",
+    phone_number: "(929) 688-4684",
+    cost: "$30 and under",
+    description: "Welcome to Jalao! An authentic Dominican Republic experience in the heart of Washington Heights."  
+  )
+
+  restaurant_14 = Restaurant.create!(
+    name: "PHD Terrace – Dream Midtown",
+    cross_street: "Broadway and 56th Street",
+    neighborhood: "Midtown West",
+    hours_of_operation: "Tue, Wed, Sun 5:00 pm–12:00 am Thu 5:00 pm–1:00 am Fri, Sat 5:00 pm–2:00 am",
+    cuisines: "Contemporary American, Bar / Lounge / Bottle Service",
+    dining_style: "Casual Elegant",
+    dress_code: "Smart Casual",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, Diners Club, Discover, MasterCard, Visa",
+    website: "http://www.phdterrace.com/",
+    address: "210 W 55th St, New York, NY 10019",
+    phone_number: "(646) 756-2044",
+    cost: "$30 and under",
+    description: "Located in the heart of NYC at the top of Dream Hotel Midtown, PHD Terrace is an all-season rooftop oasis perfect for after-work drinks, weekend revelry and private events. Enjoy the intimate, indoor atmosphere of the lower level, or head outside to the upper level to enjoy an evening on the Terrace providing breathtaking views of Manhattan & Times Square, the ultimate temporary escape from the hustle of Midtown Manhattan."  
+  )
+
+  restaurant_15 = Restaurant.create!(
+    name: "Nizza - NYC",
+    cross_street: "Between 44th and 45th Streets",
+    neighborhood: "Midtown West",
+    hours_of_operation: "Mon, Tue 12:00 pm–10:30 pm Wed–Fri 12:00 pm–11:30 pm Sat 11:00 am–11:30 pm Sun 11:00 am–10:30 pm",
+    cuisines: "Italian",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "None",
+    payment_options: "AMEX, MasterCard, Visa",
+    website: "https://nizzanyc.com/",
+    address: "630 9th Ave, New York, NY 10036",
+    phone_number: "(212) 956-1800",
+    cost: "$30 and under",
+    description: "A modern Italian Trattoria in the heart of Hell's Kitchen, Nizza has been an elevated crowd pleaser and a favorite of neighborhood locals, tourists and the pre-theatre crowd since 2007."  
+  )
 
   # restaurant_x = Restaurant.create!(
   #   name: "",
@@ -217,6 +301,7 @@ ApplicationRecord.transaction do
   #   cost: "",
   #   description: ""  
   # )
+  
 
   
   photo_1 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_1.jpeg')
@@ -229,6 +314,14 @@ ApplicationRecord.transaction do
   photo_8 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_8.webp')
   photo_9 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_9.webp')
   photo_10 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_10.jpeg')
+  photo_11 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_11.jpeg')
+  photo_12 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_12.avif')
+  photo_13 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_13.jpeg')
+  photo_14 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_14.jpeg')
+  photo_15 = URI.open('https://table-open-yd-seeds.s3.amazonaws.com/photo_15.jpeg')
+
+
+
   
   restaurant_1.photo.attach(io: photo_1, filename: 'photo_1.jpeg')
   restaurant_2.photo.attach(io: photo_2, filename: 'photo_2.jpeg')
@@ -240,6 +333,12 @@ ApplicationRecord.transaction do
   restaurant_8.photo.attach(io: photo_8, filename: 'photo_8.webp')
   restaurant_9.photo.attach(io: photo_9, filename: 'photo_9.webp')
   restaurant_10.photo.attach(io: photo_10, filename: 'photo_10.jpeg')
+  restaurant_11.photo.attach(io: photo_11, filename: 'photo_11.jpeg')
+  restaurant_12.photo.attach(io: photo_12, filename: 'photo_12.avif')
+  restaurant_13.photo.attach(io: photo_13, filename: 'photo_13.jpeg')
+  restaurant_14.photo.attach(io: photo_14, filename: 'photo_14.jpeg')
+  restaurant_15.photo.attach(io: photo_15, filename: 'photo_15.jpeg')
+
 
   puts "Creating reviews..."
   review_1 = Review.create!(

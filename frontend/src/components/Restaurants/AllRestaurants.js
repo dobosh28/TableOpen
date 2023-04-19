@@ -30,17 +30,14 @@ const LandingPageRestaurants = () => {
                 <span className="location-text">
                   It looks like you're in New York. Not correct?
                 </span>
-                <div className="current-location-text-logo">
-                  <div className="current-location-logo">
-                    <img
-                      src="https://cdn.otstatic.com/cfe/11/images/ic_location_detection_red-3d558b.svg"
-                      alt=""
-                    />
+                <button className="current-location-text-logo">
+                  <div className="current-location-logo-container">
+                    <div className="current-location-logo"></div>
                   </div>
                   <div className="current-location-text">
-                    Get current location
+                    <div>Get current location</div>
                   </div>
-                </div>
+                </button>
               </div>
             </div>
           </section>
@@ -52,7 +49,11 @@ const LandingPageRestaurants = () => {
             </header>
             <div className="restaurants-items">
               {restaurants.map((restaurant, i) => (
-                <RestaurantItem key={i} restaurant={restaurant} id={`restaurant-${i}`} />
+                <RestaurantItem
+                  key={i}
+                  restaurant={restaurant}
+                  id={`restaurant-${i}`}
+                />
               ))}
             </div>
           </div>
