@@ -4,15 +4,6 @@ import ReviewControls from "./ReviewControls";
 import "./ReviewIndexItem.css";
 
 const ReviewIndexItem = ({ review }) => {
-  let avg = (...args) => args.reduce((a, b) => a + b) / args.length;
-  let avgRating = avg(
-    review.overall,
-    review.food,
-    review.ambience,
-    review.value,
-    review.service
-  );
-
   const colors = [
     "#bb6acd",
     "#5fb0b5",
