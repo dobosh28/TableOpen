@@ -1,8 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
 import LoginForm from "../../LoginFormModal/LoginForm";
+import { useLocation, useHistory } from "react-router-dom";
+
 import "./ReservationForm.css";
 
 const ReservationForm = () => {
@@ -10,12 +12,40 @@ const ReservationForm = () => {
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
   const sessionUser = useSelector((state) => state.session.user);
 
+  const history = useHistory();
+  const location = useLocation();
+  const params = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  );
+
   const [partySize, setPartySize] = useState(2);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [time, setTime] = useState("19:30");
 
   const [displayTime, setDisplayTime] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const openModal = useCallback(() => {
+    history.push(`/restaurants/${restaurantId}?Modal=open`);
+    setShowModal(true);
+  }, [history, restaurantId]);
+
+  const closeModal = useCallback(() => {
+    history.replace(`/restaurants/${restaurantId}`);
+  }, [history, restaurantId]);
+
+  const handleClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!sessionUser) {
+        openModal();
+      } else {
+        setDisplayTime(true);
+      }
+    },
+    [sessionUser, openModal]
+  );
 
   const update = (field) => {
     return (e) => {
@@ -35,15 +65,19 @@ const ReservationForm = () => {
     };
   };
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    if (!sessionUser) {
+  useEffect(() => {
+    if (params.get("Modal") === "open") {
       setShowModal(true);
     } else {
-      setDisplayTime(true);
       setShowModal(false);
     }
-  };
+  }, [params]);
+
+  useEffect(() => {
+    if (sessionUser) {
+      closeModal();
+    }
+  }, [sessionUser, closeModal]);
 
   const convertTime = (timeString) => {
     const hour = parseInt(timeString.slice(0, 2));
@@ -165,9 +199,8 @@ const ReservationForm = () => {
             Booked {timesBooked} times today
           </span>
         </section>
-
         {showModal && (
-          <Modal onClose={() => setShowModal(false)} className="auth-modal">
+          <Modal onClose={closeModal} className="auth-modal">
             <LoginForm />
           </Modal>
         )}
