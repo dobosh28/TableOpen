@@ -5,6 +5,7 @@ import restaurantsReducer from "./restaurants";
 import reviewsReducer from "./reviews";
 import reservationsReducer from "./reservations";
 import usersReducer from "./users";
+import favoritesReducer from "./favorites";
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     restaurants: restaurantsReducer,
     reviews: reviewsReducer,
     reservations: reservationsReducer,
-    users: usersReducer
+    users: usersReducer,
+    favorites: favoritesReducer,
 });
 
 let enhancer;

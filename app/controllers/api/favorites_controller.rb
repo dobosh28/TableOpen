@@ -2,13 +2,14 @@ class Api::FavoritesController < ApplicationController
   before_action :require_logged_in
 
   def index 
-    @favorites = current_user.favorites
+    @favorites = Favorite.all
     render :index
   end
 
   def create 
     @favorite = Favorite.new(favorite_params)
-    if @favorite.save
+    
+    if @favorite.save!
       render :show
     else
       render json: @favorite.errors.full_messages, status: 422

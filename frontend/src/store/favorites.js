@@ -71,27 +71,22 @@ export const deleteFavorite = (favoriteId) => async (dispatch) => {
 };
 
 const favoritesReducer = (state = {}, action) => {
+  const newState = { ...state };
+
   switch (action.type) {
-    case RECEIVE_FAVORITES: {
-      const newState = {};
-      action.favorites.forEach((favorite) => {
-        newState[favorite.id] = favorite;
-      });
-      return newState;
-    }
-    case RECEIVE_FAVORITE: {
-      const newState = { ...state };
+    case RECEIVE_FAVORITES:
+      return { ...newState, ...action.favorites };
+    case RECEIVE_FAVORITE:
       newState[action.favorite.id] = action.favorite;
       return newState;
-    }
-    case REMOVE_FAVORITE: {
-      const newState = { ...state };
-      delete newState[action.favoriteId];
+    case REMOVE_FAVORITE:
+      if (newState[action.favoriteId]) {
+        delete newState[action.favoriteId];
+      }
       return newState;
-    }
     default:
       return state;
   }
-}
+};
 
 export default favoritesReducer;

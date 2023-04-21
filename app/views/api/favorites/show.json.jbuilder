@@ -1,1 +1,3 @@
-json.partial! "favorite", favorite: @favorite
+json.favorite do
+  json.partial! "favorite", favorite: @favorite
+end
