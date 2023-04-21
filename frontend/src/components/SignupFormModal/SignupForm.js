@@ -86,9 +86,7 @@ const SignupForm = () => {
                       value={firstName}
                       onChange={(e) => {
                         setFirstName(e.target.value);
-                        // validateForm();
                       }}
-                      // required
                       placeholder="First name"
                     />
                   </div>
@@ -108,9 +106,7 @@ const SignupForm = () => {
                       value={lastName}
                       onChange={(e) => {
                         setLastName(e.target.value);
-                        // validateForm();
                       }}
-                      // required
                       placeholder="Last name"
                     />
                   </div>
@@ -130,9 +126,7 @@ const SignupForm = () => {
                       value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
-                        // validateForm();
                       }}
-                      required
                       placeholder="Email"
                     />
                   </div>
@@ -152,9 +146,7 @@ const SignupForm = () => {
                       value={password}
                       onChange={(e) => {
                         setPassword(e.target.value);
-                        // validateForm();
                       }}
-                      required
                       placeholder="Password"
                     />
                   </div>
@@ -174,9 +166,7 @@ const SignupForm = () => {
                       value={confirmPassword}
                       onChange={(e) => {
                         setConfirmPassword(e.target.value);
-                        // validateForm();
                       }}
-                      required
                       placeholder="Confirm password"
                     />
                   </div>
