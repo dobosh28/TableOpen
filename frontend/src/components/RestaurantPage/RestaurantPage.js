@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRestaurant } from "../../store/restaurants";
 import { fetchReviews } from "../../store/reviews";
@@ -13,6 +13,8 @@ import ReviewsShow from "../Reviews/ReviewShow";
 import ReservationForm from "../Reservations/ReservationForm/ReservationForm";
 import AdditionalInfo from "./AdditionalInfo";
 import StarRatings from "react-star-ratings";
+import { Modal } from "../../context/Modal";
+import LoginForm from "../LoginFormModal/LoginForm";
 import "./RestaurantPage.css";
 
 const RestaurantPage = () => {
@@ -22,15 +24,17 @@ const RestaurantPage = () => {
   const { [restaurantId]: restaurant } = useSelector(
     (state) => state.restaurants
   );
+  const savedRestaurants = useSelector(getFavorites);
+  const restaurantAlreadySaved = savedRestaurants.find(
+    (restaurant) => restaurant.restaurantId === parseInt(restaurantId)
+  );
   const reviews = useSelector((state) =>
     Object.values(state.reviews).filter(
       (review) => review.restaurantId === parseInt(restaurantId)
     )
   );
-  const savedRestaurants = useSelector(getFavorites);
-  const restaurantAlreadySaved = savedRestaurants.find(
-    (restaurant) => restaurant.restaurantId === parseInt(restaurantId)
-  );
+
+  const [showModal, setShowModal] = useState(false);
 
   const reviewsAmount = reviews?.length ?? 0;
 
@@ -57,9 +61,9 @@ const RestaurantPage = () => {
 
   const handleSave = async () => {
     if (!sessionUser) {
-      alert("Please log in to save this restaurant");
+      setShowModal(true)
       return;
-    }
+    } 
 
     const favorite = {
       user_id: sessionUser.id,
@@ -99,6 +103,11 @@ const RestaurantPage = () => {
           )}
         </button>
       </div>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)} className="auth-modal">
+          <LoginForm className=""/>
+        </Modal>
+      )}
       <div className="restaurant-page-info">
         <div className="restaurant-page-info-left">
           <section className="tab-container">
