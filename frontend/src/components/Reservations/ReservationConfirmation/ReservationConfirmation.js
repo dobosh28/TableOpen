@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservation, fetchReservation } from "../../../store/reservations";
@@ -13,7 +13,10 @@ const ReservationConfirmation = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
-  const params = new URLSearchParams(location.search);
+  const params = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  );
 
   const sessionUser = useSelector((state) => state.session.user);
 

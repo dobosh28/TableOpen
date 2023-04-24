@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { deleteReservation } from "../../../store/reservations";
 import "./ReservationCancel.css";
@@ -9,7 +9,6 @@ const ReservationCancel = ({ reservation, onClose }) => {
   const dispatch = useDispatch();
   const restaurantId = reservation.restaurantId;
   const restaurant = useSelector((state) => state.restaurants[restaurantId]);
-  const [showModal, setShowModal] = useState(true);
   const reservationId = reservation.id;
 
   const handleDelete = async (e) => {
