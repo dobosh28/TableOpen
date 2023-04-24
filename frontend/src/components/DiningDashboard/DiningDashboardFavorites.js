@@ -20,7 +20,9 @@ const DiningDashboardFavorites = () => {
 
   const savedRestaurants = restaurants.filter((restaurant) => {
     return favoritesData.some(
-      (favorite) => favorite.restaurantId === restaurant.id && favorite.userId === sessionUser.id
+      (favorite) =>
+        favorite.restaurantId === restaurant.id &&
+        favorite.userId === sessionUser.id
     );
   });
 

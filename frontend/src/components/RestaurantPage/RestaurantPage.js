@@ -61,9 +61,9 @@ const RestaurantPage = () => {
 
   const handleSave = async () => {
     if (!sessionUser) {
-      setShowModal(true)
+      setShowModal(true);
       return;
-    } 
+    }
 
     const favorite = {
       user_id: sessionUser.id,
@@ -105,7 +105,7 @@ const RestaurantPage = () => {
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)} className="auth-modal">
-          <LoginForm className=""/>
+          <LoginForm className="" />
         </Modal>
       )}
       <div className="restaurant-page-info">
