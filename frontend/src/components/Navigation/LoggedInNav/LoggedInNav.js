@@ -57,9 +57,8 @@ const LoggedInNav = ({ sessionUser }) => {
           </div>
         </div>
       </div>
-
     </>
   );
-}
+};
 
 export default LoggedInNav;

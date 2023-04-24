@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const  RestaurantImageLoading = ({ src }) => {
+const RestaurantImageLoading = ({ src }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
@@ -34,6 +34,6 @@ const  RestaurantImageLoading = ({ src }) => {
       )}
     </>
   );
-}
+};
 
 export default RestaurantImageLoading;

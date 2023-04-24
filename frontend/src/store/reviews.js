@@ -20,7 +20,8 @@ const removeReview = (reviewId) => ({
     reviewId
 });
 
-export const getReview = (reviewId) => (state) => state.reviews ? state.reviews[reviewId] : null; 
+export const getReview = (reviewId) => (state) => state.reviews ? state.reviews[reviewId] : null;
+export const getReviews = (state) => state.reviews ? Object.values(state.reviews) : [];
 
 export const fetchReviews = () => async (dispatch) => {
     const response = await fetch('/api/reviews');

@@ -1,25 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRestaurant } from "../../store/restaurants";
 import { fetchReviews } from "../../store/reviews";
+import {
+  getFavorites,
+  fetchFavorites,
+  createFavorite,
+  deleteFavorite,
+} from "../../store/favorites";
 import ReviewsShow from "../Reviews/ReviewShow";
 import ReservationForm from "../Reservations/ReservationForm/ReservationForm";
 import AdditionalInfo from "./AdditionalInfo";
 import StarRatings from "react-star-ratings";
+import { Modal } from "../../context/Modal";
+import LoginForm from "../LoginFormModal/LoginForm";
 import "./RestaurantPage.css";
 
 const RestaurantPage = () => {
   const dispatch = useDispatch();
   const { restaurantId } = useParams();
-  const restaurant = useSelector((state) => state.restaurants[restaurantId]);
-  const reviewsFromState = useSelector((state) => state.reviews);
-
-  const reviews = Object.values(reviewsFromState).filter(
-    (review) => review.restaurantId === parseInt(restaurantId)
+  const sessionUser = useSelector((state) => state.session.user);
+  const { [restaurantId]: restaurant } = useSelector(
+    (state) => state.restaurants
+  );
+  const savedRestaurants = useSelector(getFavorites);
+  const restaurantAlreadySaved = savedRestaurants.find(
+    (restaurant) => restaurant.restaurantId === parseInt(restaurantId)
+  );
+  const reviews = useSelector((state) =>
+    Object.values(state.reviews).filter(
+      (review) => review.restaurantId === parseInt(restaurantId)
+    )
   );
 
-  const reviewsAmount = reviews?.length;
+  const [showModal, setShowModal] = useState(false);
+
+  const reviewsAmount = reviews?.length ?? 0;
 
   const avgReview = reviews?.reduce((acc, review) => {
     return acc + review.food + review.service + review.ambience + review.value;
@@ -29,10 +46,8 @@ const RestaurantPage = () => {
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
-  }, [dispatch, restaurantId]);
-
-  useEffect(() => {
     dispatch(fetchReviews());
+    dispatch(fetchFavorites());
   }, [dispatch, restaurantId]);
 
   if (!restaurant) return null;
@@ -44,6 +59,22 @@ const RestaurantPage = () => {
     });
   };
 
+  const handleSave = async () => {
+    if (!sessionUser) {
+      setShowModal(true);
+      return;
+    }
+
+    const favorite = {
+      user_id: sessionUser.id,
+      restaurant_id: parseInt(restaurantId),
+    };
+
+    !restaurantAlreadySaved
+      ? dispatch(createFavorite(favorite))
+      : dispatch(deleteFavorite(restaurantAlreadySaved.id));
+  };
+
   return (
     <div className="restaurant-page-main-container">
       <div className="restaurant-page-banner">
@@ -52,16 +83,31 @@ const RestaurantPage = () => {
           src={restaurant.photoUrl}
           alt=""
         />
-        <button className="save-this-restaurant-button">
-          <div className="save-restaurant-text-logo-container">
-            <img
-              src="https://cdn.otstatic.com/cfe/11/images/ic_bookmark-f6a8ce.svg"
-              alt=""
-            />
-            <div className="save-restaurant-text">Save this restaurant</div>
-          </div>
+        <button className="save-this-restaurant-button" onClick={handleSave}>
+          {!restaurantAlreadySaved ? (
+            <div className="save-restaurant-text-logo-container">
+              <img
+                src="https://cdn.otstatic.com/cfe/11/images/ic_bookmark-f6a8ce.svg"
+                alt=""
+              />
+              <div className="save-restaurant-text">Save this restaurant</div>
+            </div>
+          ) : (
+            <div className="save-restaurant-text-logo-container">
+              <img
+                src="https://cdn.otstatic.com/cfe/12/images/ic_bookmark_selected-b86940.svg"
+                alt=""
+              />
+              <div className="save-restaurant-text">Restaurant saved!</div>
+            </div>
+          )}
         </button>
       </div>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)} className="auth-modal">
+          <LoginForm className="" />
+        </Modal>
+      )}
       <div className="restaurant-page-info">
         <div className="restaurant-page-info-left">
           <section className="tab-container">
