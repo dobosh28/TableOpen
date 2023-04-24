@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 import { fetchRestaurant } from "../../store/restaurants";
 import { fetchReviews } from "../../store/reviews";
 import {
@@ -19,6 +19,12 @@ import "./RestaurantPage.css";
 
 const RestaurantPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
+  const params = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  );
   const { restaurantId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const { [restaurantId]: restaurant } = useSelector(
@@ -26,7 +32,9 @@ const RestaurantPage = () => {
   );
   const savedRestaurants = useSelector(getFavorites);
   const restaurantAlreadySaved = savedRestaurants.find(
-    (restaurant) => restaurant.restaurantId === parseInt(restaurantId)
+    (restaurant) =>
+      restaurant.restaurantId === parseInt(restaurantId) &&
+      sessionUser?.id === restaurant.userId
   );
   const reviews = useSelector((state) =>
     Object.values(state.reviews).filter(
@@ -36,6 +44,28 @@ const RestaurantPage = () => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const openModal = useCallback(() => {
+    history.push(`/restaurants/${restaurantId}?Modal=open`);
+    setShowModal(true);
+  }, [history, restaurantId]);
+
+  const closeModal = useCallback(() => {
+    history.replace(`/restaurants/${restaurantId}`);
+  }, [history, restaurantId]);
+
+  useEffect(() => {
+    if (params.get("Modal") === "open") {
+      setShowModal(true);
+    } else {
+      setShowModal(false);
+    }
+  }, [params]);
+
+  useEffect(() => {
+    if (sessionUser) {
+      closeModal();
+    }
+  }, [sessionUser, closeModal]);
   const reviewsAmount = reviews?.length ?? 0;
 
   const avgReview = reviews?.reduce((acc, review) => {
@@ -61,7 +91,7 @@ const RestaurantPage = () => {
 
   const handleSave = async () => {
     if (!sessionUser) {
-      setShowModal(true);
+      openModal();
       return;
     }
 
@@ -104,7 +134,7 @@ const RestaurantPage = () => {
         </button>
       </div>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)} className="auth-modal">
+        <Modal onClose={closeModal} className="auth-modal">
           <LoginForm className="" />
         </Modal>
       )}
