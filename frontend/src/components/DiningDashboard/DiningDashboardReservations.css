@@ -272,3 +272,23 @@
   min-width: 1.5rem;
   line-height: 1;
 }
+
+@media (min-width: 1056px) {
+  .past-res-leave-review {
+    align-items: center;
+    display: flex;
+    grid-area: details;
+    /* margin-left: 1.25rem;
+    margin-top: 64px; */
+  }
+}
+
+.past-res-leave-review div {
+  color: #2d333f;
+  margin-right: 4px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5rem;
+  padding-left: 5px;
+  margin-top: 4px;
+}

@@ -212,7 +212,10 @@ const DiningDashboardReservations = () => {
 
         {pastReservations.length > 0 &&
           pastReservations.map((reservation) => (
-            <div key={reservation.id}>
+            <div
+              key={reservation.id}
+              onClick={() => routeToReservationConfirmation(reservation.id)}
+            >
               {restaurants
                 .filter(
                   (restaurant) => restaurant.id === reservation.restaurantId
@@ -270,6 +273,9 @@ const DiningDashboardReservations = () => {
                           </svg>
                         </span>
                         {formatDateforPastReservations(reservation.date)}
+                      </span>
+                      <span className="past-res-leave-review">
+                        <div>Leave a review</div>
                       </span>
                     </div>
                   </div>
