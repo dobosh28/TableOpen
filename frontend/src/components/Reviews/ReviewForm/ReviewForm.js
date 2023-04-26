@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createReview } from "../../../store/reviews";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./ReviewForm.css";
 
 const ReviewForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { restaurantId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -18,32 +19,29 @@ const ReviewForm = () => {
     ambience: 0,
     value: 0,
     user_id: sessionUser?.id,
-    restaurant_id: restaurantId,
+    restaurant_id: parseInt(restaurantId),
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setReviewData({ ...reviewData, [name]: value });
+    setReviewData({
+      ...reviewData,
+      [name]: name === "body" || name === "nickname" ? value : parseInt(value),
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const createdReview = dispatch(createReview(reviewData));
-    if (createdReview) {
-      setReviewData({
-        nickname: "",
-        body: "",
-        overall: 0,
-        food: 0,
-        service: 0,
-        ambience: 0,
-        value: 0,
-        user_id: sessionUser?.id,
-        restaurant_id: restaurantId,
-      });
-    }
+
+    const review = {
+      ...reviewData
+    };
+
+    dispatch(createReview(review));
+    history.push(`/restaurants/${restaurantId}`);
   };
+
+  // debugger;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,7 +64,7 @@ const ReviewForm = () => {
             <input
               type="number"
               name="overall"
-              min="0"
+              min="1"
               max="5"
               value={reviewData.overall}
               onChange={handleChange}
@@ -77,7 +75,7 @@ const ReviewForm = () => {
             <input
               type="number"
               name="food"
-              min="0"
+              min="1"
               max="5"
               value={reviewData.food}
               onChange={handleChange}
@@ -88,7 +86,7 @@ const ReviewForm = () => {
             <input
               type="number"
               name="service"
-              min="0"
+              min="1"
               max="5"
               value={reviewData.service}
               onChange={handleChange}
@@ -99,7 +97,7 @@ const ReviewForm = () => {
             <input
               type="number"
               name="ambience"
-              min="0"
+              min="1"
               max="5"
               value={reviewData.ambience}
               onChange={handleChange}
@@ -110,7 +108,7 @@ const ReviewForm = () => {
             <input
               type="number"
               name="value"
-              min="0"
+              min="1"
               max="5"
               value={reviewData.value}
               onChange={handleChange}
@@ -119,7 +117,6 @@ const ReviewForm = () => {
           <div className="review-form__body__body">
             <label htmlFor="body">Review</label>
             <textarea
-
               name="body"
               value={reviewData.body}
               onChange={handleChange}

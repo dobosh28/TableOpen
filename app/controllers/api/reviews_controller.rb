@@ -1,18 +1,18 @@
 class Api::ReviewsController < ApplicationController
+    before_action :require_logged_in
+
     def index
         @reviews = Review.all
-        render :index
     end
 
     def show
         @review = Review.find(params[:id])
-        render :show
     end
 
     def create
         @review = Review.new(review_params)
         
-        if @review.save
+        if @review.save!
             render :show
         else
             render json: @review.errors.full_messages, status: 422

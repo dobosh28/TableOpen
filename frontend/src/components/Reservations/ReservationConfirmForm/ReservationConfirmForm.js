@@ -63,7 +63,6 @@ const ReservationConfirmForm = () => {
     const reservation = {
       ...reservationData,
     };
-
     const newReservation = await dispatch(createReservation(reservation));
     dispatch(receiveReservation(newReservation));
     history.push(`/reservations/${newReservation.id}/confirmation`);
