@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useCallback, useMemo } from "react";
-import { useParams, useLocation, useHistory } from "react-router-dom";
+import { useParams, useLocation, useHistory, NavLink } from "react-router-dom";
 import { fetchRestaurant } from "../../store/restaurants";
 import { fetchReviews } from "../../store/reviews";
 import {
@@ -264,6 +264,9 @@ const RestaurantPage = () => {
                     : reviews.length + " people are "}
                   saying
                 </h2>
+                <NavLink to={`/restaurants/${restaurant.id}/review`}>
+                  <button>Write a review</button>
+                </NavLink>
               </div>
             </header>
             <div className="all-reviews-container">

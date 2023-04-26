@@ -1,4 +1,4 @@
-import ReviewIndexItem from "./ReviewIndexItem";
+import ReviewIndexItem from "./ReviewIndexItem/ReviewIndexItem";
 
 const ReviewsShow = ({ reviews }) => {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StarRatings from "react-star-ratings";
-import ReviewControls from "./ReviewControls";
+import ReviewControls from "../ReviewControls";
 import "./ReviewIndexItem.css";
 
 const ReviewIndexItem = ({ review }) => {
