@@ -30,6 +30,7 @@ export const fetchReviews = () => async (dispatch) => {
   if (response.ok) {
     const reviews = await response.json();
     dispatch(receiveReviews(reviews));
+    return reviews;
   }
 };
 
@@ -39,6 +40,7 @@ export const fetchReview = (reviewId) => async (dispatch) => {
   if (response.ok) {
     const review = await response.json();
     dispatch(receiveReview(review));
+    return review;
   }
 };
 

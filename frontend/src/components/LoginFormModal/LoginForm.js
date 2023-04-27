@@ -39,7 +39,7 @@ const LoginForm = () => {
     <>
       <div>
         <div className="login-form-container">
-          <button className="close-auth-modal">
+          {/* <button className="close-auth-modal">
             <span className="close-auth-modal-button-span">
               <svg viewBox="0 0 24 24" focusable="false">
                 <g fill="none" fillRule="evenodd">
@@ -52,7 +52,7 @@ const LoginForm = () => {
                 </g>
               </svg>
             </span>
-          </button>
+          </button> */}
           <div style={{ height: "100%" }}>
             <div className="login-form" onSubmit={handleSubmit}>
               <div>

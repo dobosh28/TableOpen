@@ -81,7 +81,10 @@ const RestaurantPage = () => {
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
     dispatch(fetchReviews());
+
+   
     dispatch(fetchFavorites());
+    
   }, [dispatch, restaurantId]);
 
   if (!restaurant) return null;

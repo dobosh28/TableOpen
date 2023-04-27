@@ -8,6 +8,7 @@ const LandingPageRestaurants = () => {
   const dispatch = useDispatch();
   const restaurants = useSelector(getRestaurants);
 
+
   useEffect(() => {
     dispatch(fetchRestaurants());
   }, [dispatch]);

@@ -12,19 +12,6 @@
   /* text-align: center; */
 }
 
-.close-auth-modal {
-  margin: 32px 16px 16px;
-  background-color: initial;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 1.5rem;
-  width: 1.5rem;
-  padding: 0;
-  position: absolute;
-  right: 16px;
-  z-index: 1;
-}
 
 .close-auth-modal-button-span {
   display: inline-block;
@@ -35,10 +22,13 @@
 }
 
 .login-form {
-  /* padding-top: 4.5rem; */
   background-color: #fff;
-  min-height: calc(48.0625rem - 96px);
-  padding: 72px 32px;
+  min-height: 641.7px;
+  padding-top: 72px;
+  padding-left: 32px;
+  padding-right: 32px;
+  max-height: 720px;
+  /* box-sizing: border-box; */
 }
 
 .welcome-back {
