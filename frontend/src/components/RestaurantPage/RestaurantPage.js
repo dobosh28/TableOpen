@@ -264,9 +264,11 @@ const RestaurantPage = () => {
                     : reviews.length + " people are "}
                   saying
                 </h2>
-                <NavLink to={`/restaurants/${restaurant.id}/review`}>
-                  <button>Write a review</button>
-                </NavLink>
+                {sessionUser && (
+                  <NavLink to={`/restaurants/${restaurant.id}/review`}>
+                    <button className="rate-and-review">Rate and review</button>
+                  </NavLink>
+                )}
               </div>
             </header>
             <div className="all-reviews-container">

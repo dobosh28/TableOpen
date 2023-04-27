@@ -18,9 +18,12 @@ const ReviewIndexItem = ({ review }) => {
     "#71986b",
     "#9b6d47",
   ];
+
   const [randomColor] = useState(
     colors[Math.floor(Math.random() * colors.length)]
   );
+
+  const [showMore, setShowMore] = useState(false);
 
   return (
     <div className="review-index-item">
@@ -45,17 +48,24 @@ const ReviewIndexItem = ({ review }) => {
           />
         </section>
         <div className="ofsa-div">
-          <span className="ofsa">Overall</span>
-          <p className="rating-value">{review.overall}</p>
-          <span className="ofsa">&nbsp;•&nbsp;Food</span>
+          <span className="ofsa">Food</span>
           <p className="rating-value">{review.food}</p>
           <span className="ofsa">&nbsp;•&nbsp;Service</span>
           <p className="rating-value">{review.service}</p>
           <span className="ofsa">&nbsp;•&nbsp;Ambience</span>
           <p className="rating-value">{review.ambience}</p>
+          <span className="ofsa">&nbsp;•&nbsp;Overall</span>
+          <p className="rating-value">{review.overall}</p>
         </div>
         <div className="review-body">
-          <p className="review-description">{review.body}</p>
+          <p className={showMore ? "full-review" : "short-review"}>
+            {review.body}
+          </p>
+          {review.body.length > 300 && (
+            <div onClick={() => setShowMore(!showMore)} className="read-more-less">
+              {showMore ? "- Read less" : "+ Read more"}
+            </div>
+          )}
         </div>
         <ReviewControls review={review} />
       </section>
