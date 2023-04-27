@@ -42,6 +42,10 @@ const RestaurantPage = () => {
     )
   );
 
+  const sessionUserReview = reviews.find(
+    (review) => review.userId === sessionUser?.id
+  );
+
   const [showModal, setShowModal] = useState(false);
 
   const openModal = useCallback(() => {
@@ -264,11 +268,11 @@ const RestaurantPage = () => {
                     : reviews.length + " people are "}
                   saying
                 </h2>
-                {sessionUser && (
+                {sessionUser && !sessionUserReview ? (
                   <NavLink to={`/restaurants/${restaurant.id}/review`}>
                     <button className="rate-and-review">Rate and review</button>
                   </NavLink>
-                )}
+                ) : null}
               </div>
             </header>
             <div className="all-reviews-container">
