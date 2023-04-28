@@ -1,0 +1,50 @@
+.page-3-div {
+  min-height: 28.75rem;
+}
+
+.nickname-header {
+  margin-bottom: 12px;
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.75rem;
+  color: #2d333f;
+}
+
+.nickname-subheader {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: #2d333f;
+}
+
+.input-div {
+  border: .0625rem solid #247f9e;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  position: relative;
+}
+
+.input-div label {
+  font-size: 13px;
+  font-weight: 400px;
+  line-height: 20px;
+  transform: translateY(4px);
+  position: absolute;
+}
+
+.input-div input {
+  border: none;
+  margin-top: 8px;
+  outline: 0;
+  padding: 16px 0 8px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: black;
+  font-size: 15px;
+  font-weight: 100;
+  background: transparent;
+}

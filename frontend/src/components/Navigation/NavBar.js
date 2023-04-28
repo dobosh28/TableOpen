@@ -7,11 +7,12 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const location = useLocation();
 
-  const isDiningDashboard =
+  const CurrentLocationOff =
     location.pathname.includes("dining") ||
     location.pathname.includes("reservation/details") ||
     location.pathname.includes("/confirmation") ||
-    location.pathname.includes("/modify");
+    location.pathname.includes("/modify") ||
+    location.pathname.includes("/review");
 
   return (
     <nav className="navvy-nav">
@@ -30,7 +31,7 @@ const NavBar = () => {
       ) : (
         <LoggedOutNav sessionUser={sessionUser} />
       )}
-      {isDiningDashboard ? null : (
+      {CurrentLocationOff ? null : (
         <ol className="current-location-ol">
           <li className="current-location-li">
             <p>Home</p>

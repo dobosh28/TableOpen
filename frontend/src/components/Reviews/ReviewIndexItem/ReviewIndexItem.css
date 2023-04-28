@@ -88,16 +88,9 @@
 
 .review-body {
     margin-top: 16px;
+    max-width: 466.35px;
 }
 
-/* .review-description {
-    line-height: 24px;
-    max-height: 72px;
-    font-size: 15px;
-    overflow: hidden;
-    color: #2d333f;
-    text-overflow: ellipsis;
-} */
 
 .short-review {
   overflow: hidden;

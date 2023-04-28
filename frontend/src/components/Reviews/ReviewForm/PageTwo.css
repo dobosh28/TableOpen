@@ -1,0 +1,79 @@
+.page-2-div {
+  margin: auto;
+  max-width: 100%;
+}
+
+.page-2-header {
+  margin-bottom: 12px;
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.75rem;
+  color: #2d333f;
+}
+
+.page-2-subheader {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: #2d333f;
+}
+
+.need-help {
+  background: #0000;
+  border: none;
+  display: inline-flex;
+  float: left;
+  margin-bottom: 8px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.need-help span {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+}
+
+.need-help div{
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 2px;
+  padding-top: 5px;
+  color: #000000;
+}
+
+.review-field {
+  background: #fff;
+  border: .0625rem solid #d8d9db;
+  border-radius: 8px;
+  resize: none;
+  box-sizing: border-box;
+  color: #2d333f;
+  display: block;
+  height: 100%;
+  margin-right: calc(4px - .0625rem);
+  min-height: 48px;
+  padding: calc(12px + .125rem) 8px;
+  width: 100%;
+  font: inherit;
+  overflow: auto;
+  font-size: 15px;
+  line-height: 1.15rem;
+  font-weight: 300;
+}
+
+.review-field:focus {
+  outline: none;
+  border: .0625rem solid rgb(65, 125, 155);
+}
+
+.min-50-chars {
+  font-size: 13px;
+  font-weight: 300;
+  color: #91949a;
+  margin-top: 8px;
+  float: left;
+}
