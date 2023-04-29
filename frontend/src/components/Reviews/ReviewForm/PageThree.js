@@ -7,6 +7,7 @@ const PageThree = ({ onChange }) => {
   const formState = useContext(FormContext);
   const sessionUser = useSelector((state) => state.session.user);
   const [charCount, setCharCount] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
 
   const updateCharCount = (e) => {
     setCharCount(e.target.value?.length ?? 0);
@@ -31,8 +32,25 @@ const PageThree = ({ onChange }) => {
       </div>
       <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <div>
-          <div className={charCount > 3 ? "input-div" : "input-div-error"}>
-            <label className={!charCount ? "no-chars-label" : "chars-label"}>
+          <div
+            className={`${
+              !isFocused && charCount === 0 ? "no-chars-input-div" : ""
+            } ${isFocused || charCount > 3 ? "input-div" : ""} ${
+              (isFocused && charCount <= 3) || charCount > 24
+                ? "input-div-error"
+                : ""
+            } ${!isFocused && charCount > 24 ? "input-div-error" : ""} 
+            ${
+              !isFocused && charCount > 0 && charCount < 4
+                ? "input-div-error"
+                : ""
+            }`}
+          >
+            <label
+              className={
+                !isFocused && charCount === 0 ? "no-chars-label" : "chars-label"
+              }
+            >
               Nickname
             </label>
             <input
@@ -41,6 +59,8 @@ const PageThree = ({ onChange }) => {
               defaultValue={`${sessionUser?.firstName}${sessionUser?.lastName[0]}`}
               value={formState.nickname}
               onChange={updateCharCount}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
             />
           </div>
           <div className="char-count">
