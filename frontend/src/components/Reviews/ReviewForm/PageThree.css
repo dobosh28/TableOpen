@@ -26,15 +26,42 @@
   position: relative;
 }
 
-.input-div label {
+.input-div:focus {
+  border: .0625rem solid blue;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  position: relative;
+}
+
+
+.input-div-error {
+  border: .0625rem solid #931b23;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  position: relative;
+}
+
+.chars-label {
   font-size: 13px;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: 20px;
   transform: translateY(4px);
   position: absolute;
 }
 
-.input-div input {
+.no-chars-label {
+  position: absolute;
+  transform: translateY(16px) scale(1);
+  transform-origin: top left;
+  transition: all .1s ease-in-out;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+.input-div input, .input-div-error input {
   border: none;
   margin-top: 8px;
   outline: 0;

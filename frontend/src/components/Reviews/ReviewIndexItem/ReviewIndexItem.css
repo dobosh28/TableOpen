@@ -54,10 +54,10 @@
     line-height: 1.25rem;
 }
 
-/* .review-index-item-right {
+.review-index-item-right {
     display: block;
     flex-grow: 1;
-} */
+}
 
 .star-rat {
     align-items: center;
@@ -125,7 +125,10 @@
 .edit-delete-review {
     display: flex;
     justify-content: flex-end;
-}
+    position: absolute;
+    bottom: 14px;
+    right: 8px;
+  }
   
 .edit-review-link button,
 .delete-review-button {

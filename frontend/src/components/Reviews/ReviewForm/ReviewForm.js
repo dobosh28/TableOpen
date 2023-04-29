@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { createReview } from "../../../store/reviews";
@@ -96,11 +96,26 @@ const ReviewForm = () => {
 
   const [isNextDisabled, setIsNextDisabled] = useState(true);
 
+  useEffect(() => {
+    isFormValid(formState);
+  }, [formState, currentPage]);
+
   const isFormValid = (state) => {
     const requiredFields = ["overall", "food", "service", "ambience", "value"];
-    const valid = requiredFields.every((field) => state[field] >= 1);
-    setIsNextDisabled(!valid);
-    return valid;
+    const pageOneValid = requiredFields.every((field) => state[field] >= 1);
+    const pageTwoValid = state.body.length >= 50;
+    const pageThreeValid = state.nickname.length >= 4;
+
+    if (currentPage === 0) {
+      setIsNextDisabled(!pageOneValid);
+      return pageOneValid;
+    } else if (currentPage === 1) {
+      setIsNextDisabled(!pageTwoValid);
+      return pageTwoValid;
+    } else if (currentPage === 2) {
+      setIsNextDisabled(!pageThreeValid);
+      return pageThreeValid;
+    }
   };
 
   return (
@@ -144,7 +159,13 @@ const ReviewForm = () => {
             }}
           >
             {currentPage === 2 ? (
-              <button className="next-submit-button" onClick={handleSubmit}>
+              <button
+                className={`next-submit-button ${
+                  isNextDisabled ? "next-submit-button-disabled" : ""
+                }`}
+                onClick={handleSubmit}
+                disabled={isNextDisabled}
+              >
                 Submit
               </button>
             ) : (
