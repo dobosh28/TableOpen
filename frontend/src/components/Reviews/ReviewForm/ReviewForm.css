@@ -64,7 +64,7 @@
   transition: all .3s ease-out;
 }
 
-.next-button {
+.next-submit-button {
   padding: .75rem 16px;
   line-height: 24px;
   background-color: #da3743;
@@ -77,14 +77,14 @@
   cursor: pointer;
 }
 
-.next-button:not(.next-button-disabled):hover {
+.next-submit-button:not(.next-submit-button-disabled):hover {
   background-color: #98232d;
   border: .0625rem solid #98232d;
   color: #fff;
   transition: all .3s ease-out;
 }
 
-.next-button-disabled {
+.next-submit-button-disabled {
   opacity: 0.5;
   cursor: not-allowed;
   background-color: #f1f2f4;

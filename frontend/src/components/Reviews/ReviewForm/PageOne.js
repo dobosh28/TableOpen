@@ -17,7 +17,24 @@ const PageOne = () => {
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
-  }, [restaurantId]);
+  }, [dispatch, restaurantId]);
+
+  const ratingToString = (rating) => {
+    switch (rating) {
+      case 1:
+        return "Poor";
+      case 2:
+        return "Fair";
+      case 3:
+        return "Good";
+      case 4:
+        return "Very good";
+      case 5:
+        return "Outstanding";
+      default:
+        return "";
+    }
+  };
 
   return (
     <div>
@@ -37,7 +54,8 @@ const PageOne = () => {
         }}
       >
         <div className="rating-div">
-          <p>Overall</p>
+          <p className="which-rating">Overall</p>
+
           <StarRatings
             rating={formState.overall}
             starRatedColor="#da3743"
@@ -51,9 +69,10 @@ const PageOne = () => {
             starDimension="40px"
             starSpacing="1px"
           />
+          <p className="rating-text">{ratingToString(formState.overall)}</p>
         </div>
         <div className="rating-div">
-          <p>Food</p>
+          <p className="which-rating">Food</p>
           <StarRatings
             rating={formState.food}
             starRatedColor="#da3743"
@@ -65,9 +84,10 @@ const PageOne = () => {
             starDimension="40px"
             starSpacing="1px"
           />
+          <p className="rating-text">{ratingToString(formState.food)}</p>
         </div>
         <div className="rating-div">
-          <p>Service</p>
+          <p className="which-rating">Service</p>
           <StarRatings
             rating={formState.service}
             starRatedColor="#da3743"
@@ -81,9 +101,10 @@ const PageOne = () => {
             starDimension="40px"
             starSpacing="1px"
           />
+          <p className="rating-text">{ratingToString(formState.service)}</p>
         </div>
         <div className="rating-div">
-          <p>Ambience</p>
+          <p className="which-rating">Ambience</p>
           <StarRatings
             rating={formState.ambience}
             starRatedColor="#da3743"
@@ -97,9 +118,10 @@ const PageOne = () => {
             starDimension="40px"
             starSpacing="1px"
           />
+          <p className="rating-text">{ratingToString(formState.ambience)}</p>
         </div>
         <div className="rating-div">
-          <p>Value</p>
+          <p className="which-rating">Value</p>
           <StarRatings
             rating={formState.value}
             starRatedColor="#da3743"
@@ -111,6 +133,7 @@ const PageOne = () => {
             starDimension="40px"
             starSpacing="1px"
           />
+          <p className="rating-text">{ratingToString(formState.value)}</p>
         </div>
       </div>
     </div>

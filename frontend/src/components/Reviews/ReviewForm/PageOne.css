@@ -23,11 +23,26 @@
   position: relative;
 }
 
-.rating-div p {
+.which-rating {
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   margin: 0 32px 0 0;
   text-align: left;
   width: 5rem;
+  color: #2d333f;
+}
+
+.rating-text {
+  display: block;
+  font-size: 13px;
+  font-weight: 300;
+  left: 80%;
+  top: 10%;
+  line-height: 32px;
+  margin: 0 0 0 48px;
+  position: absolute;
+  text-align: left;
+  width: 76px;
+  color: #2d333f;
 }

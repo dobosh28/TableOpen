@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createReview } from "../../../store/reviews";
 import { useParams, useHistory } from "react-router-dom";
+import { createReview } from "../../../store/reviews";
+import { FormContext } from "./FormContext";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
-import { FormContext } from "./FormContext";
 import "./ReviewForm.css";
 
 const ReviewForm = () => {
@@ -20,7 +20,7 @@ const ReviewForm = () => {
     service: 0,
     ambience: 0,
     value: 0,
-    nickname: "",
+    nickname: `${sessionUser?.firstName}${sessionUser?.lastName[0]}`,
     body: "",
     restaurant_id: restaurantId,
     user_id: sessionUser?.id,
@@ -49,7 +49,7 @@ const ReviewForm = () => {
         ...prevState,
         [name]: newRating,
       };
-  
+
       isFormValid(updatedState);
       return updatedState;
     });
@@ -101,7 +101,7 @@ const ReviewForm = () => {
     const valid = requiredFields.every((field) => state[field] >= 1);
     setIsNextDisabled(!valid);
     return valid;
-  };  
+  };
 
   return (
     <div className="review-form-container">
@@ -137,8 +137,6 @@ const ReviewForm = () => {
           )}
           <div
             style={{
-              height: "50px",
-              width: "66.1px",
               alignItems: "flex-end",
               display: "flex",
               flexDirection: "column",
@@ -146,13 +144,13 @@ const ReviewForm = () => {
             }}
           >
             {currentPage === 2 ? (
-              <button className="submit-button" onClick={handleSubmit}>
+              <button className="next-submit-button" onClick={handleSubmit}>
                 Submit
               </button>
             ) : (
               <button
-                className={`next-button ${
-                  isNextDisabled ? "next-button-disabled" : ""
+                className={`next-submit-button ${
+                  isNextDisabled ? "next-submit-button-disabled" : ""
                 }`}
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={isNextDisabled}

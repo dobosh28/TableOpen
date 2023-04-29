@@ -1,14 +1,11 @@
 import { useContext } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { FormContext } from "./FormContext";
 import "./PageThree.css";
 
 const PageThree = ({ onChange }) => {
   const formState = useContext(FormContext);
-  
-
-
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   return (
     <div className="page-3-div">
@@ -27,7 +24,7 @@ const PageThree = ({ onChange }) => {
             <input
               type="text"
               name="nickname"
-              // defaultValue={sessionUser.firstName}
+              defaultValue={`${sessionUser?.firstName}${sessionUser?.lastName[0]}`}
               value={formState.nickname}
               onChange={onChange}
             />
