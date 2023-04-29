@@ -1,9 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FormContext } from "./FormContext";
 import "./PageTwo.css";
 
 const PageTwo = ({ onChange }) => {
   const formState = useContext(FormContext);
+  const [charCount, setCharCount] = useState(0);
+
+  const updateCharCount = (event) => {
+    const inputValue = event.target.value || "";
+    setCharCount(inputValue.length);
+    onChange(event);
+  };
 
   return (
     <div className="page-2-div">
@@ -30,13 +37,23 @@ const PageTwo = ({ onChange }) => {
             <div>Need help?</div>
           </div>
           <textarea
-            className="review-field"
+            className={
+              charCount < 50 && charCount > 0
+                ? "review-field error"
+                : "review-field"
+            }
             name="body"
             placeholder="Your review must be at least 50 characters"
             value={formState.body}
-            onChange={onChange}
+            onChange={updateCharCount}
           />
           <div className="min-50-chars">Minimum 50 characters</div>
+        </div>
+        <div className="char-count">
+          <span style={{ color: charCount < 50 ? "#931b23" : "inherit" }}>
+            {charCount}
+          </span>{" "}
+          / 2000 characters
         </div>
       </div>
     </div>

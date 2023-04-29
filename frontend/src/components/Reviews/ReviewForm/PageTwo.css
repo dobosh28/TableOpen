@@ -70,10 +70,23 @@
   border: .0625rem solid rgb(65, 125, 155);
 }
 
+.review-field.error:focus {
+  outline: none;
+  border: .0625rem solid #931b23;
+}
+
 .min-50-chars {
   font-size: 13px;
   font-weight: 300;
   color: #91949a;
   margin-top: 8px;
   float: left;
+}
+
+.char-count {
+  font-size: 13px;
+  font-weight: 300;
+  color: #91949a;
+  margin-top: 8px;
+  float: right
 }
