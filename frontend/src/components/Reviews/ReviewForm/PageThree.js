@@ -18,7 +18,7 @@ const PageThree = ({ onChange }) => {
     if (formState.formState.nickname) {
       setCharCount(formState.formState.nickname.length);
     }
-  }, [formState.nickname]);
+  }, [formState.formState.nickname]);
 
   return (
     <div className="page-3-div">

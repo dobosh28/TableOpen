@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { createReview } from "../../../store/reviews";
 import { FormContext } from "./FormContext";
+import { useCallback } from "react";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
@@ -95,28 +96,37 @@ const ReviewForm = () => {
 
   const [isNextDisabled, setIsNextDisabled] = useState(true);
 
+  const isFormValid = useCallback(
+    (state) => {
+      const requiredFields = [
+        "overall",
+        "food",
+        "service",
+        "ambience",
+        "value",
+      ];
+      const pageOneValid = requiredFields.every((field) => state[field] >= 1);
+      const pageTwoValid = state.body.length >= 50 && state.body.length <= 2000;
+      const pageThreeValid =
+        state.nickname.length >= 4 && state.nickname.length <= 24;
+
+      if (currentPage === 0) {
+        setIsNextDisabled(!pageOneValid);
+        return pageOneValid;
+      } else if (currentPage === 1) {
+        setIsNextDisabled(!pageTwoValid);
+        return pageTwoValid;
+      } else if (currentPage === 2) {
+        setIsNextDisabled(!pageThreeValid);
+        return pageThreeValid;
+      }
+    },
+    [currentPage]
+  );
+
   useEffect(() => {
     isFormValid(formState);
-  }, [formState, currentPage]);
-
-  const isFormValid = (state) => {
-    const requiredFields = ["overall", "food", "service", "ambience", "value"];
-    const pageOneValid = requiredFields.every((field) => state[field] >= 1);
-    const pageTwoValid = state.body.length >= 50 && state.body.length <= 2000;
-    const pageThreeValid =
-      state.nickname.length >= 4 && state.nickname.length <= 24;
-
-    if (currentPage === 0) {
-      setIsNextDisabled(!pageOneValid);
-      return pageOneValid;
-    } else if (currentPage === 1) {
-      setIsNextDisabled(!pageTwoValid);
-      return pageTwoValid;
-    } else if (currentPage === 2) {
-      setIsNextDisabled(!pageThreeValid);
-      return pageThreeValid;
-    }
-  };
+  }, [formState, currentPage, isFormValid]);
 
   return (
     <div className="review-form-container">

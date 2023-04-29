@@ -44,6 +44,7 @@ const PageTwo = ({ onChange }) => {
             }
             name="body"
             placeholder="Your review must be at least 50 characters"
+            maxLength={2000}
             value={formState.body}
             onChange={updateCharCount}
           />
@@ -52,7 +53,7 @@ const PageTwo = ({ onChange }) => {
         <div className="char-count">
           <span
             style={{
-              color: charCount < 50 || charCount > 2000 ? "#931b23" : "inherit",
+              color: charCount < 50 ? "#931b23" : "inherit",
             }}
           >
             {charCount}
