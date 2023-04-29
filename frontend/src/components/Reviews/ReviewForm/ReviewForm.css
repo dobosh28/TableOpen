@@ -77,11 +77,19 @@
   cursor: pointer;
 }
 
-.next-button:hover {
+.next-button:not(.next-button-disabled):hover {
   background-color: #98232d;
   border: .0625rem solid #98232d;
   color: #fff;
   transition: all .3s ease-out;
+}
+
+.next-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f1f2f4;
+  color: #6f737b;
+  border: none;
 }
 
 .page-dots {
@@ -103,3 +111,5 @@
 .dot-active {
   background-color: #da3743;
 }
+
+

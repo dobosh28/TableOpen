@@ -15,11 +15,11 @@ const ReviewForm = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
   const [formState, setFormState] = useState({
-    overall: 1,
-    food: 1,
-    service: 1,
-    ambience: 1,
-    value: 1,
+    overall: 0,
+    food: 0,
+    service: 0,
+    ambience: 0,
+    value: 0,
     nickname: "",
     body: "",
     restaurant_id: restaurantId,
@@ -31,7 +31,7 @@ const ReviewForm = () => {
 
     if (typeof e === "string") {
       name = e;
-      value = arguments[1]; // the second argument (newRating) in this case
+      value = arguments[1];
     } else {
       name = e.target.name;
       value = e.target.value;
@@ -44,9 +44,14 @@ const ReviewForm = () => {
   };
 
   const handleStarRatingChange = (newRating, name) => {
-    setFormState({
-      ...formState,
-      [name]: newRating,
+    setFormState((prevState) => {
+      const updatedState = {
+        ...prevState,
+        [name]: newRating,
+      };
+  
+      isFormValid(updatedState);
+      return updatedState;
     });
   };
 
@@ -88,6 +93,15 @@ const ReviewForm = () => {
 
   const currentPageClass = (pageId) =>
     pageId === pages[currentPage].id ? "dot-active" : "";
+
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
+
+  const isFormValid = (state) => {
+    const requiredFields = ["overall", "food", "service", "ambience", "value"];
+    const valid = requiredFields.every((field) => state[field] >= 1);
+    setIsNextDisabled(!valid);
+    return valid;
+  };  
 
   return (
     <div className="review-form-container">
@@ -137,8 +151,11 @@ const ReviewForm = () => {
               </button>
             ) : (
               <button
-                className="next-button"
+                className={`next-button ${
+                  isNextDisabled ? "next-button-disabled" : ""
+                }`}
                 onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={isNextDisabled}
               >
                 Next
               </button>
