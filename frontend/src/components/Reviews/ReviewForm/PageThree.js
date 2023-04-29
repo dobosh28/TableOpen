@@ -32,7 +32,9 @@ const PageThree = ({ onChange }) => {
       <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <div>
           <div className={charCount > 3 ? "input-div" : "input-div-error"}>
-            <label className={!charCount ? "no-chars-label" : "chars-label"}>Nickname</label>
+            <label className={!charCount ? "no-chars-label" : "chars-label"}>
+              Nickname
+            </label>
             <input
               type="text"
               name="nickname"
@@ -42,7 +44,11 @@ const PageThree = ({ onChange }) => {
             />
           </div>
           <div className="char-count">
-            <span style={{ color: charCount < 4 ? "#931b23" : "inherit" }}>
+            <span
+              style={{
+                color: charCount < 4 || charCount > 24 ? "#931b23" : "inherit",
+              }}
+            >
               {charCount}
             </span>{" "}
             / 24 characters

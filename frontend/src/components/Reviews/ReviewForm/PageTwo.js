@@ -50,7 +50,11 @@ const PageTwo = ({ onChange }) => {
           <div className="min-50-chars">Minimum 50 characters</div>
         </div>
         <div className="char-count">
-          <span style={{ color: charCount < 50 ? "#931b23" : "inherit" }}>
+          <span
+            style={{
+              color: charCount < 50 || charCount > 2000 ? "#931b23" : "inherit",
+            }}
+          >
             {charCount}
           </span>{" "}
           / 2000 characters
