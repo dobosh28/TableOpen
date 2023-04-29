@@ -33,18 +33,17 @@ const PageThree = ({ onChange }) => {
       <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <div>
           <div
-            className={`${
-              !isFocused && charCount === 0 ? "no-chars-input-div" : ""
-            } ${isFocused || charCount > 3 ? "input-div" : ""} ${
+            className={[
+              !isFocused && charCount === 0 ? "no-chars-input-div" : "",
+              isFocused || charCount > 3 ? "input-div" : "",
               (isFocused && charCount <= 3) || charCount > 24
                 ? "input-div-error"
-                : ""
-            } ${!isFocused && charCount > 24 ? "input-div-error" : ""} 
-            ${
+                : "",
+              !isFocused && charCount > 24 ? "input-div-error" : "",
               !isFocused && charCount > 0 && charCount < 4
                 ? "input-div-error"
-                : ""
-            }`}
+                : "",
+            ].join(" ")}
           >
             <label
               className={

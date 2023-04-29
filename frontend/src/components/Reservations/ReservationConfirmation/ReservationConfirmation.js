@@ -31,8 +31,6 @@ const ReservationConfirmation = () => {
     return reservationTime < now;
   }, [reservation]);
 
-  console.log(reservationIsPast);
-
   const { restaurantId } = reservation || {};
   const restaurant = useSelector(getRestaurant(restaurantId));
 

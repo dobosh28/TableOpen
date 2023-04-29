@@ -71,7 +71,6 @@ const ReviewForm = () => {
     };
 
     dispatch(createReview(review));
-    debugger;
     history.push(`/restaurants/${restaurantId}`);
   };
 
