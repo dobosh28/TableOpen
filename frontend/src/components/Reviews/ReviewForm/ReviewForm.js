@@ -106,7 +106,7 @@ const ReviewForm = () => {
         "value",
       ];
       const pageOneValid = requiredFields.every((field) => state[field] >= 1);
-      const pageTwoValid = state.body.length >= 50 && state.body.length <= 2000;
+      const pageTwoValid = state.body.length >= 50;
       const pageThreeValid =
         state.nickname.length >= 4 && state.nickname.length <= 24;
 
