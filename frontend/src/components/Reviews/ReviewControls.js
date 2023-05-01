@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview } from "../../store/reviews";
+import { useParams } from "react-router-dom";
 
 const ReviewControls = ({ review }) => {
+  const { restaurantId } = useParams();
   const dispatch = useDispatch();
   const sessionUserId = useSelector((state) => state.session?.user?.id);
 
@@ -15,12 +17,12 @@ const ReviewControls = ({ review }) => {
     return (
       <div className="review-controls">
         <div className="edit-delete-review">
-          <Link
-            to={`/restaurants/${review.restaurantId}/reviews/${review.id}/form`}
+          <NavLink
+            to={`/restaurants/${restaurantId}/review/${review.id}`}
             className="edit-review-link"
           >
             <button>Modify review</button>
-          </Link>
+          </NavLink>
           <button className="delete-review-button" onClick={handleDelete}>
             Delete review
           </button>

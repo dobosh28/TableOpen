@@ -21,6 +21,7 @@ const removeReview = (reviewId) => ({
 
 export const getReview = (reviewId) => (state) =>
   state.reviews ? state.reviews[reviewId] : null;
+
 export const getReviews = (state) =>
   state.reviews ? Object.values(state.reviews) : [];
 
@@ -38,9 +39,9 @@ export const fetchReview = (reviewId) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${reviewId}`);
 
   if (response.ok) {
-    const review = await response.json();
-    dispatch(receiveReview(review));
-    return review;
+    const data = await response.json();
+    dispatch(receiveReview(data.review));
+    return data.review;
   }
 };
 

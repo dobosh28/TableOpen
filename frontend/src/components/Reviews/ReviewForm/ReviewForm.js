@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { createReview } from "../../../store/reviews";
+import { createReview, updateReview } from "../../../store/reviews";
 import { FormContext } from "./FormContext";
 import { useCallback } from "react";
 import PageOne from "./PageOne";
@@ -9,23 +9,32 @@ import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import "./ReviewForm.css";
 
-const ReviewForm = () => {
+const ReviewForm = ({ review }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const restaurantId = useParams().restaurantId;
   const sessionUser = useSelector((state) => state.session.user);
 
-  const [formState, setFormState] = useState({
-    overall: 0,
-    food: 0,
-    service: 0,
-    ambience: 0,
-    value: 0,
-    nickname: `${sessionUser?.firstName}${sessionUser?.lastName[0]}`,
-    body: "",
-    restaurant_id: restaurantId,
-    user_id: sessionUser?.id,
-  });
+  const [formState, setFormState] = useState(
+    review
+      ? {
+          ...review,
+          nickname: review.nickname,
+          restaurant_id: review.restaurantId,
+          user_id: review.userId,
+        }
+      : {
+          overall: 0,
+          food: 0,
+          service: 0,
+          ambience: 0,
+          value: 0,
+          nickname: `${sessionUser?.firstName}${sessionUser?.lastName[0]}`,
+          body: "",
+          restaurant_id: restaurantId,
+          user_id: sessionUser?.id,
+        }
+  );
 
   const handleFormChange = function (e) {
     let name, value;
@@ -59,7 +68,7 @@ const ReviewForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const review = {
+    const reviewData = {
       overall: parseInt(formState.overall),
       food: parseInt(formState.food),
       service: parseInt(formState.service),
@@ -71,7 +80,11 @@ const ReviewForm = () => {
       user_id: sessionUser?.id,
     };
 
-    dispatch(createReview(review));
+    if (review) {
+      dispatch(updateReview({ ...reviewData, id: review.id }));
+    } else {
+      dispatch(createReview(reviewData));
+    }
     history.push(`/restaurants/${restaurantId}`);
   };
 
