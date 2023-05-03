@@ -10,7 +10,7 @@ import DiningDashboard from "./components/DiningDashboard/DiningDashboard";
 import ReviewForm from "./components/Reviews/ReviewForm/ReviewForm";
 import UpdateReviewPage from "./components/Reviews/UpdateReviewPage";
 import Footer from "./components/Footer/Footer";
-import FilteredRestaurants from "./components/Restaurants/FilteredRestaurants";
+import SearchPage from "./components/Restaurants/SearchPage";
 
 function App() {
   return (
@@ -28,12 +28,7 @@ function App() {
           <Route
             exact
             path="/restaurants"
-            render={(props) => (
-              <FilteredRestaurants
-                cuisine={props.location.search.split("=")[1]}
-                neighborhood={props.location.search.split("=")[2]}
-              />
-            )}
+            component={SearchPage}
           />
           <Route
             exact
