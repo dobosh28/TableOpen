@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import RestaurantItem from "./RestaurantItem";
 import "./AllRestaurants.css";
+import Search from "./SearchForm";
 
 const LandingPageRestaurants = () => {
   const dispatch = useDispatch();
   const restaurants = useSelector(getRestaurants);
-
 
   useEffect(() => {
     dispatch(fetchRestaurants());
@@ -20,7 +20,9 @@ const LandingPageRestaurants = () => {
           <h1 className="search-section-prompt">
             Find your table for any occasion
           </h1>
-          <span className="search-section-subtext"></span>
+          <span className="search-section-subtext">
+            <Search />
+          </span>
         </div>
       </header>
       <section className="restaurants-outer-container">
