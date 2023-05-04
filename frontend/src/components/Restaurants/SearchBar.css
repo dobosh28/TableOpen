@@ -70,7 +70,129 @@
   width: 1.5rem;
 }
 
+.main-page-time {
+  background: #fff;
+  border-left: .0625rem solid #00000014;
+  border-right: .0625rem solid #00000014;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
+.main-page-time-inner {
+  background: #fff;
+  height: 3rem;
+  position: relative;
+}
+
+.main-page-time-inner-2 {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0.3125rem;
+}
+
+.main-page-time-inner-3 {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-weight: 400;
+  height: 100%;
+  padding: .1875rem;
+}
+
+.main-page-time-inner-3 span {
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  width: 1.5rem;
+}
+
+.main-page-party {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-page-party-inner {
+  background: #fff;
+  height: 3rem;
+  position: relative;
+}
+
+.filter-bar-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-bar {
+  border-radius: 4px;
+  flex: 1 1 auto;
+  height: 3rem;
+  margin: 0 16px;
+  min-width: 18.125rem;
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+.filter-bar-inner {
+  height: 100%;
+  position: relative;
+}
+
+.filter-bar-inner span {
+  height: 1.5rem;
+  width: 1.5rem;
+  left: 0.625rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.filter-bar-inner input {
+  border: none;
+  border-radius: 4px;
+  color: #2d333f;
+  height: 100%;
+  outline: none;
+  padding-left: 2.5rem;
+  padding-right: 16px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.filter-button {
+  border-radius: 4px;
+  min-width: 9rem;
+  overflow: hidden;
+}
+
+.filter-button button {
+  border-radius: inherit;
+  background-color: #da3743;
+  color: #fff;
+  cursor: pointer;
+  height: 3rem;
+  font-weight: 600;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  line-height: 1.15;
+  width: 100%;
+}
+
+.filter-button button:hover {
+  background-color: #b82d36;
+  transition: all .3s ease-out;
+}
 
 
 
