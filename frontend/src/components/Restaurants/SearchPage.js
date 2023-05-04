@@ -27,6 +27,7 @@ function SearchPage({ location }) {
             {filteredRestaurants.map((restaurant) => (
               <li key={restaurant.id}>
                 <h3>{restaurant.name}</h3>
+                
               </li>
             ))}
           </ul>
