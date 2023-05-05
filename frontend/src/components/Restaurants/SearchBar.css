@@ -238,7 +238,16 @@
 }
 
 .filter-bar-locations-title span,
-.filter-bar-cuisine-title span,
+.filter-bar-cuisine-title span {
+  height: 1.5625rem;
+  left: .625rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.375rem;
+  line-height: 1;
+}
+
 .filter-bar-restaurant-title span {
   height: 1.5625rem;
   left: .625rem;
