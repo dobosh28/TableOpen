@@ -44,7 +44,7 @@ function SearchBar() {
     return () => window.removeEventListener("click", listener);
   }, [searchInput]);
 
-  const routeToRestaurantProfile = (restaurantId) => {
+  const routeToRestaurantPage = (restaurantId) => {
     history.push(`/restaurants/${restaurantId}`);
   };
 
@@ -56,7 +56,6 @@ function SearchBar() {
   };
 
   const routeToNeighborhoods = (event, neighborhood) => {
-    // Prevent event propagation
     event.stopPropagation();
 
     history.push({
@@ -140,6 +139,105 @@ function SearchBar() {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
+              {searchInput && (
+                <div className="filter-bar-results-container">
+                  <div className="filter-bar-search-input">
+                    <div className="filter-bar-search-input-text">
+                      Search : "
+                      <strong style={{ fontWeight: "600" }}>
+                        {searchInput}
+                      </strong>
+                      "
+                    </div>
+                  </div>
+                  {neighborhoods.length > 0 && (
+                    <>
+                      <h4 className="filter-bar-locations-title">
+                        <span>
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <g fill="none" fillRule="evenodd">
+                              <path
+                                d="M12,2 C16.418278,2 20,5.581722 20,10 C20,12.8133333 17.5666667,16.59 12.7,21.33 C12.3111565,21.7111429 11.6888435,21.7111429 11.3,21.33 C6.43333333,16.59 4,12.8133333 4,10 C4,5.581722 7.581722,2 12,2 Z M12,4 C8.6862915,4 6,6.6862915 6,10 C6,11.21 6.8,14 12,19.21 C17.2,14 18,11.21 18,10 C18,6.6862915 15.3137085,4 12,4 Z M12,7 C13.6568542,7 15,8.34314575 15,10 C15,11.6568542 13.6568542,13 12,13 C10.3431458,13 9,11.6568542 9,10 C9,8.34314575 10.3431458,7 12,7 Z M12,9 C11.4477153,9 11,9.44771525 11,10 C11,10.5522847 11.4477153,11 12,11 C12.5522847,11 13,10.5522847 13,10 C13,9.44771525 12.5522847,9 12,9 Z"
+                                fill="#6f737b"
+                              ></path>
+                            </g>
+                          </svg>
+                        </span>
+                        Locations
+                      </h4>
+                      <div style={{ boxSizing: "border-box" }}>
+                        {neighborhoods.map((neighborhood) => (
+                          <div
+                            key={neighborhood}
+                            className="filter-bar-neighborhood-results"
+                            onClick={(event) =>
+                              routeToNeighborhoods(event, neighborhood)
+                            }
+                          >
+                            <div>{neighborhood}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {cuisines.length > 0 && (
+                    <>
+                      <h4 className="filter-bar-cuisine-title">
+                        <span>
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <g fill="none" fillRule="evenodd">
+                              <path
+                                d="M11,2 C12.1045695,2 13,2.8954305 13,4 L13,11 C13,12.1045695 12.1045695,13 11,13 L10,13 L10,21 C10,21.5522847 9.55228475,22 9,22 L8,22 C7.44771525,22 7,21.5522847 7,21 L7,13 L6,13 C4.8954305,13 4,12.1045695 4,11 L4,4 C4,2.8954305 4.8954305,2 6,2 L11,2 Z M11,11 L11,4 L10,4 L10,8.5 C10,8.77614237 9.77614237,9 9.5,9 C9.22385763,9 9,8.77614237 9,8.5 L9,4 L8,4 L8,8.5 C8,8.77614237 7.77614237,9 7.5,9 C7.22385763,9 7,8.77614237 7,8.5 L7,4 L6,4 L6,11 L11,11 Z M19.45,2 C19.7537566,2 20,2.24624339 20,2.55 L20,21 C20,21.5522847 19.5522847,22 19,22 L18,22 C17.4477153,22 17,21.5522847 17,21 L17,17 L16,17 C14.8954305,17 14,16.1045695 14,15 L14,7.45 C14,4.44004811 16.4400481,2 19.45,2 Z M16,15 L18,15 L18,4.32 C16.7823465,4.88673047 16.0026709,6.10692278 16,7.45 L16,15 Z"
+                                fill="#6f737b"
+                              ></path>
+                            </g>
+                          </svg>
+                        </span>
+                        Cuisines
+                      </h4>
+                      <div style={{ boxSizing: "border-box" }}>
+                        {cuisines.map((cuisine) => (
+                          <div
+                            key={cuisine}
+                            className="filter-bar-cuisine-results"
+                            onClick={(event) => routeToCuisines(event, cuisine)}
+                          >
+                            <div>{cuisine}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {filteredRestaurants.length > 0 && (
+                    <>
+                      <h4 className="filter-bar-restaurant-title">
+                        <span>
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <g fill="none" fillRule="evenodd">
+                              <path
+                                d="M11,2 C12.1045695,2 13,2.8954305 13,4 L13,11 C13,12.1045695 12.1045695,13 11,13 L10,13 L10,21 C10,21.5522847 9.55228475,22 9,22 L8,22 C7.44771525,22 7,21.5522847 7,21 L7,13 L6,13 C4.8954305,13 4,12.1045695 4,11 L4,4 C4,2.8954305 4.8954305,2 6,2 L11,2 Z M11,11 L11,4 L10,4 L10,8.5 C10,8.77614237 9.77614237,9 9.5,9 C9.22385763,9 9,8.77614237 9,8.5 L9,4 L8,4 L8,8.5 C8,8.77614237 7.77614237,9 7.5,9 C7.22385763,9 7,8.77614237 7,8.5 L7,4 L6,4 L6,11 L11,11 Z M19.45,2 C19.7537566,2 20,2.24624339 20,2.55 L20,21 C20,21.5522847 19.5522847,22 19,22 L18,22 C17.4477153,22 17,21.5522847 17,21 L17,17 L16,17 C14.8954305,17 14,16.1045695 14,15 L14,7.45 C14,4.44004811 16.4400481,2 19.45,2 Z M16,15 L18,15 L18,4.32 C16.7823465,4.88673047 16.0026709,6.10692278 16,7.45 L16,15 Z"
+                                fill="#6f737b"
+                              ></path>
+                            </g>
+                          </svg>
+                        </span>
+                        Restaurants
+                      </h4>
+                      <div style={{ boxSizing: "border-box" }}>
+                        {filteredRestaurants.map((restaurant) => (
+                          <div
+                            key={restaurant.id}
+                            className="filter-bar-restaurant-results"
+                            onClick={routeToRestaurantPage(restaurant.id)}
+                          >
+                            <div>{restaurant.name}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           <div className="filter-button">
@@ -147,77 +245,6 @@ function SearchBar() {
           </div>
         </div>
       </div>
-
-      {searchInput && (
-        <div className="search-bar-search-results-container">
-          <div className="search-bar-search-text-container">
-            <div className="search-bar-search-text">
-              Search : "<strong>{searchInput}</strong>"
-            </div>
-          </div>
-          {neighborhoods.length > 0 && (
-            <div className="search-bar-locations-container">
-              <div className="search-bar-locations-text-container">
-                <div className="search-bar-locations-text">Locations</div>
-              </div>
-              <div className="search-bar-locations-results-container">
-                {neighborhoods.map((neighborhood) => (
-                  <div
-                    key={neighborhood}
-                    className="search-bar-locations-results"
-                    onClick={(event) =>
-                      routeToNeighborhoods(event, neighborhood)
-                    }
-                  >
-                    <div className="search-bar-locations-results-text">
-                      {neighborhood}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          {cuisines.length > 0 && (
-            <div className="search-bar-cuisines-container">
-              <div className="search-bar-cuisines-text-container">
-                <div className="search-bar-cuisines-text">Cuisines</div>
-              </div>
-              <div className="search-bar-cuisines-results-container">
-                {cuisines.map((cuisine) => (
-                  <div key={cuisine} className="search-bar-cuisines-results">
-                    <div
-                      className="search-bar-cuisines-results-text"
-                      onClick={routeToCuisines}
-                    >
-                      {cuisine}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          {filteredRestaurants.length > 0 && (
-            <div className="search-bar-restaurants-container">
-              <div className="search-bar-restaurants-text-container">
-                <div className="search-bar-restaurants-text">Restaurants</div>
-              </div>
-              <div className="search-bar-restaurants-results-container">
-                {filteredRestaurants.map((restaurant) => (
-                  <div
-                    key={restaurant.id}
-                    className="search-bar-restaurants-results"
-                    onClick={() => routeToRestaurantProfile(restaurant.id)}
-                  >
-                    <div className="search-bar-restaurants-results-text">
-                      {restaurant.name}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }
