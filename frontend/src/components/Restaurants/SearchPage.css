@@ -89,3 +89,49 @@
 .restaurant-h6:hover {
   text-decoration: underline;
 }
+
+.rating-described {
+  margin-left: 8px;
+  color: #2d333f;
+  font-size: 13px;
+  display: inline;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.num-of-reviews {
+  color: #2d333f;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+  margin-left: 8px;
+}
+
+.num-of-reviews:hover {
+  text-decoration: underline;
+  color: #da3743;
+  cursor: pointer;
+}
+
+.num-of-reviews-link {
+  color: #2d333f;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+  text-decoration: none;
+}
+
+.num-of-reviews-link:hover {
+  color: #da3743;
+}
+
+.price-cuisine-location {
+  align-items: center;
+  display: flex;
+  margin: 4px 0 0;
+  padding: 0;
+  font-size: 13px;
+  color: #2d333f;
+  font-weight: 300;
+  line-height: 20px;
+}

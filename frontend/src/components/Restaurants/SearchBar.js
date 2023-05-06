@@ -30,8 +30,6 @@ function SearchBar() {
     return filteredNeighborhoods.reduce(restaurantNeighborhoods, acc);
   }, []);
 
-  console.log(neighborhoods);
-
   const restaurantCuisines = (acc, cuisine) => {
     if (!acc.includes(cuisine)) {
       acc.push(cuisine);
@@ -62,19 +60,19 @@ function SearchBar() {
     history.push(`/restaurants/${restaurantId}`);
   };
 
-  const routeToCuisines = () => {
-    history.push({
-      pathname: "/restaurants",
-      search: `?cuisine=${searchInput}`,
-    });
-  };
-
   const routeToNeighborhoods = (event, neighborhood) => {
     event.stopPropagation();
 
     history.push({
       pathname: "/restaurants",
       search: `?neighborhood=${neighborhood}`,
+    });
+  };
+
+  const routeToCuisines = () => {
+    history.push({
+      pathname: "/restaurants",
+      search: `?cuisine=${searchInput}`,
     });
   };
 

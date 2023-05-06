@@ -181,6 +181,7 @@ const RestaurantPage = () => {
                       className="stars"
                       rating={avgReviewRating}
                       starRatedColor="#da3743"
+                      starEmptyColor="rgb(225, 225, 225)"
                       numberOfStars={5}
                       name="rating"
                       starDimension="18px"

@@ -42,6 +42,7 @@ const ReviewIndexItem = ({ review }) => {
           <StarRatings
             rating={review.overall}
             starRatedColor="#da3743"
+            starEmptyColor="rgb(225, 225, 225)"
             numberOfStars={5}
             starDimension="18px"
             starSpacing="1px"

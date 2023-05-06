@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import "./RestaurantItem.css";
 import RestaurantImageLoading from "../LoadingPhotoAnimation/RestaurantImageLoading";
 import { fetchReviews } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useCallback } from "react";
 import StarRatings from "react-star-ratings";
+import "./RestaurantItem.css";
 
 const RestaurantItem = ({ restaurant, id }) => {
   const dispatch = useDispatch();
@@ -46,6 +46,7 @@ const RestaurantItem = ({ restaurant, id }) => {
                   className="stars"
                   rating={avgReviewRating}
                   starRatedColor="#da3743"
+                  starEmptyColor="rgb(225, 225, 225)"
                   numberOfStars={5}
                   name="rating"
                   starDimension="18px"
@@ -57,7 +58,8 @@ const RestaurantItem = ({ restaurant, id }) => {
                 <StarRatings
                   className="stars"
                   rating={0}
-                  starRatedColor="#da3743"
+                  starRatedColor="rgb(225, 225, 225)"
+                  starEmptyColor="rgb(225, 225, 225)"
                   numberOfStars={5}
                   name="rating"
                   starDimension="18px"
