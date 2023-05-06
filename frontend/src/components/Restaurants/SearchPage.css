@@ -67,3 +67,25 @@
   object-fit: cover;
   border-radius: 4px;
 }
+
+.search-page-restaurant-info {
+  margin-left: 16px;
+  width: 100%;
+}
+
+.search-page-restaurant-name-rating-price {
+  margin-left: 0;
+  position: inherit;
+  width: auto;
+}
+
+.restaurant-h6 {
+  color: #247f9e;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.restaurant-h6:hover {
+  text-decoration: underline;
+}

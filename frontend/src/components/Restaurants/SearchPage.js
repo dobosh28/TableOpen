@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import SearchBar from "./SearchBar";
@@ -48,8 +49,29 @@ function SearchPage({ location }) {
           <div className="search-page-main-div-inner">
             {filteredRestaurants.map((restaurant) => (
               <div key={restaurant.id} className="search-page-restaurant">
-                <div className="search-page-restaurant-photo">
-                  <img src={restaurant.photoUrl} alt="" />
+                <NavLink to={`/restaurants/${restaurant.id}`}>
+                  <div className="search-page-restaurant-photo">
+                    <img src={restaurant.photoUrl} alt="" />
+                  </div>
+                </NavLink>
+                <div className="search-page-restaurant-info">
+                  <div className="search-page-restaurant-name-rating-price">
+                    <div
+                      style={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        paddingBottom: "4px",
+                      }}
+                    >
+                      <NavLink
+                        to={`/restaurants/${restaurant.id}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <h6 className="restaurant-h6">{restaurant.name}</h6>
+                      </NavLink>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

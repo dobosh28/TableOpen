@@ -13,27 +13,41 @@ function SearchBar() {
     restaurant.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
-  const restaurantNeighborhoods = restaurants.reduce((acc, cur) => {
-    if (!acc.includes(cur.neighborhood)) {
-      acc.push(cur.neighborhood);
+  const restaurantNeighborhoods = (acc, neighborhood) => {
+    if (!acc.includes(neighborhood)) {
+      acc.push(neighborhood);
     }
     return acc;
+  };
+
+  const neighborhoods = restaurants.reduce((acc, cur) => {
+    const filteredNeighborhoods = cur.neighborhood
+      .split(", ")
+      .filter((neighborhood) =>
+        neighborhood.toLowerCase().includes(searchInput.toLowerCase())
+      );
+
+    return filteredNeighborhoods.reduce(restaurantNeighborhoods, acc);
   }, []);
 
-  const neighborhoods = restaurantNeighborhoods.filter((neighborhood) =>
-    neighborhood.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  console.log(neighborhoods);
 
-  const restaurantCuisines = restaurants.reduce((acc, cur) => {
-    if (!acc.includes(cur.cuisines)) {
-      acc.push(cur.cuisines);
+  const restaurantCuisines = (acc, cuisine) => {
+    if (!acc.includes(cuisine)) {
+      acc.push(cuisine);
     }
     return acc;
-  }, []);
+  };
 
-  const cuisines = restaurantCuisines.filter((cuisine) =>
-    cuisine.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  const cuisines = restaurants.reduce((acc, cur) => {
+    const filteredCuisines = cur.cuisines
+      .split(", ")
+      .filter((cuisine) =>
+        cuisine.toLowerCase().includes(searchInput.toLowerCase())
+      );
+
+    return filteredCuisines.reduce(restaurantCuisines, acc);
+  }, []);
 
   const closeSearchResults = () => setSearchInput("");
 
