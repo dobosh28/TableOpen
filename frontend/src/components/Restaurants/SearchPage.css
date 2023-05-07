@@ -135,3 +135,10 @@
   font-weight: 300;
   line-height: 20px;
 }
+
+.search-page-restaurant-times-booked {
+  margin-top: 12px;
+  margin-left: 0;
+  position: inherit;
+  width: auto;
+}
