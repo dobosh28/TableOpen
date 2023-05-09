@@ -1,21 +1,46 @@
-import React, { useEffect, useCallback, useMemo } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useCallback } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "./SearchBar";
 import StarRatings from "react-star-ratings";
 import { fetchReviews } from "../../store/reviews";
 import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import "./SearchPage.css";
+import { useState } from "react";
 
 function SearchPage({ location }) {
+  const history = useHistory();
   const searchParams = new URLSearchParams(location.search);
   const cuisine = searchParams.get("cuisine");
   const neighborhood = searchParams.get("neighborhood");
   const restaurants = useSelector(getRestaurants);
   const dispatch = useDispatch();
+  const [reservationTime, setReservationTime] = useState("");
+
+  const handleTimeClick = (time, restaurantId) => {
+    if (!reservationTime) 
+
+    setReservationTime(time);
+    history.push({
+      pathname: `/restaurants/${restaurantId}/`,
+      state: {
+        selectedTime: time,
+      },
+    });
+
+    window.scrollTo(0, 200);
+  };
+
+  const suggestedTimes = [
+    { time: "18:30", formattedTime: "6:30 PM" },
+    { time: "18:45", formattedTime: "6:45 PM" },
+    { time: "19:00", formattedTime: "7:00 PM" },
+    { time: "19:15", formattedTime: "7:15 PM" },
+    { time: "19:30", formattedTime: "7:30 PM" },
+  ];
 
   const handleItemClick = useCallback(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 115);
   }, []);
 
   const handleItemClickTwo = useCallback(() => {
@@ -239,9 +264,21 @@ function SearchPage({ location }) {
                           </g>
                         </svg>
                       </span>
-                      Booked {Math.floor(Math.random() * (44 - 12 + 1) + 12)} times today
+                      Booked {Math.floor(Math.random() * (44 - 12 + 1) + 12)}{" "}
+                      times today
                     </span>
                   </div>
+                  <ul className="suggested-times">
+                    {suggestedTimes.map(({ time, formattedTime }) => (
+                      <li
+                        key={time}
+                        className="suggested-time"
+                        onClick={() => handleTimeClick(time, restaurant.id)}
+                      >
+                        {formattedTime}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

@@ -19,9 +19,11 @@ const ReservationForm = () => {
     [location.search]
   );
 
+  const selectedTime = location.state?.selectedTime;
+
   const [partySize, setPartySize] = useState(2);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [time, setTime] = useState("19:30");
+  const [time, setTime] = useState(selectedTime || "19:30");
 
   const [displayTime, setDisplayTime] = useState(false);
   const [showModal, setShowModal] = useState(false);

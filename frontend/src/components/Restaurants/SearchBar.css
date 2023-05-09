@@ -125,6 +125,22 @@
   position: relative;
 }
 
+.main-page-party-inner-2 {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0.3125rem;
+}
+
+.main-page-party-inner-3 {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-weight: 400;
+  height: 100%;
+  padding: .1875rem;
+}
+
 .filter-bar-button {
   display: flex;
   flex-direction: row;

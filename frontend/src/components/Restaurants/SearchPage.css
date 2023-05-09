@@ -142,3 +142,30 @@
   position: inherit;
   width: auto;
 }
+
+.suggested-times {
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.suggested-time {
+  display: inline-block;
+  min-width: 5.125rem;
+  vertical-align: top;
+  width: calc(20% - .4375rem);
+  background: #da3743;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.suggested-time:not(:last-child) {
+  margin: 0 8px 8px 0;
+}
+
