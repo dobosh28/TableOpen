@@ -46,7 +46,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
     <>
       <div className="reservation-cancel">
         <div className="reservation-cancel-inner">
-          <button className="close-modal-button" onClick={closeModal}>
+          {/* <button className="close-modal-button" onClick={closeModal}>
             <span>
               <svg viewBox="0 0 24 24" focusable="false">
                 <g fill="none" fillRule="evenodd">
@@ -59,7 +59,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
                 </g>
               </svg>
             </span>
-          </button>
+          </button> */}
           <div className="cancel-res-details">
             <h1>Are you sure you want to cancel this reservation?</h1>
             <div>
@@ -81,7 +81,7 @@ const ReservationCancel = ({ reservation, onClose }) => {
                     </g>
                   </svg>
                 </span>
-                {reservation.partySize} (Standard seating)
+                {reservation.partySize}
               </section>
               <section className="date-time-section">
                 <span>
@@ -99,6 +99,23 @@ const ReservationCancel = ({ reservation, onClose }) => {
                   </svg>
                 </span>
                 {formatDate(reservation.date)} at {formatTime(reservation.time)}
+              </section>
+              <section className="seating-section">
+                <span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    focusable="false"
+                  >
+                    <g fill="none" fillRule="evenodd">
+                      <path
+                        d="M17,9 L7,9 L7,11 L17,11 L17,9 Z M19,9 L19,18 C19,18.5522847 18.5522847,19 18,19 C17.4477153,19 17,18.5522847 17,18 L17,13 L7,13 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,9 L3,9 C2.44771525,9 2,8.55228475 2,8 L2,6 C2,5.44771525 2.44771525,5 3,5 L21,5 C21.5522847,5 22,5.44771525 22,6 L22,8 C22,8.55228475 21.5522847,9 21,9 L19,9 Z"
+                        fill="#2d333f"
+                      ></path>
+                    </g>
+                  </svg>
+                </span>
+                Indoor • Standard
               </section>
             </div>
             <div className="nevermind-cancel">

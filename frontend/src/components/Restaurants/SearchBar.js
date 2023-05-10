@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getRestaurants } from "../../store/restaurants";
 import "./SearchBar.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function SearchBar() {
   const history = useHistory();
@@ -102,6 +104,25 @@ function SearchBar() {
                           </g>
                         </svg>
                       </span>
+                      <div className="date-input-holder">
+                        <DatePicker
+                          selected={new Date()}
+                          onChange={(date) => console.log(date)}
+                          dateFormat="MMMM d, yyyy"
+                          minDate={new Date()}
+                        />
+                      </div>
+                      <span>
+                        <svg viewBox="0 0 24 24" focusable="false">
+                          <g fill="none" fillRule="evenodd">
+                            <path
+                              d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z"
+                              transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"
+                              fill="#2d333f"
+                            ></path>
+                          </g>
+                        </svg>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -118,6 +139,18 @@ function SearchBar() {
                             d="M13,11 L14.5,11 C14.7761424,11 15,11.2238576 15,11.5 L15,12.5 C15,12.7761424 14.7761424,13 14.5,13 L12.5,13 L11.5,13 C11.2238576,13 11,12.7761424 11,12.5 L11,7.5 C11,7.22385763 11.2238576,7 11.5,7 L12.5,7 C12.7761424,7 13,7.22385763 13,7.5 L13,11 Z M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 Z"
                             fill="#2d333f"
                           />
+                        </g>
+                      </svg>
+                    </span>
+                    <div className="time-input-holder">7:00 PM</div>
+                    <span className="svg-span">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <g fill="none" fillRule="evenodd">
+                          <path
+                            d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z"
+                            transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"
+                            fill="#2d333f"
+                          ></path>
                         </g>
                       </svg>
                     </span>
@@ -140,6 +173,17 @@ function SearchBar() {
                       </g>
                     </svg>
                   </span>
+                  <select
+                    className="search-bar-party-size"
+                    defaultValue="2"
+                    // onChange={update("partySize")}
+                  >
+                    {[...Array(20)].map((_, i) => (
+                      <option key={i} value={i + 1}>
+                        {i + 1} {i === 0 ? "person" : "people"}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
             </div>

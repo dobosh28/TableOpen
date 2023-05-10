@@ -132,21 +132,47 @@
   display: flex;
 }
 
-.date-time div {
+
+.res-date {
+  position: relative;
+  display: inline-block;
   width: 50%;
-  height: 3rem;
+  height: 48px;
+  display: flex;
+}
+
+.res-time {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 48px;
+}
+
+.date-span {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  margin-top: 17px;
+  margin-right: 9px;
+  cursor: pointer;
 }
 
 .res-date input {
   border: none;
   font: inherit;
-  margin-left: 16px;
-  margin-top: 19px;
+  margin-left: 16px; 
+  margin-top: 21px;
   font-size: 13px;
   font-weight: 300;
   width: 129px;
   cursor: pointer;
+  color: #2d333f;
 }
+
 
 .res-time input {
   border: none;
