@@ -5,11 +5,16 @@ import { getRestaurants } from "../../store/restaurants";
 import "./SearchBar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 
-function SearchBar() {
+const SearchBar = ({ initialDate, initialTime, initialPartySize }) => {
   const history = useHistory();
   const restaurants = useSelector(getRestaurants);
   const [searchInput, setSearchInput] = useState("");
+
+  const [date, setDate] = useState(initialDate || new Date());
+  const [time, setTime] = useState(initialTime || "19:00");
+  const [partySize, setPartySize] = useState(initialPartySize || 2);
 
   const filteredRestaurants = restaurants.filter((restaurant) =>
     restaurant.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -67,22 +72,50 @@ function SearchBar() {
 
     history.push({
       pathname: "/restaurants",
-      search: `?neighborhood=${neighborhood}`,
+      search: `?date=${format(
+        date,
+        "yyyy-MM-dd"
+      )}&time=${time}&partySize=${partySize}&neighborhood=${neighborhood}`,
     });
   };
 
   const routeToCuisines = () => {
     history.push({
       pathname: "/restaurants",
-      search: `?cuisine=${searchInput}`,
+      search: `?date=${format(
+        date,
+        "yyyy-MM-dd"
+      )}&time=${time}&partySize=${partySize}&cuisine=${cuisines}`,
     });
   };
 
   const letsGo = () => {
     history.push({
       pathname: "/restaurants",
+      search: `?date=${format(
+        date,
+        "yyyy-MM-dd"
+      )}&time=${time}&partySize=${partySize}`,
     });
   };
+
+  const suggestedTimes = [
+    { time: "18:30", formattedTime: "6:30 PM" },
+    { time: "18:45", formattedTime: "6:45 PM" },
+    { time: "19:00", formattedTime: "7:00 PM" },
+    { time: "19:15", formattedTime: "7:15 PM" },
+    { time: "19:30", formattedTime: "7:30 PM" },
+    { time: "19:45", formattedTime: "7:45 PM" },
+    { time: "20:00", formattedTime: "8:00 PM" },
+    { time: "20:15", formattedTime: "8:15 PM" },
+    { time: "20:30", formattedTime: "8:30 PM" },
+    { time: "20:45", formattedTime: "8:45 PM" },
+    { time: "21:00", formattedTime: "9:00 PM" },
+    { time: "21:15", formattedTime: "9:15 PM" },
+    { time: "21:30", formattedTime: "9:30 PM" },
+    { time: "21:45", formattedTime: "9:45 PM" },
+    { time: "22:00", formattedTime: "10:00 PM" },
+  ];
 
   return (
     <div>
@@ -106,8 +139,8 @@ function SearchBar() {
                       </span>
                       <div className="date-input-holder">
                         <DatePicker
-                          selected={new Date()}
-                          onChange={(date) => console.log(date)}
+                          selected={date}
+                          onChange={(date) => setDate(date)}
                           dateFormat="MMMM d, yyyy"
                           minDate={new Date()}
                         />
@@ -142,7 +175,19 @@ function SearchBar() {
                         </g>
                       </svg>
                     </span>
-                    <div className="time-input-holder">7:00 PM</div>
+                    <div className="time-input-holder">
+                      <select
+                        className="search-bar-time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                      >
+                        {suggestedTimes.map(({ time, formattedTime }) => (
+                          <option key={formattedTime} value={time}>
+                            {formattedTime}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <span className="svg-span">
                       <svg viewBox="0 0 24 24" focusable="false">
                         <g fill="none" fillRule="evenodd">
@@ -175,8 +220,8 @@ function SearchBar() {
                   </span>
                   <select
                     className="search-bar-party-size"
-                    defaultValue="2"
-                    // onChange={update("partySize")}
+                    value={partySize}
+                    onChange={(e) => setPartySize(parseInt(e.target.value))}
                   >
                     {[...Array(20)].map((_, i) => (
                       <option key={i} value={i + 1}>
@@ -184,6 +229,17 @@ function SearchBar() {
                       </option>
                     ))}
                   </select>
+                  <span className="svg-span">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <g fill="none" fillRule="evenodd">
+                        <path
+                          d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z"
+                          transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"
+                          fill="#2d333f"
+                        ></path>
+                      </g>
+                    </svg>
+                  </span>
                 </div>
               </div>
             </div>
@@ -320,6 +376,6 @@ function SearchBar() {
       </div>
     </div>
   );
-}
+};
 
 export default SearchBar;

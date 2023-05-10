@@ -177,7 +177,8 @@
   width: 1.5rem;
 }
 
-.search-bar-party-size {
+.search-bar-party-size,
+.search-bar-time {
   box-sizing: border-box;
   border: none;
   color: #2d333f;
@@ -186,6 +187,7 @@
   padding: 0 4px;
   font-size: 15px;
   cursor: pointer;
+  appearance: none;
 }
 
 .filter-bar-button {

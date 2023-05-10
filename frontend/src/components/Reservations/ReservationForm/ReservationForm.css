@@ -50,8 +50,7 @@
 }
 
 .party-size-select {
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none; 
   bottom: 0px;
   cursor: pointer;
   font: inherit;

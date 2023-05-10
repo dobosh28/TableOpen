@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "./SearchBar";
 import StarRatings from "react-star-ratings";
@@ -7,9 +7,11 @@ import { fetchReviews } from "../../store/reviews";
 import { getRestaurants, fetchRestaurants } from "../../store/restaurants";
 import "./SearchPage.css";
 import { useState } from "react";
+// import { format } from "date-fns";
 
-function SearchPage({ location }) {
+const SearchPage = () => {
   const history = useHistory();
+  const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const cuisine = searchParams.get("cuisine");
   const neighborhood = searchParams.get("neighborhood");
@@ -17,10 +19,22 @@ function SearchPage({ location }) {
   const dispatch = useDispatch();
   const [reservationTime, setReservationTime] = useState("");
 
-  const handleTimeClick = (time, restaurantId) => {
-    if (!reservationTime) 
+  const parseQuery = (query) => {
+    const queryObj = {};
+    query
+      .substring(1)
+      .split("&")
+      .forEach((pair) => {
+        const [key, value] = pair.split("=");
+        queryObj[key] = value;
+      });
+    return queryObj;
+  };
 
-    setReservationTime(time);
+  const { date, time, partySize } = parseQuery(location.search);
+
+  const handleTimeClick = (time, restaurantId) => {
+    if (!reservationTime) setReservationTime(time);
     history.push({
       pathname: `/restaurants/${restaurantId}/`,
       state: {
@@ -71,7 +85,6 @@ function SearchPage({ location }) {
     });
   }
   const reviewsFromState = useSelector((state) => state.reviews);
-  console.log(reviewsFromState);
 
   filteredRestaurants.forEach((restaurant) => {
     const reviews = Object.values(reviewsFromState).filter(
@@ -91,6 +104,8 @@ function SearchPage({ location }) {
     restaurant.avgReviewRating = avgReviewRating;
   });
 
+  console.log("date value:", date);
+
   return (
     <main
       style={{
@@ -100,7 +115,12 @@ function SearchPage({ location }) {
       }}
     >
       <header className="search-page-header">
-        <SearchBar restaurants={restaurants} />
+        <SearchBar
+          restaurants={restaurants}
+          initialDate={new Date(date)}
+          initialTime={time}
+          initialPartySize={parseInt(partySize, 10)}
+        />
       </header>
       <div className="search-page-main-div">
         {filteredRestaurants.length > 0 ? (
@@ -289,6 +309,6 @@ function SearchPage({ location }) {
       </div>
     </main>
   );
-}
+};
 
 export default SearchPage;

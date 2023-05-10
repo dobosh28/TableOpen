@@ -232,8 +232,7 @@
 }
 
 .occasion-select {
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #fff;
   border: .0625rem solid #d8d9db;
   border-radius: 4px;
