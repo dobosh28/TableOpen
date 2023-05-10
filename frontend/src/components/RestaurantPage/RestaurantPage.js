@@ -96,6 +96,12 @@ const RestaurantPage = () => {
     });
   };
 
+  const rateAndReview = () => {
+    window.scrollTo({
+      top: 0
+    });
+  };
+
   const handleSave = async () => {
     if (!sessionUser) {
       openModal();
@@ -274,7 +280,7 @@ const RestaurantPage = () => {
                 </h2>
                 {sessionUser && !sessionUserReview ? (
                   <NavLink to={`/restaurants/${restaurant.id}/review`}>
-                    <button className="rate-and-review">Rate and review</button>
+                    <button className="rate-and-review" onClick={rateAndReview}>Rate and review</button>
                   </NavLink>
                 ) : null}
               </div>
