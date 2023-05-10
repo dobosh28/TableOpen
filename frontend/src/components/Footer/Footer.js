@@ -1,4 +1,7 @@
 import "./Footer.css";
+import linkedin from "../../icons/linkedin.svg";
+import github from "../../icons/github.svg";
+import angellist from "../../icons/angellist.svg";
 
 const Footer = () => {
   return (
@@ -20,6 +23,8 @@ const Footer = () => {
                 <li>JavaScript</li>
                 <li>React</li>
                 <li>Redux</li>
+                <li>React Star Ratings</li>
+                <li>React Datepicker</li>
               </ul>
             </div>
             <div className="footer-top-category">
@@ -29,7 +34,6 @@ const Footer = () => {
                 <li>CSS3</li>
               </ul>
             </div>
-
             <div className="footer-top-category">
               <div className="footer-category-title">
                 Other work by Yosyp Dobosh
@@ -38,6 +42,7 @@ const Footer = () => {
                 <a
                   href="https://dobosh28.github.io/FIFA22_RadarViz/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   FIFA22_RadarViz
                   <span className="other-work-icon">
@@ -52,7 +57,11 @@ const Footer = () => {
                     </svg>
                   </span>
                 </a>
-                <a href="https://we-union.onrender.com/" target="_blank">
+                <a
+                  href="https://we-union.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   weUnion
                   <span className="other-work-icon">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -67,8 +76,53 @@ const Footer = () => {
                   </span>
                 </a>
               </div>
+              <div className="lets-connect">Let's Connect!</div>
+              <div className="lets-connect-links">
+                <a
+                  href="https://www.linkedin.com/in/yosypdobosh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="" />
+                </a>
+
+                <a
+                  href="https://github.com/dobosh28"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={github} alt="" />
+                </a>
+                <a
+                  href="https://wellfound.com/u/yosyp-dobosh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={angellist} alt="" />
+                </a>
+              </div>
             </div>
           </div>
+          <ul>
+            <li className="footer-stuff">Privacy Policy</li>
+            <li className="footer-stuff">Terms of Use</li>
+            <li className="footer-stuff">Cookies and Interest-Based Ads</li>
+            <li className="footer-stuff">
+              Do Not Sell or Share My Personal Information
+            </li>
+            <li className="footer-stuff">Cookie Preferences</li>
+          </ul>
+          <span className="copyright">
+            Copyright © 2023 TableOpen, Inc., an{" "}
+            <a
+              href="https://www.opentable.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OpenTable
+            </a>{" "}
+            clone by Yosyp Dobosh, Bronx NY 10461 - All rights reserved.
+          </span>
         </div>
       </div>
     </div>
