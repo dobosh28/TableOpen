@@ -61,8 +61,6 @@ const ReservationForm = () => {
       } else {
         setDisplayTime(true);
       }
-
-      window.scrollTo(0, 0);
     },
     [sessionUser, openModal]
   );
@@ -188,6 +186,7 @@ const ReservationForm = () => {
         <div className="find-time">
           {displayTime ? (
             <Link
+              
               to={{
                 pathname: "/reservation/details",
                 state: {

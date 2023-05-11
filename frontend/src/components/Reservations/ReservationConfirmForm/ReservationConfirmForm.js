@@ -39,6 +39,7 @@ const ReservationConfirmForm = () => {
         user_id: current_user.id,
       }));
     }
+    window.scrollTo(0, 0);
   }, [current_user, history, location.state]);
 
   const handleSubmit = async (e) => {
