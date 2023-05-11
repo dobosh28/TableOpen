@@ -61,6 +61,8 @@ const ReservationForm = () => {
       } else {
         setDisplayTime(true);
       }
+
+      window.scrollTo(0, 0);
     },
     [sessionUser, openModal]
   );
