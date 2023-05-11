@@ -23,7 +23,15 @@ const ReservationForm = () => {
 
   const selectedTime = location.state?.selectedTime;
 
-  const [date, setDate] = useState(new Date());
+  const getLocalDate = () => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  };
+
+  console.log(getLocalDate());
+  console.log(new Date());
+
+  const [date, setDate] = useState(getLocalDate());
   const [time, setTime] = useState(selectedTime || "19:30");
   const [partySize, setPartySize] = useState(2);
 
@@ -148,7 +156,7 @@ const ReservationForm = () => {
                 setDate(newDate);
               }}
               dateFormat="MMMM d, yyyy"
-              minDate={new Date()}
+              minDate={getLocalDate()}
             />
             <span className="date-span" onClick={handleDateSpanClick}>
               <svg viewBox="0 0 24 24" focusable="false">
