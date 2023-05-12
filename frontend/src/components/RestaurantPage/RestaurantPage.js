@@ -91,7 +91,7 @@ const RestaurantPage = () => {
 
   const getToReviews = () => {
     window.scrollTo({
-      top: 1000,
+      top: 930,
       behavior: "smooth",
     });
   };
