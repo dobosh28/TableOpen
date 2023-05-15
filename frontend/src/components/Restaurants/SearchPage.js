@@ -104,7 +104,10 @@ const SearchPage = () => {
     restaurant.avgReviewRating = avgReviewRating;
   });
 
-  console.log("date value:", date);
+  const getLocalDate = () => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  };
 
   return (
     <main
@@ -117,7 +120,7 @@ const SearchPage = () => {
       <header className="search-page-header">
         <SearchBar
           restaurants={restaurants}
-          initialDate={new Date(date)}
+          initialDate={getLocalDate()}
           initialTime={time}
           initialPartySize={parseInt(partySize, 10)}
         />

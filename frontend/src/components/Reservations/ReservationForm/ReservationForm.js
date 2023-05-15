@@ -28,9 +28,6 @@ const ReservationForm = () => {
     return new Date(now.getFullYear(), now.getMonth(), now.getDate());
   };
 
-  console.log(getLocalDate());
-  console.log(new Date());
-
   const [date, setDate] = useState(getLocalDate());
   const [time, setTime] = useState(selectedTime || "19:30");
   const [partySize, setPartySize] = useState(2);

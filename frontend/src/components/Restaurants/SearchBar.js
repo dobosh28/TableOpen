@@ -12,7 +12,12 @@ const SearchBar = ({ initialDate, initialTime, initialPartySize }) => {
   const restaurants = useSelector(getRestaurants);
   const [searchInput, setSearchInput] = useState("");
 
-  const [date, setDate] = useState(initialDate || new Date());
+  const getLocalDate = () => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  };
+
+  const [date, setDate] = useState(initialDate || getLocalDate());
   const [time, setTime] = useState(initialTime || "19:00");
   const [partySize, setPartySize] = useState(initialPartySize || 2);
 
