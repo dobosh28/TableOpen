@@ -62,7 +62,7 @@ const ReviewIndexItem = ({ review }) => {
           <p className={showMore ? "full-review" : "short-review"}>
             {review.body}
           </p>
-          {review.body.length > 300 && (
+          {review.body.length > 200 && (
             <div onClick={() => setShowMore(!showMore)} className="read-more-less">
               {showMore ? "- Read less" : "+ Read more"}
             </div>
