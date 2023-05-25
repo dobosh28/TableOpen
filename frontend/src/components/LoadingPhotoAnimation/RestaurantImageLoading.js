@@ -16,7 +16,7 @@ const RestaurantImageLoading = ({ src }) => {
           src={imageSrc}
           alt=""
           style={{
-            width: "234px",
+            width: "100%",
             height: "132px",
             borderRadius: "2px 2px 0px 0px",
           }}
@@ -26,7 +26,7 @@ const RestaurantImageLoading = ({ src }) => {
           className="restaurant-img"
           alt=""
           style={{
-            width: "234px",
+            width: "100%",
             height: "132px",
             borderRadius: "2px 2px 0px 0px",
           }}
