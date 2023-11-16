@@ -146,7 +146,7 @@ const SearchBar = ({ initialDate, initialTime, initialPartySize }) => {
                         <DatePicker
                           selected={date}
                           onChange={(date) => setDate(date)}
-                          dateFormat="MMMM d, yyyy"
+                          dateFormat="MMM d, yyyy"
                           minDate={new Date()}
                         />
                       </div>
