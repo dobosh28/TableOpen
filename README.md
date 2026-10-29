@@ -1,5 +1,7 @@
 # TableOpen
 
+**[Live site](https://table-open.herokuapp.com/)**
+
 TableOpen is a full-stack clone of [OpenTable](https://www.opentable.com/), the restaurant reservation platform. Users can browse and search New York City restaurants, book and manage reservations, write multi-category reviews, and save favorites to a personal dining dashboard.
 
 Built with a **Ruby on Rails** JSON API, a **React/Redux** single-page frontend, **PostgreSQL**, and **AWS S3** for restaurant photos.
@@ -42,7 +44,7 @@ Built with a **Ruby on Rails** JSON API, a **React/Redux** single-page frontend,
 | Database | PostgreSQL |
 | Frontend | React 18, Redux, Redux Thunk, React Router 5, react-datepicker, date-fns |
 | Storage | Active Storage with AWS S3 |
-| Deployment | Render (`bin/render-build.sh`) |
+| Deployment | Heroku |
 
 ## Architecture
 
@@ -124,7 +126,7 @@ Then open http://localhost:3006.
 npm run build   # builds the React app into public/
 ```
 
-`bin/render-build.sh` runs the build, installs gems, and migrates and seeds the database on deploy.
+On Heroku, the `Procfile` starts the Rails server and runs `rails db:migrate` on each release.
 
 ## Seed Data
 
